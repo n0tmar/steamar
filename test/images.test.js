@@ -149,3 +149,21 @@ test('a banner probe is answered from disk at the next start, unless no host ans
   route = (url) => (url.includes('/73/library_hero.jpg') ? jpeg() : null);
   assert.equal(await restarted.hero_available('73'), true, 'the probe nobody answered is asked again');
 });
+
+test('a picture from the site is fetched only in the three shapes the page asks for', async () => {
+  process.env.STEAMAR_SITE = 'https://site.test';
+  for (const rel of ['../../config/steam.json', 'badges/../../x.png', 'frames/a b.gif', 'profile/abc.jpg', 'other/x.png', '']) {
+    assert.equal(await images.site_ensure(rel), null, JSON.stringify(rel));
+  }
+  assert.deepEqual(calls, [], 'nothing was asked for');
+
+  // The site has served its GIFs as application/octet-stream; the bytes are what count.
+  const gif = Buffer.concat([Buffer.from('GIF89a'), Buffer.alloc(700, 1)]);
+  route = (url) => (url.endsWith('.gif') ? new Response(gif, { headers: { 'content-type': 'application/octet-stream' } }) : jpeg());
+  const name = `${'c'.repeat(24)}.jpg`;
+  assert.ok(await images.site_ensure(`profile/${name}`), 'a profile picture');
+  assert.ok(await images.site_ensure('frames/heartbloom.gif'), 'a frame');
+  assert.deepEqual(calls, [`https://site.test/v1/profile/image?f=${name}`, 'https://site.test/assets/frames/heartbloom.gif']);
+  assert.ok(await images.site_ensure(`profile/${name}`), 'the second time');
+  assert.equal(calls.length, 2, 'is read from disk');
+});

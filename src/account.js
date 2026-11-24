@@ -122,7 +122,13 @@ async function campaign({ force = false } = {}) {
 function profile_of(profile) {
   if (!profile || !profile.path) return null;
   const site = site_url();
-  const picture = (view) => (view && view.image_url ? { image_url: `${site}${view.image_url}` } : null);
+  // Every picture from the site comes through the engine (/img/site/): inside the window the site's
+  // own address is the ui/ folder, and the shell only turns a "/img/ written in an answer like this
+  // one into the engine's address, so the page cannot build these paths itself.
+  const picture = (view) => {
+    const name = /^\/v1\/profile\/image\?f=([a-f0-9]{24}\.(?:jpg|png|webp))$/.exec((view && view.image_url) || '');
+    return name ? { image_url: `/img/site/profile/${name[1]}` } : null;
+  };
   const bg = profile.background || {};
   return {
     url: `${site}${profile.path}`,
@@ -132,6 +138,8 @@ function profile_of(profile) {
     background: picture(bg) || { preset: bg.preset || 'night' },
     banner: picture(profile.banner),
     frame: profile.frame || null,
+    frame_url: /^[a-z0-9-]+$/.test(profile.frame || '') ? `/img/site/frames/${profile.frame}.gif` : null,
+    marks: { owner: '/img/site/badges/448267-droolingcatking.png', donor: '/img/site/badges/95458-heart.gif' },
     bio: String(profile.bio || ''),
     links: (Array.isArray(profile.links) ? profile.links : []).map((link) => ({ kind: String((link && link.kind) || ''), url: String((link && link.url) || '') })),
     pronouns: profile.pronouns || null,

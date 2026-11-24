@@ -357,7 +357,8 @@ const report = (label, view) => report_html(label, node(view).innerHTML);
     user: { username: 'owner', global_name: 'Owner', avatar_url: null, joined_server: '2025-12-19T16:06:26Z', donor_since: '2026-11-03T10:00:00Z', donations: { count: 2 } },
     profile: {
       url: 'https://steamar.cc/@k', handle: 'k', hidden: false, owner: false, background: { preset: 'dusk' }, banner: null,
-      frame: 'heartbloom', bio: 'Building things <b>here</b>.', pronouns: 'he/him', status: { kind: 'dnd', text: 'in a raid' },
+      frame: 'heartbloom', frame_url: 'http://127.0.0.1:8788/img/site/frames/heartbloom.gif', marks: { owner: 'http://127.0.0.1:8788/img/site/badges/448267-droolingcatking.png', donor: 'http://127.0.0.1:8788/img/site/badges/95458-heart.gif' },
+      bio: 'Building things <b>here</b>.', pronouns: 'he/him', status: { kind: 'dnd', text: 'in a raid' },
       links: [{ kind: 'github', url: 'https://github.com/owner' }, { kind: 'myspace', url: 'https://myspace.com/owner' }],
     },
   };
@@ -366,7 +367,8 @@ const report = (label, view) => report_html(label, node(view).innerHTML);
   has('it names the person', acct, '>Owner<');
   has('by the name of their page, not their Discord name', acct, '>@k<');
   has('and their role, as the mark the page shows', acct, 'data-tip="Donor - keeps SteaMar online"');
-  has('with the frame their page wears', acct, '/assets/frames/heartbloom.gif');
+  has('drawn from the address the engine gave', acct, 'src="http://127.0.0.1:8788/img/site/badges/95458-heart.gif"');
+  has('with the frame their page wears', acct, '/img/site/frames/heartbloom.gif');
   has('and their status on the picture', acct, 'acct-status is-dnd');
   has('and what it says, beside it', acct, '>in a raid<');
   has('their pronouns after the handle', acct, '>he/him<');
@@ -386,12 +388,13 @@ const report = (label, view) => report_html(label, node(view).innerHTML);
   ui.state.account = { ...ui.state.account, profile: { url: 'https://steamar.cc/@owner', background: { image_url: "https://steamar.cc/v1/profile/image?f=a.jpg');x:url('evil" } } };
   ui.open_account();
   hasnt('a picture address cannot break out of its style', report('the account window', 'dialog'), "');x:url(");
-  ui.state.account = { ...ui.state.account, profile: { url: 'https://steamar.cc/@owner', owner: true, background: { preset: 'dusk' }, banner: { image_url: 'https://steamar.cc/v1/profile/image?f=top.jpg' }, frame: '../x', status: { kind: 'evil' } } };
+  ui.state.account = { ...ui.state.account, profile: { url: 'https://steamar.cc/@owner', owner: true, background: { preset: 'dusk' }, banner: { image_url: 'https://steamar.cc/v1/profile/image?f=top.jpg' }, frame: '../x', frame_url: 'http://127.0.0.1:8788/img/site/frames/../x.gif', marks: { owner: 'http://127.0.0.1:8788/img/site/badges/448267-droolingcatking.png', donor: 'http://127.0.0.1:8788/img/site/badges/95458-heart.gif' }, status: { kind: 'evil' } } };
   ui.open_account();
   const owned = report('the account window', 'dialog');
   has('the banner picture leads, over the background', owned, "acct-banner is-image\" style=\"background-image:url('https://steamar.cc/v1/profile/image?f=top.jpg')");
   has('the owner wears the mark of their own', owned, 'data-tip="Runs SteaMar"');
-  hasnt('a frame that is not a slug is not let into an address', owned, 'assets/frames/');
+  has('the cat, not the heart', owned, 'badges/448267-droolingcatking.png');
+  hasnt('a frame that is not a slug is not let into an address', owned, 'img/site/frames/');
   hasnt('and a status Discord does not have draws no dot', owned, 'acct-status');
   ui.state.account = { ...ui.state.account, tier: 'none' };
   ui.open_account();

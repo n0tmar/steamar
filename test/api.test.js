@@ -77,7 +77,7 @@ require('../src/net').fetch = async (url, init) => {
       user: { username: 'maro', global_name: 'Maro', avatar_url: 'https://cdn.test/a.png' },
       profile: {
         path: '/@maro', owner: false, hidden: false,
-        background: { image_url: '/v1/profile/image?f=abc.jpg' }, banner: { image_url: '/v1/profile/image?f=top.jpg' },
+        background: { image_url: '/v1/profile/image?f=aaaaaaaaaaaaaaaaaaaaaaaa.jpg' }, banner: { image_url: '/v1/profile/image?f=bbbbbbbbbbbbbbbbbbbbbbbb.jpg' },
         frame: 'heartbloom', bio: 'hi there', links: [{ kind: 'github', url: 'https://github.com/maro' }],
         pronouns: 'he/him', status: { kind: 'dnd', text: 'in a raid' },
       },
@@ -229,15 +229,17 @@ test('who is on this PC is asked once, and the answer is kept', async () => {
   assert.equal(api.account_view().source, 'live');
   assert.equal(api.account_view().user.username, 'maro');
   assert.equal(api.account_view().gate, true);
-  // The page and its pictures arrive whole, on the site's address.
+  // The page arrives on the site's address, and its pictures through the engine's /img/site/.
   assert.deepEqual(api.account_view().profile, {
     url: 'http://site.test/@maro',
     handle: 'maro',
     hidden: false,
     owner: false,
-    background: { image_url: 'http://site.test/v1/profile/image?f=abc.jpg' },
-    banner: { image_url: 'http://site.test/v1/profile/image?f=top.jpg' },
+    background: { image_url: '/img/site/profile/aaaaaaaaaaaaaaaaaaaaaaaa.jpg' },
+    banner: { image_url: '/img/site/profile/bbbbbbbbbbbbbbbbbbbbbbbb.jpg' },
     frame: 'heartbloom',
+    frame_url: '/img/site/frames/heartbloom.gif',
+    marks: { owner: '/img/site/badges/448267-droolingcatking.png', donor: '/img/site/badges/95458-heart.gif' },
     bio: 'hi there',
     links: [{ kind: 'github', url: 'https://github.com/maro' }],
     pronouns: 'he/him',

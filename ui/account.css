@@ -271,11 +271,9 @@
   -webkit-box-orient: vertical;
 }
 
-/* The name and its mark on one line, the mark at the far end, as the page lays them out. */
+/* The name and its mark on one line, the mark right after the name, as the page lays them out. */
 .dialog-panel.acct h2 { display: flex; align-items: center; gap: 8px; margin: 10px 0 0; font-size: 17px; font-weight: 700; letter-spacing: -.01em; }
 .acct-name > span:first-child { min-width: 0; overflow-wrap: anywhere; }
-.acct-name > .acct-tag,
-.acct-name > .acct-role { margin-left: auto; }
 /* The role: the mark alone, and its word while the pointer is on it. The word hangs from the mark's
    right edge, so the window's own edge never cuts it. */
 .acct-tag {

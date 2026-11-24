@@ -307,6 +307,9 @@ function render_profile() {
 // status, name and mark, pronouns, About me, links, how long they have been here), the link to that
 // page, and the three things a person does with an account here (donate, sign out, close). It is the
 // app's own dialog, not a page on the site, and it leaves out the games: the app has those already.
+// An address the engine handed over, let in only in the one shape it should have.
+const art = (url, shape) => (typeof url === 'string' && shape.test(url) && !/['"\s]/.test(url) ? url : null);
+
 function open_account() {
   const a = state.account;
   const u = a && a.linked ? a.user : null;
@@ -320,19 +323,19 @@ function open_account() {
   const avatar = u.avatar_url
     ? `<img src="${esc(u.avatar_url)}" alt="" width="76" height="76" decoding="async" data-initial="${esc(initial)}" onerror="this.parentNode.textContent=this.dataset.initial;this.remove()">`
     : esc(initial);
-  // The frame and the badges are the page's own public files, so they load from the site and the
-  // window still works when the service is the only thing reachable.
-  const site = state.settings && state.settings.site ? state.settings.site : 'https://steamar.cc';
+  // The frame and the badges are the page's own files on the site. The engine hands over their
+  // addresses (page.frame_url, page.marks): inside the window only it can reach them.
   const inside = a.tier === 'donor' || a.tier === 'member';
   const page = inside ? a.profile || null : null;
 
   // The role, the way the page draws it: the mark alone at the end of the name, its word on hover.
   // Someone outside the server has no mark, and is told so in words.
-  const [kind, tip, file] = page && page.owner ? ['owner', 'Runs SteaMar', '448267-droolingcatking.png']
-    : a.tier === 'donor' ? ['donor', 'Donor - keeps SteaMar online', '95458-heart.gif'] : ['member', 'Member', null];
+  const [kind, tip] = page && page.owner ? ['owner', 'Runs SteaMar']
+    : a.tier === 'donor' ? ['donor', 'Donor - keeps SteaMar online'] : ['member', 'Member'];
+  const file = page && page.marks && kind !== 'member' ? art(page.marks[kind], /\/img\/site\/badges\/[\w.-]+\.(?:png|gif)$/) : null;
   const role = !inside ? '<span class="acct-role is-out">Not in the server</span>'
     : `<span class="acct-tag is-${kind}" role="img" data-tip="${tip}" aria-label="${tip}">${file
-      ? `<img src="${esc(site)}/assets/badges/${file}" alt="" width="20" height="20" onerror="this.remove()">`
+      ? `<img src="${esc(file)}" alt="" width="20" height="20" onerror="this.onerror=null;this.src='/logo.png'">`
       : '<img src="/logo.png" alt="" width="16" height="16">'}</span>`;
 
   // The banner picture; without one the page's background shows through, as it does on the page.
@@ -340,9 +343,8 @@ function open_account() {
   const banner = bg.image_url
     ? `class="acct-banner is-image" style="background-image:url('${esc(bg.image_url.replace(/['"\\()]/g, ''))}')"`
     : `class="acct-banner bg-${esc(/^[a-z]+$/.test(bg.preset || '') ? bg.preset : 'night')}"`;
-  // Over the picture, the same GIF the page uses. Its id is a slug, and only those characters are let
-  // into an address.
-  const frame = page && /^[a-z0-9-]+$/.test(page.frame || '') ? page.frame : null;
+  // Over the picture, the same GIF the page uses.
+  const frame = page ? art(page.frame_url, /\/img\/site\/frames\/[a-z0-9-]+\.gif$/) : null;
   const status = page ? page.status : null;
   const said = status && status.text ? String(status.text) : '';
   const pronouns = page && page.pronouns ? String(page.pronouns) : '';
@@ -371,7 +373,7 @@ function open_account() {
       <div class="acct-top">
         <span class="acct-me">
           <span class="acct-av">${avatar}</span>
-          ${frame ? `<img class="acct-frame" src="${esc(site)}/assets/frames/${frame}.gif" alt="" aria-hidden="true" onerror="this.remove()">` : ''}
+          ${frame ? `<img class="acct-frame" src="${esc(frame)}" alt="" aria-hidden="true" onerror="this.remove()">` : ''}
           ${status_dot(status, 'acct-status')}
         </span>
         ${said ? `<p class="acct-bubble"><span>${esc(said)}</span></p>` : ''}

@@ -8,6 +8,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const paths = require('./paths');
+const { site_url } = require('./device');
 
 const CDN = 'https://cdn.cloudflare.steamstatic.com/steam/apps';
 const SHARED = 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps';
@@ -165,11 +166,12 @@ async function grab(url, file) {
     const res = await open_https(url);
     if (!res || !res.ok) return null;
     const header_type = res.headers.get('content-type') || '';
-    if (!header_type.startsWith('image/')) return null; // error pages come back as 200 text/html
+    if (header_type.startsWith('text/')) return null; // error pages come back as 200 text/html
     const bytes = await read_capped(res);
     if (!bytes || bytes.length < MIN_BYTES) return null;
-    const type = sniff_type(bytes) || header_type;
-    if (!type.startsWith('image/')) return null;
+    // The bytes decide: a host that labels a GIF application/octet-stream still sent a picture.
+    const type = sniff_type(bytes) || (header_type.startsWith('image/') ? header_type : '');
+    if (!type) return null;
     fs.writeFileSync(file + '.tmp', bytes);
     fs.renameSync(file + '.tmp', file);
     return type;
@@ -247,11 +249,33 @@ const tall = (appid) => `/img/tall/${appid}.jpg`;
 // Steam will not resolve. Fetched once and cached like everything else, so the tab works offline.
 async function poster_ensure(id, url) {
   if (!url || !/^\d{1,12}$/.test(String(id))) return null;
-  const key = `of:${id}`;
-  if (misses.has(key)) return null;
-
   const dir = paths.ensure_dir(path.join(paths.out_dir(), 'imgcache', 'of'));
-  const file = path.join(dir, `${id}.jpg`);
+  return fetch_once(`of:${id}`, path.join(dir, `${id}.jpg`), url);
+}
+
+// The page's own pictures: role badges, frames and profile pictures. They live on the site, and inside
+// the window https://steamar.cc is the ui/ folder, so the page cannot load them from there. The engine
+// fetches each once from the real site, keeps it, and serves it as /img/site/<rel>. Only these shapes
+// are asked for, so the page cannot turn the engine into a fetcher of anything else.
+const SITE_FILES = [
+  [/^badges\/([\w.-]+\.(?:png|gif))$/i, (name) => `/assets/badges/${name}`],
+  [/^frames\/([a-z0-9-]+\.gif)$/, (name) => `/assets/frames/${name}`],
+  [/^profile\/([a-f0-9]{24}\.(?:jpg|png|webp))$/, (name) => `/v1/profile/image?f=${name}`],
+];
+
+async function site_ensure(rel) {
+  for (const [shape, remote] of SITE_FILES) {
+    const m = shape.exec(String(rel));
+    if (!m) continue;
+    const dir = paths.ensure_dir(path.join(paths.out_dir(), 'imgcache', 'site', rel.split('/')[0]));
+    return fetch_once(`site:${rel}`, path.join(dir, m[1]), `${site_url()}${remote(m[1])}`);
+  }
+  return null;
+}
+
+// One file on disk per key, fetched at most once at a time; a miss is remembered for this process.
+async function fetch_once(key, file, url) {
+  if (misses.has(key)) return null;
   if (paths.exists(file)) {
     try {
       if (fs.statSync(file).size >= MIN_BYTES) return { file, type: sniff_file(file) || 'image/jpeg' };
@@ -335,4 +359,4 @@ function cache_stats() {
   return { files, bytes };
 }
 
-module.exports = { ensure, poster_ensure, url, hero, tall, hero_available, cache_stats, KINDS };
+module.exports = { ensure, poster_ensure, site_ensure, url, hero, tall, hero_available, cache_stats, KINDS };

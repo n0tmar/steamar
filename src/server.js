@@ -35,13 +35,14 @@ const server = http.createServer(async (req, res) => {
 
   if (req.method === 'GET' && url.pathname.startsWith('/img/')) {
     const m = /^\/img\/(?:(cap|hero|tall|of)\/)?(\d{1,12})\.jpg$/.exec(url.pathname);
-    if (!m) return send(res, 404, 'not found', 'text/plain');
-    const kind = m[1] || 'h';
+    const site = url.pathname.startsWith('/img/site/') ? url.pathname.slice('/img/site/'.length) : null;
+    if (!m && !site) return send(res, 404, 'not found', 'text/plain');
+    const kind = m ? m[1] || 'h' : 'site';
     // 'of' is the release's own poster, the fallback for titles Steam has no art for.
     const release = kind === 'of' ? onlinefix.find(m[2]) : null;
-    const hit = kind === 'of'
-      ? (release?.poster ? await images.poster_ensure(m[2], release.poster) : null)
-      : await images.ensure(kind, m[2]);
+    const hit = site ? await images.site_ensure(site)
+      : kind === 'of' ? (release?.poster ? await images.poster_ensure(m[2], release.poster) : null)
+        : await images.ensure(kind, m[2]);
     if (!hit) return send(res, 404, 'no art', 'text/plain', { 'cache-control': 'no-store' });
     const st = fs.statSync(hit.file);
     const etag = `"${st.size.toString(16)}-${Math.floor(st.mtimeMs).toString(16)}"`;
