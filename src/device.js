@@ -36,8 +36,8 @@ function base_url() {
 const pinned_key = () => defaults().key.trim();
 const timeout_ms = () => defaults().timeout_ms;
 
-// Where the site lives, which is not always where the API lives: on a developer's machine the page is
-// on 8790 and the service on 8791. In production they are one origin, and this returns that origin.
+// Where the site lives, which is not always where the API lives: a developer can run the page and the
+// service on two ports. Where they are one origin, this returns that origin.
 function site_url() {
   return String(process.env.STEAMAR_SITE || paths.config().api?.site || base_url()).replace(/\/+$/, '');
 }

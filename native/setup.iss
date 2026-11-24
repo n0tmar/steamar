@@ -33,6 +33,13 @@ SetupIconFile=assets\steamar.ico
 WizardStyle=modern
 Compression=lzma2/max
 SolidCompression=yes
+; Windows shows these in the file's properties, and a download with a blank version in it looks
+; unfinished before it has run at all.
+VersionInfoVersion={#AppVersion}
+VersionInfoProductVersion={#AppVersion}
+VersionInfoProductName=SteaMar
+VersionInfoCompany=SteaMar
+VersionInfoDescription=SteaMar {#AppVersion} setup
 
 [Tasks]
 Name: desktopicon; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked

@@ -54,7 +54,7 @@ test('a link is opened only when it is https, or plain http on this machine', ()
     assert.equal(started.length, 0, `nothing starts for ${url}`);
   }
 
-  for (const url of ['https://steamar.cc/donate', 'http://127.0.0.1:8790/admin', 'http://localhost/x']) {
+  for (const url of ['https://steamar.cc/donate', 'http://127.0.0.1:8080/admin', 'http://localhost/x']) {
     started.length = 0;
     assert.deepEqual(desktop.open_link(url), { opened: url });
     assert.equal(started[0].file, 'cmd');

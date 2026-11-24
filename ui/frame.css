@@ -19,9 +19,10 @@
   border-bottom: 1px solid var(--line);
 }
 /* The mark is the real artwork, not a drawn stand-in: periwinkle on transparency carries its own
-   weight, so it needs no chip behind it. */
-.mark { display: block; flex: none; width: 26px; height: 26px; }
-.mark img { display: block; width: 26px; height: 26px; }
+   weight, so it needs no chip behind it. It has a name of its own: a plain .mark is the corner tag on
+   a card, and taking that name put a dark chip and a ring around the logo. */
+.brand-mark { display: block; flex: none; width: 26px; height: 26px; }
+.brand-mark img { display: block; width: 26px; height: 26px; }
 .brand-text { min-width: 0; }
 .brand strong { display: block; font-size: 13px; font-weight: 600; color: var(--white); letter-spacing: .01em; }
 .brand-text span { display: block; font-size: 10.5px; color: var(--muted); }

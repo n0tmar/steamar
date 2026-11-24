@@ -7,7 +7,7 @@ no localhost page, no address bar.
 ```
 native/
   CMakeLists.txt
-  assets/steamar.ico  generated from ../logo.png by tools/make-icon.ps1 - never edited by hand
+  assets/steamar.ico  generated from ../logo.png - never edited by hand
   src/app.cpp      window, WebView2, message bridge, single instance, --shot
   src/core.cpp     strings, files, project root, log
   src/config.cpp   config/steam.json, registry, Steam process, stplug-in scan
@@ -33,9 +33,8 @@ which ships with Windows 11. Override the SDK with `-DWEBVIEW2_ROOT=<path>`.
 
 The build copies `ui/` next to the exe, so a copied folder runs on its own.
 
-The engine is started from `<folder>\runtime\node.exe` when that file exists — that is what
-`npm run portable` stages, so the app runs on a PC without Node — and from `PATH` otherwise.
-`STEAMAR_ENGINE` still wins over both.
+The engine is started from `<folder>\runtime\node.exe` when that file exists — a copy packed for a PC
+without Node — and from `PATH` otherwise. `STEAMAR_ENGINE` still wins over both.
 
 The window and the exe share one icon: `logo.png` at the project root goes through
 `npm run icon` into a seven-frame `.ico` (16-64 DIB, 128 and 256 PNG), `src/steamar.rc` embeds it
@@ -165,7 +164,7 @@ dragged to another size.
 
 `--shot` navigates, waits, writes a PNG of the page through `CapturePreview` and exits — that is
 how the UI is checked without a person at the keyboard. `--devtools` is the other half: the
-window stays open and answers Chrome DevTools Protocol on `127.0.0.1:9222`, which is what
-`tools/verify-app.js` drives. Both are off by default, so a shipped window has no inspector and
-no remote debugging port. `out/native.log` records startup timings (root, engine start,
-navigation, first API call), the shot, every confirmation, every UI error and any crash.
+window stays open and answers Chrome DevTools Protocol on `127.0.0.1:9222`. Both are off by
+default, so a shipped window has no inspector and no remote debugging port. `out/native.log`
+records startup timings (root, engine start, navigation, first API call), the shot, every
+confirmation, every UI error and any crash.

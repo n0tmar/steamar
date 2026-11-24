@@ -222,7 +222,9 @@
   display: flex;
   gap: 4px;
 }
-.mark {
+/* The disc belongs to the corner tag on a card and nowhere else: a bare .mark is also the setup
+   window's logo and a check in a dialog list, and those are their own marks. */
+.marks > .mark {
   display: grid;
   place-items: center;
   width: 22px;
@@ -233,12 +235,12 @@
   backdrop-filter: blur(6px);
   color: var(--text);
 }
-.mark svg { width: 13px; height: 13px; stroke-width: 2; }
-.mark.ok { color: var(--ok); }
-.mark.own { color: var(--accent-hi); }
-.mark.warn { color: var(--warn); }
-.mark.bad, .mark.drm { color: var(--bad); }
-.mark.off { color: var(--sub); }
+.marks > .mark svg { width: 13px; height: 13px; stroke-width: 2; }
+.marks > .mark.ok { color: var(--ok); }
+.marks > .mark.own { color: var(--accent-hi); }
+.marks > .mark.warn { color: var(--warn); }
+.marks > .mark.bad, .marks > .mark.drm { color: var(--bad); }
+.marks > .mark.off { color: var(--sub); }
 
 .card .name {
   display: block;

@@ -112,10 +112,10 @@ check('while the service is being asked', asking.reason, 'checking');
 has('the screen says so instead of guessing', asking.gate, 'Connecting');
 check('and nothing is drawn behind it', asking.open, false);
 
-const broken = screen({ known: false, source: 'none' }, { base: 'http://127.0.0.1:8791' });
+const broken = screen({ known: false, source: 'none' }, { base: 'http://127.0.0.1:8080' });
 check('an engine that cannot answer', broken.reason, 'offline');
 has('says it cannot connect', broken.gate, "Can't connect right now");
-hasnt('and prints no address a person cannot use', broken.gate, '127.0.0.1:8791');
+hasnt('and prints no address a person cannot use', broken.gate, '127.0.0.1:8080');
 check('the app is shut', broken.inert, true);
 
 const dev = screen({ known: false, source: 'none' }, { configured: false });

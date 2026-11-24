@@ -1,6 +1,6 @@
 {
   "api": {
-    "note": "Where the titles, depot keys and tokens come from. The app holds none of them: it asks this server, signed by this device's own key. public_key is the server's pinned Ed25519 key - print it with `npm run key` on the server box and paste it here; a reply that is not signed by that key is refused. base is that server's address: 127.0.0.1:8791 is the copy on this machine, and a build handed to other people points at https://steamar.cc instead. When you rotate the server key, this field changes in the same release.",
+    "note": "Where the titles, depot keys and tokens come from. The app holds none of them: it asks this service, signed by this device's own key. public_key is the service's pinned Ed25519 key, and a reply that is not signed by it is refused; rotating that key changes this field in the same release. base is the service's address.",
     "base": "https://steamar.cc",
     "site": "https://steamar.cc",
     "public_key": "MCowBQYDK2VwAyEAIsplgsOTdj/unsj99l2UoKetnTOrLL0n+OjgLIG58B0=",
@@ -47,7 +47,7 @@
     "steamtools_games": "steamtools-games"
   },
   "data_files": {
-    "note": "Nothing is downloaded into the app any more: the tables are served. The clones under data/ are operator material for the importer on the server box, not something a running app needs.",
+    "note": "The app downloads no tables: they are served. data/ is left empty in this copy.",
     "refresh_days": 7,
     "urls": {}
   },
