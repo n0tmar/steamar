@@ -1,0 +1,65 @@
+{
+  "api": {
+    "note": "Where the titles, depot keys and tokens come from. The app holds none of them: it asks this server, signed by this device's own key. public_key is the server's pinned Ed25519 key - print it with `npm run key` on the server box and paste it here; a reply that is not signed by that key is refused. base is that server's address: 127.0.0.1:8791 is the copy on this machine, and a build handed to other people points at https://steamar.cc instead. When you rotate the server key, this field changes in the same release.",
+    "base": "https://steamar.cc",
+    "site": "https://steamar.cc",
+    "public_key": "MCowBQYDK2VwAyEAIsplgsOTdj/unsj99l2UoKetnTOrLL0n+OjgLIG58B0=",
+    "timeout_ms": 12000
+  },
+  "steam_root": "",
+  "proxy_dlls": [
+    "dwmapi.dll",
+    "xinput1_4.dll",
+    "OpenSteamTool.dll"
+  ],
+  "pinned": {
+    "bettersteamtools": "1.0.9",
+    "opensteamtool": "1.4.8"
+  },
+  "vendor": {
+    "note": "Where the three helper files come from. SteaMar downloads the first source that answers, unpacks the DLLs into vendor/ beside the app and installs from there. Each source names the sha256 of every DLL it must deliver: a file that does not match is refused, from a download or from a folder, because these files run inside Steam. A new source or version needs its checksums here too.",
+    "sources": [
+      {
+        "name": "BetterSteamTools",
+        "version": "1.0.9",
+        "url": "https://github.com/madoiscool/BetterSteamTools/releases/download/v1.0.9/OpenSteamTool-v1.0.9-Release.zip",
+        "sha256": {
+          "dwmapi.dll": "fe82f35c02cb81febf070ef3b9194ff5d52ee526608bf3de76d09e04c5b20df1",
+          "xinput1_4.dll": "0234a56a72121fd3dd50ff533f1a6e670033dbc2d92ef98551e8903cff402250",
+          "OpenSteamTool.dll": "705b31dc1c0335f5519bcb938ed589ba6909f3aab6b7b89495c1569a951210d5"
+        }
+      },
+      {
+        "name": "OpenSteamTool",
+        "version": "1.4.8",
+        "url": "https://github.com/OpenSteam001/OpenSteamTool/releases/download/1.4.8/OpenSteamTool-1.4.8-Release.zip",
+        "sha256": {
+          "dwmapi.dll": "cc086189e9ae5f6fec1b9839110fd5ec5836e86989cb5f15cab80bb813df44f8",
+          "xinput1_4.dll": "730d6e3c1216228392cf336127ad663564cafdb560faf3ae8bdfcc8ca6f38a27",
+          "OpenSteamTool.dll": "b2ed24e0b4e2d0dae4caa8817ed4c0c34af8fdf056f356fd697ae1356ea22581"
+        }
+      }
+    ]
+  },
+  "data": {
+    "manifesthub3": "ManifestHub3",
+    "manifesthub": "ManifestHub",
+    "steamtools_games": "steamtools-games"
+  },
+  "data_files": {
+    "note": "Nothing is downloaded into the app any more: the tables are served. The clones under data/ are operator material for the importer on the server box, not something a running app needs.",
+    "refresh_days": 7,
+    "urls": {}
+  },
+  "repos": {
+    "ManifestHub3": "https://github.com/steamtools-games/ManifestHub3",
+    "ManifestHub": "https://github.com/trionine/ManifestHub",
+    "steamtools-games": null,
+    "BetterSteamTools": "https://github.com/madoiscool/BetterSteamTools",
+    "OpenSteamTool": "https://github.com/OpenSteam001/OpenSteamTool",
+    "luatools": "https://github.com/Juanloaiza25/luatools",
+    "Fluent-Steam-Lua": "https://github.com/huanyuejue/Fluent-Steam-Lua",
+    "Millennium": "https://github.com/reindex-ot/Millennium"
+  },
+  "baseline_file": "out/dll-baseline.json"
+}

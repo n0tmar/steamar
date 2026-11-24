@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SteaMar</title>
+<link rel="icon" href="/logo.png" type="image/png">
+<!-- One stylesheet per part of the page, in cascade order: a later file wins a tie. -->
+<link rel="stylesheet" href="/base.css">
+<link rel="stylesheet" href="/frame.css">
+<link rel="stylesheet" href="/shelves.css">
+<link rel="stylesheet" href="/search.css">
+<link rel="stylesheet" href="/settings.css">
+<link rel="stylesheet" href="/setup.css">
+<link rel="stylesheet" href="/drawer.css">
+<link rel="stylesheet" href="/window.css">
+<link rel="stylesheet" href="/fixes.css">
+<link rel="stylesheet" href="/account.css">
+<link rel="stylesheet" href="/motion.css">
+</head>
+<body>
+<a class="skip" href="#main">skip to content</a>
+
+<aside class="sidebar">
+  <a class="brand" href="#/home" aria-label="SteaMar home">
+    <span class="mark" aria-hidden="true"><img src="/logo.png" alt="" width="26" height="26" decoding="async"></span>
+    <span class="brand-text">
+      <strong>SteaMar</strong>
+      <span>shared game library</span>
+    </span>
+  </a>
+
+  <nav class="nav-primary" aria-label="Main">
+    <a class="nav" href="#/home" data-route="home">
+      <i class="ic" data-icon="home"></i>
+      <span>Home</span>
+    </a>
+    <a class="nav" href="#/library" data-route="library">
+      <i class="ic" data-icon="library"></i>
+      <span>Library</span><b id="c-all">0</b>
+    </a>
+    <a class="nav" href="#/fixes" data-route="fixes">
+      <i class="ic" data-icon="download"></i>
+      <span>Fixes</span><b id="c-fixes"></b>
+    </a>
+    <a class="nav" href="#/settings" data-route="settings">
+      <i class="ic" data-icon="gear"></i>
+      <span>Settings</span>
+    </a>
+  </nav>
+
+  <div class="rail-foot">
+    <button class="rail-link donate" type="button" data-act="donate" title="Keep SteaMar running">
+      <svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 3.9 12.3a4.9 4.9 0 0 1 0-6.9 4.8 4.8 0 0 1 6.8 0l1.3 1.3 1.3-1.3a4.8 4.8 0 0 1 6.8 0 4.9 4.9 0 0 1 0 6.9z"/></svg>
+      <span>Donate</span>
+    </button>
+    <!-- The person, under the donate button. Filled by render_profile() once somebody is signed in. -->
+    <button class="profile" id="profile" type="button" data-act="account-open"
+            title="Your account" aria-label="Your account" hidden></button>
+  </div>
+
+</aside>
+
+<main id="main">
+  <header class="topbar">
+    <div class="crumb">
+      <h2 id="view-title">Home</h2>
+      <span id="view-sub" class="sub"></span>
+    </div>
+
+    <div class="searchwrap">
+      <label class="field">
+        <i class="ic" data-icon="search"></i>
+        <input id="q" type="search" placeholder="Search the Steam store" autocomplete="off" spellcheck="false"
+               aria-label="Search the Steam store" aria-controls="view-search">
+        <kbd>/</kbd>
+      </label>
+      <div id="search-show" class="search-show" role="group" aria-label="Also show" hidden>
+        <button class="icon show-chip" data-search-show="unavailable" aria-pressed="false" aria-label="Show games that are not available" title="Show games that are not available: SteaMar has nothing to add for them yet"><i class="ic" data-icon="ban"></i></button>
+        <button class="icon show-chip" data-search-show="removed" aria-pressed="false" aria-label="Show games removed from Steam" title="Show games removed from Steam: the store no longer sells them"><i class="ic" data-icon="archive"></i></button>
+      </div>
+    </div>
+
+    <button class="icon" data-act="refresh" aria-label="Rescan library" title="Rescan library">
+      <i class="ic" data-icon="refresh"></i>
+    </button>
+  </header>
+
+  <div class="content">
+    <section id="view-home" class="view"></section>
+    <section id="view-library" class="view" hidden></section>
+    <section id="view-fixes" class="view" hidden></section>
+    <section id="view-settings" class="view" hidden></section>
+    <section id="view-search" class="view" hidden aria-label="Search results"></section>
+  </div>
+
+  <footer class="statusbar" id="statusbar"></footer>
+</main>
+
+<div id="scrim" class="scrim" hidden></div>
+<section id="gate" class="gate" hidden aria-label="Account"></section>
+<section id="setup" class="setup" hidden aria-label="Set up SteaMar"></section>
+<div id="dialog" class="dialog" hidden></div>
+<aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1" hidden></aside>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- In this order: a file's load-time code may only use what it or an earlier file declares. -->
+<script src="/format.js" defer></script>
+<script src="/shell.js" defer></script>
+<script src="/dialogs.js" defer></script>
+<script src="/data.js" defer></script>
+<script src="/account.js" defer></script>
+<script src="/cards.js" defer></script>
+<script src="/shelves.js" defer></script>
+<script src="/settings.js" defer></script>
+<script src="/router.js" defer></script>
+<script src="/search.js" defer></script>
+<script src="/drawer.js" defer></script>
+<script src="/setup.js" defer></script>
+<script src="/actions.js" defer></script>
+<script src="/events.js" defer></script>
+<script src="/fixes.js" defer></script>
+<script src="/boot.js" defer></script>
+</body>
+</html>

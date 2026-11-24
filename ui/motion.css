@@ -1,0 +1,86 @@
+/* SteaMar app - how the window moves, at the site's pace (website/src/styles/motion.css, which is the
+   landing deck's): whatever leaves fades out in .22s, whatever arrives fades in over .38s a beat later.
+   Switching views crossfades (router.js asks for a view transition; the rail, the bar and the status
+   line hold still), a game's window, a dialog or a sign-in screen fades in as it opens and out as it
+   closes, a picture fades in when it arrives (events.js marks it .is-in), search results fade in as
+   they land, the Home banner crossfades between games, and lower down a view each shelf and card
+   fades in as it is scrolled to.
+   Trap: fades are for everyone, but movement is not. When Windows is set to show fewer animations,
+   --stm-rise stays 0 and nothing slides or zooms; only the no-preference query below turns it on. */
+
+:root { --stm-rise: 0px; --stm-zoom: 1; }
+
+@media (prefers-reduced-motion: no-preference) {
+  :root { --stm-rise: 12px; --stm-zoom: 1.035; }
+}
+
+/* ---------- moving between views ---------- */
+
+::view-transition-old(root) { animation: stm-out .22s ease both; }
+::view-transition-new(root) { animation: stm-in .38s ease .1s both; }
+.sidebar { view-transition-name: stm-rail; }
+.topbar { view-transition-name: stm-bar; }
+.statusbar { view-transition-name: stm-status; }
+
+/* The rail's mark moves to the chosen view with a fade rather than a jump. */
+.nav { transition: color .2s ease, background-color .2s ease, border-color .2s ease; }
+
+/* ---------- what opens ---------- */
+
+.content,
+.gate,
+.setup { animation: stm-rise .5s cubic-bezier(.2, .7, .2, 1) .05s backwards; }
+.scrim,
+.dialog { animation: stm-in .2s ease backwards; }
+.dialog-panel,
+.drawer { animation: stm-rise .32s cubic-bezier(.2, .7, .2, 1) .04s backwards; }
+.toast { transition: opacity .25s ease; }
+/* The search switches arrive with the search page; the top bar itself holds still. */
+.search-show:not([hidden]) { animation: stm-in .38s ease .1s backwards; }
+
+/* ---------- what closes ---------- */
+
+/* The scripts set `hidden` at once, so the page's logic sees a closed window straight away. The
+   browser keeps drawing it for .22s while its opacity runs out (display is held by a discrete
+   transition), and it takes no clicks meanwhile. A window that is opened again before it has gone
+   simply fades back. */
+.scrim,
+.dialog,
+.drawer,
+.setup,
+.gate { transition: opacity .22s ease, display .22s allow-discrete; }
+:is(.scrim, .dialog, .drawer, .setup, .gate)[hidden] { opacity: 0; pointer-events: none; }
+
+/* Search results fade in as they land, letter after letter. */
+#view-search :is(.card, .empty) { animation: stm-in .38s ease backwards; }
+
+/* ---------- pictures ---------- */
+
+/* A cover fades in when it arrives instead of popping in. */
+:where(.card .art, .fixthumb, .slide, .drawer) img { opacity: 0; transition: opacity .4s ease; }
+img.is-in { opacity: 1; }
+
+.card { transition: background-color .2s ease, border-color .2s ease; }
+
+/* Home's banner: the deck's crossfade, and the picture settles as it arrives. */
+.slide { transition: opacity .35s ease; }
+.slide.is-on { transition: opacity .6s ease .1s; }
+.slide img { transform: scale(var(--stm-zoom)); transition: opacity .4s ease, transform 1.4s cubic-bezier(.2, .7, .2, 1); }
+.slide.is-on img { transform: none; }
+
+/* ---------- scrolling ---------- */
+
+/* Lower down a view, each shelf and card fades in as it is scrolled to; what is in view at the start
+   has already arrived. */
+@supports (animation-timeline: view()) {
+  #view-home .shelf,
+  #view-library .grid > .card {
+    animation: stm-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 70px;
+  }
+}
+
+@keyframes stm-out { to { opacity: 0; } }
+@keyframes stm-in { from { opacity: 0; } }
+@keyframes stm-rise { from { opacity: 0; transform: translateY(var(--stm-rise)); } }

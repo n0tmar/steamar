@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+      - run: npm run check:ui
+      - run: npm run check:views
+      - run: npm run version
+
+  native:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      # The version CMakeLists.txt is written against; a newer SDK is a change of its own.
+      - run: nuget install Microsoft.Web.WebView2 -Version 1.0.3405.78 -OutputDirectory "$env:RUNNER_TEMP\nuget"
+      - run: cmake -S native -B native/build -G "Visual Studio 17 2022" -A x64 -DWEBVIEW2_ROOT="$env:RUNNER_TEMP/nuget/Microsoft.Web.WebView2.1.0.3405.78/build/native"
+      - run: cmake --build native/build --config Release

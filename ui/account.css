@@ -1,0 +1,388 @@
+/* The account gate and the mini profile: the screens shown before the app (asking, unreachable, sign
+   in, paused, off) and the person at the foot of the rail. */
+
+/* ---------- the account gate ---------- */
+/* Five screens, one surface: the service being asked, the service out of reach, sign in, join the
+   server, or the month is paused. Full-window on purpose - a gate that sits behind a working app is
+   a gate nobody reads. */
+
+/* Donate is the one button in the rail that asks for something, so it is drawn as the one filled
+   button there: a heart and one word, nothing to read. */
+.rail-foot .rail-link.donate {
+  width: calc(100% - 20px);
+  height: 34px;
+  margin: 10px;
+  padding: 0 12px;
+  gap: 8px;
+  justify-content: center;
+  border: 0;
+  border-radius: 2px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s;
+}
+.rail-link.donate svg { width: 14px; height: 14px; fill: currentColor; stroke: none; }
+.rail-foot .rail-link.donate:hover { background: var(--accent-hi); color: var(--accent-ink); }
+@media (prefers-reduced-motion: reduce) { .rail-link.donate { transition: none; } }
+
+/* The mini profile: one line about the person, at the foot of the rail. It is a button because it
+   opens their account - the only place the full picture lives is the site. */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 9px 12px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+}
+.profile:hover { background: var(--row-hover); }
+.profile .pf-av {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--field);
+  font: 600 11px/1 var(--mono);
+  color: var(--sub);
+}
+.profile .pf-av img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* The status dot on the corner's picture, ringed in the rail's colour (the shapes are below, shared
+   with the account window's). */
+.profile .pf-me { position: relative; flex: none; }
+.profile .pf-dot { right: -3px; bottom: -3px; width: 13px; height: 13px; border: 2.5px solid var(--rail); background: var(--rail); }
+.profile .pf-dot .cut { fill: var(--rail); }
+.profile:hover .pf-dot { border-color: var(--row-hover); background: var(--row-hover); }
+.profile:hover .pf-dot .cut { fill: var(--row-hover); }
+.profile .pf-id { flex: 1; min-width: 0; }
+.profile .pf-id b {
+  display: block;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.profile .pf-id span {
+  display: block;
+  overflow: hidden;
+  font-size: 11px;
+  color: var(--muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.profile .pf-go { flex: none; width: 12px; height: 12px; color: var(--muted); }
+.profile:hover .pf-go { color: var(--accent); }
+.profile.is-quiet .pf-id span { color: var(--warn); }
+
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: 34px;
+  background: var(--window);
+  overflow: auto;
+}
+.gate-inner { width: min(560px, 100%); }
+.gate-mark { margin-bottom: 18px; opacity: 0.9; }
+.gate-mark img { width: 34px; height: 34px; }
+.gate h1 {
+  margin: 0 0 10px;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+.gate p { margin: 0 0 12px; color: var(--sub); font-size: 13.5px; line-height: 1.6; }
+.gate p.quiet { color: var(--muted); font-size: 12px; }
+
+/* The path, not just the wall: three steps with the one you are on lit. A person who can see the
+   end of a short road walks it; a person facing an unlabelled door knocks twice and leaves. */
+.gate-steps {
+  display: flex;
+  align-items: center;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+  font-size: 11px;
+  color: var(--muted);
+}
+.gate-steps li { display: flex; align-items: center; gap: 6px; }
+.gate-steps li + li { margin-left: 22px; }
+.gate-steps li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
+.gate-steps li.on { color: var(--text); }
+.gate-steps li.on::before { background: var(--accent); }
+.gate-steps li.done { color: var(--sub); }
+.gate-steps li.done::before { background: var(--accent-32); }
+
+.gate p.gate-foot { margin: 16px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.gate .who { display: flex; align-items: center; gap: 12px; margin: 18px 0; }
+.gate .who img { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); }
+.gate .who b { display: block; color: var(--white); font-weight: 600; }
+.gate .who em { color: var(--sub); font-style: normal; font-size: 12px; }
+.gate-actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 20px 0 0; }
+.gate-meter { margin: 18px 0 6px; }
+.gate-meter .bar { height: 7px; border-radius: 999px; background: var(--field); overflow: hidden; }
+.gate-meter .bar > i { display: block; height: 100%; background: var(--accent); }
+.gate-meter .nums { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; }
+.gate-meter .nums b { font: 600 20px/1.2 var(--mono); color: var(--white); }
+.gate-meter .nums span { font-size: 12px; color: var(--sub); }
+.gate-code {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--row);
+  font: 500 13px/1.4 var(--mono);
+  color: var(--accent-hi);
+  border-radius: 2px;
+  overflow-wrap: anywhere;
+}
+.gate .notice { margin: 0 0 14px; }
+
+/* The account window, opened from the profile: the person's card as their page draws it, then the
+   link to that page and the things people come here to do. A long card scrolls inside the window. */
+.dialog-panel.acct {
+  width: min(380px, 100%);
+  max-height: calc(100vh - 48px);
+  padding: 0 18px 16px;
+  border: 1px solid var(--field);
+  border-radius: 8px;
+  overflow: hidden auto;
+  scrollbar-width: thin;
+}
+.acct-banner {
+  position: relative;
+  height: 92px;
+  margin: 0 -18px;
+  background-color: var(--window);
+  background-position: center;
+  background-size: cover;
+}
+/* The six page backgrounds, the same as the site's (website/src/styles/backgrounds.css). */
+.acct-banner.bg-night  { background-image: radial-gradient(900px 600px at 50% -10%, #2b3350 0%, transparent 62%), radial-gradient(700px 520px at 100% 100%, #1a1f33 0%, transparent 60%); }
+.acct-banner.bg-dusk   { background-image: radial-gradient(900px 600px at 20% -10%, #3d2b55 0%, transparent 62%), radial-gradient(700px 520px at 100% 100%, #1f2a4d 0%, transparent 60%); }
+.acct-banner.bg-aurora { background-image: radial-gradient(900px 600px at 80% -10%, #124341 0%, transparent 62%), radial-gradient(700px 520px at 0% 100%, #262b5e 0%, transparent 60%); }
+.acct-banner.bg-ember  { background-image: radial-gradient(900px 600px at 50% -10%, #4d2619 0%, transparent 62%), radial-gradient(700px 520px at 100% 100%, #2d1633 0%, transparent 60%); }
+.acct-banner.bg-forest { background-image: radial-gradient(900px 600px at 30% -10%, #17402c 0%, transparent 62%), radial-gradient(700px 520px at 100% 100%, #1b2c23 0%, transparent 60%); }
+.acct-banner.bg-mono   { background-image: radial-gradient(900px 600px at 50% -10%, #23262d 0%, transparent 62%); }
+
+/* A banner picture darkens at its foot, as on the page, so the picture and the thought over it read. */
+.acct-banner.is-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#0000 40%, #0b0c0fb3);
+  pointer-events: none;
+}
+.acct-x {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #0b0c0f99;
+  color: var(--text);
+}
+.acct-x:hover { background: #0b0c0fdd; color: var(--white); }
+.acct-x svg { width: 16px; height: 16px; }
+
+/* The picture with its frame and status over it, drawn over the banner it overlaps, and the custom
+   status beside it. Positioned, so all of it paints above the banner. */
+.acct-top { position: relative; display: flex; align-items: flex-start; gap: 12px; margin-top: -38px; }
+.acct-me { position: relative; flex: none; width: 76px; height: 76px; }
+.acct-av {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 5px solid var(--popup);
+  border-radius: 50%;
+  background: var(--field);
+  font: 600 24px/1 var(--mono);
+  color: var(--sub);
+}
+.acct-av img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Over the picture, not around it: the art's middle is cut away already, so nothing is masked here. */
+.acct-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Discord's status dot, in a ring the colour of what it sits on, so it reads as a cut in the picture.
+   The same dot sits on the corner's picture. */
+.acct-status,
+.profile .pf-dot { position: absolute; display: block; border-radius: 50%; }
+.acct-status { right: 0; bottom: 0; z-index: 1; width: 24px; height: 24px; border: 4px solid var(--popup); background: var(--popup); }
+.acct-status svg,
+.profile .pf-dot svg { display: block; width: 100%; height: 100%; stroke: none; }
+:is(.acct-status, .pf-dot).is-online > svg > circle:first-child { fill: #23a55a; }
+:is(.acct-status, .pf-dot).is-idle > svg > circle:first-child { fill: #f0b232; }
+:is(.acct-status, .pf-dot).is-dnd > svg > circle:first-child { fill: #f23f43; }
+:is(.acct-status, .pf-dot):is(.is-invisible, .is-offline) > svg > circle:first-child { fill: #80848e; }
+.acct-status .cut { fill: var(--popup); }
+
+/* The custom status, as the page draws it: a thought beside the picture with two small circles trailing
+   back to it. It sits over the banner's foot, so it carries its own background, and stops at three
+   lines. */
+.acct-bubble {
+  position: relative;
+  min-width: 0;
+  margin: 10px 0 0;
+  padding: 7px 11px;
+  border: 1px solid #ffffff17;
+  border-radius: 13px;
+  background: #17191f;
+  box-shadow: 0 6px 18px #00000059;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--white);
+}
+.acct-bubble::before,
+.acct-bubble::after { content: ""; position: absolute; border: 1px solid #ffffff17; border-radius: 50%; background: #17191f; }
+.acct-bubble::before { left: -7px; bottom: -3px; width: 10px; height: 10px; }
+.acct-bubble::after { left: -14px; bottom: -8px; width: 6px; height: 6px; }
+.acct-bubble > span {
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* The name and its mark on one line, the mark at the far end, as the page lays them out. */
+.dialog-panel.acct h2 { display: flex; align-items: center; gap: 8px; margin: 10px 0 0; font-size: 17px; font-weight: 700; letter-spacing: -.01em; }
+.acct-name > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.acct-name > .acct-tag,
+.acct-name > .acct-role { margin-left: auto; }
+/* The role: the mark alone, and its word while the pointer is on it. The word hangs from the mark's
+   right edge, so the window's own edge never cuts it. */
+.acct-tag {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ffffff14;
+  border-radius: 7px;
+  background: #ffffff0a;
+}
+.acct-tag img { display: block; width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+.acct-tag.is-member img { width: 16px; height: 16px; border-radius: 3px; }
+.acct-tag.is-donor { border-color: var(--accent-32); background: var(--accent-08); }
+.acct-tag::after {
+  content: attr(data-tip);
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 2;
+  padding: 5px 8px;
+  border: 1px solid #ffffff1f;
+  border-radius: 6px;
+  background: #0b0c0ff2;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: normal;
+  white-space: nowrap;
+  color: var(--white);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease;
+}
+.acct-tag:hover::after { opacity: 1; }
+/* Somebody outside the server has no mark: the window says where they stand in words. */
+.acct-role {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--row);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: normal;
+  color: var(--sub);
+}
+
+/* The handle, then the pronouns after Discord's small dot. */
+.acct-user { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 7px; margin: 2px 0 0; font: 12px var(--mono); color: var(--sub); overflow-wrap: anywhere; }
+.acct-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--muted); }
+.acct-pronouns { font-family: var(--font); }
+
+/* About me and On SteaMar, headed the way the page heads them. */
+.acct-sec { margin-top: 16px; }
+.acct-sec h3 { margin: 0 0 7px; font-size: 10.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--sub); }
+.acct-bio { margin: 0; font-size: 13px; line-height: 1.55; color: var(--text); white-space: pre-wrap; overflow-wrap: anywhere; }
+/* The person's links: the marks alone, as the page shows them. */
+.acct-links { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 12px; }
+.acct-linkto { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; color: var(--sub); transition: background .15s, color .15s; }
+.acct-linkto:hover { background: #ffffff0f; color: var(--white); }
+.acct-linkto svg { width: 18px; height: 18px; }
+.acct-facts { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.acct-facts li { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; line-height: 1.45; color: var(--text); }
+.acct-facts svg,
+.acct-facts img { width: 15px; height: 15px; flex: none; margin-top: 1px; color: var(--sub); }
+.acct-facts img { border-radius: 3px; }
+.acct-facts svg.fill { color: var(--accent); }
+
+/* The link to the public page, the way it will be shared: the address, and Copy beside it. */
+.acct-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 4px 4px 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--window);
+  font: 12px var(--mono);
+  color: var(--text);
+}
+.acct-link > svg { width: 15px; height: 15px; flex: none; color: var(--accent); }
+.acct-link span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acct-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  flex: none;
+  padding: 0 9px;
+  border-radius: 4px;
+  font: 600 11.5px var(--font);
+  color: var(--sub);
+}
+.acct-copy:hover { background: var(--row-hover); color: var(--white); }
+.acct-copy svg { width: 14px; height: 14px; }
+.acct-copy.is-done { color: var(--accent-hi); }
+.acct-go { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.acct-go .btn { height: 32px; }
+.acct-go .btn svg, .acct-foot .btn svg { width: 15px; height: 15px; }
+
+.acct-foot { display: flex; justify-content: space-between; gap: 8px; margin-top: 16px; }
+.acct-foot .btn { height: 32px; }
+
+@media (prefers-reduced-motion: reduce) { .acct-tag::after, .acct-linkto { transition: none; } }

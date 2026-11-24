@@ -1,0 +1,23 @@
+{
+  "name": "BetterSteamTools",
+  "version": "1.0.9",
+  "url": "https://github.com/madoiscool/BetterSteamTools/releases/download/v1.0.9/OpenSteamTool-v1.0.9-Release.zip",
+  "fetched": "2026-11-15T00:38:39.200Z",
+  "files": [
+    {
+      "name": "dwmapi.dll",
+      "sha256": "fe82f35c02cb81febf070ef3b9194ff5d52ee526608bf3de76d09e04c5b20df1",
+      "bytes": 109568
+    },
+    {
+      "name": "xinput1_4.dll",
+      "sha256": "0234a56a72121fd3dd50ff533f1a6e670033dbc2d92ef98551e8903cff402250",
+      "bytes": 122880
+    },
+    {
+      "name": "OpenSteamTool.dll",
+      "sha256": "705b31dc1c0335f5519bcb938ed589ba6909f3aab6b7b89495c1569a951210d5",
+      "bytes": 1742848
+    }
+  ]
+}

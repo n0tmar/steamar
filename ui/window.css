@@ -1,0 +1,41 @@
+/* Window-wide pieces that must come after the screens above: the toast, the scrollbars, and the
+   narrow-window rule that hides the sidebar. */
+
+/* ---------- toast ---------- */
+
+.toast {
+  position: fixed;
+  left: calc(var(--side-w) + 14px);
+  bottom: calc(var(--stat-h) + 12px);
+  z-index: 30;
+  max-width: 420px;
+  padding: 7px 11px;
+  font-size: 12px;
+  color: var(--text);
+  background: var(--popup);
+  border: 1px solid var(--field);
+  border-left: 2px solid var(--accent);
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .1s linear;
+}
+.toast.show { opacity: 1; }
+.toast.err { border-color: var(--field); border-left-color: var(--bad); color: var(--bad); }
+
+/* ---------- scrollbar ---------- */
+
+.content::-webkit-scrollbar, .dbody::-webkit-scrollbar { width: 10px; }
+.content::-webkit-scrollbar-thumb, .dbody::-webkit-scrollbar-thumb {
+  background: var(--field);
+  border: 3px solid var(--window);
+  border-radius: 6px;
+}
+.dbody::-webkit-scrollbar-thumb { border-color: var(--popup); }
+.content::-webkit-scrollbar-track, .dbody::-webkit-scrollbar-track { background: transparent; }
+
+@media (max-width: 720px) {
+  body { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .toast { left: 14px; }
+}

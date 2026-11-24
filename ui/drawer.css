@@ -1,0 +1,140 @@
+/* The game's window (drawer.js; the element is still called the drawer): one title's picture and
+   name, its state, the buttons, the reports and what the store says about it. */
+
+/* ---------- the window ---------- */
+/* In the middle of the page and as tall as what it holds, up to the window's height less a margin.
+   Only the body scrolls, so a long description never carries the name or the way out away. */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 21;
+  display: flex;
+  flex-direction: column;
+  width: min(640px, calc(100% - 48px));
+  height: fit-content;
+  max-height: calc(100% - 48px);
+  margin: auto;
+  overflow: hidden;
+  background: var(--popup);
+  border: 1px solid var(--field);
+  border-radius: 8px;
+  box-shadow: 0 24px 64px #000000b3;
+}
+
+/* One box for every picture, whatever shape the store keeps it in, so nothing moves when the wide
+   one lands over the cover. The dark fill is what sits there while the bytes are on the way, and the
+   foot fades into the window so the name over it reads. */
+.dhero {
+  position: relative;
+  flex: none;
+  height: 236px;
+  background: var(--window);
+}
+.dhero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.dhero .hero { object-position: center 30%; }
+.dhero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--popup) 0%, #0b0c0fb3 32%, #0b0c0f00 64%);
+  pointer-events: none;
+}
+.dhead {
+  position: absolute;
+  left: 20px;
+  right: 56px;
+  bottom: 12px;
+  z-index: 1;
+}
+.dhead h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  color: var(--white);
+  text-shadow: 0 1px 3px #000000a6;
+  overflow-wrap: anywhere;
+}
+/* The name and a chip, so the chip gets its own line and takes no room when it is empty. */
+.dchips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.dchips:empty { display: none; }
+/* A mark with room for its word: the icon and the name on dark glass, over the picture. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  padding: 0 9px 0 7px;
+  border-radius: 11px;
+  background: #0b0c0fcc;
+  box-shadow: 0 0 0 1px #ffffff1f;
+  backdrop-filter: blur(6px);
+  font-size: 11.5px;
+  color: var(--text);
+}
+.chip svg { width: 13px; height: 13px; stroke-width: 2; }
+.chip.drm svg { color: var(--bad); }
+/* The way out, as the account window draws it: a dark square over the picture. */
+.dclose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: #0b0c0f99;
+  color: var(--text);
+}
+.dclose:hover { background: #0b0c0fdd; color: var(--white); }
+.dclose svg { width: 16px; height: 16px; }
+
+.dbody { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 14px 20px 20px; }
+.dbody .hint { margin: 10px 0 0; }
+/* What other machines hit. Ash for "none of them failed", the bad tone for the count that matters,
+   and a hairline above so it reads as a footnote rather than as a warning about the game. */
+.dbody .hint.rep { padding-top: 9px; border-top: 1px solid var(--line-soft); font-size: 11.5px; }
+.dbody .hint.rep.bad { color: #e0a1a1; }
+.dstate { margin: 0 0 12px; font-size: 13px; color: var(--sub); }
+.dstate.ok { color: var(--ok); }
+.dstate.bad { color: var(--bad); }
+.dstate.free { color: var(--accent); }
+
+/* A button that is dimmed on purpose, not a button that happens to look broken. It stays in the
+   tab order and says why when pressed, so a keyboard or a screen reader still gets the reason. */
+.btn[aria-disabled="true"] {
+  opacity: .45;
+  cursor: not-allowed;
+}
+.btn[aria-disabled="true"]:hover {
+  color: var(--sub);
+  background: transparent;
+  border-color: var(--field);
+}
+.btn.ghost[aria-disabled="true"]:hover,
+.btn.ghost[aria-disabled="true"]:focus-visible { color: var(--muted); }
+
+/* What the game is, under the buttons: adding it is the job, reading about it is the extra.
+   One sentence the store wrote, then the four things a person actually checks. */
+.dabout { margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line-soft); }
+.ddesc { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--sub); }
+.dfacts { display: flex; flex-wrap: wrap; gap: 5px 16px; margin: 11px 0 0; }
+.dfact { display: flex; align-items: baseline; gap: 5px; min-width: 0; }
+.dfact i { font-family: var(--mono); font-size: 10px; font-style: normal; color: var(--muted); }
+.dfact b { font-size: 11.5px; font-weight: 500; color: var(--sub); }
+.dfact.free b { color: var(--accent); }
+/* A row of buttons is one height: the row decides, the label does not. The wide one takes the
+   room and the rest keep their own width, so install and remove still read as different jobs. */
+.btn.wide { flex: 1; }
+.actions .btn { height: 36px; font-size: 13px; }
+
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }

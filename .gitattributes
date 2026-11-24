@@ -1,0 +1,3 @@
+# The repository stores LF and every checkout gets LF, Windows included: the tests are written
+# against LF files, and a checkout that turned them into CRLF would be testing something else.
+* text=auto eol=lf

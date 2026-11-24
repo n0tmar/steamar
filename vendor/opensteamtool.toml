@@ -1,0 +1,29 @@
+# The default opensteamtool.toml SteaMar installs into the Steam folder.
+# Parsed once at startup: close Steam fully, edit, relaunch.
+# upstream contract: [inject] with enabled / library_x64 / library_x86
+# fork contract:     [[inject]] array entries gated per payload
+#
+# This file ships with no payload rows on purpose: nothing is injected until you add one.
+
+[log]
+level = "info"
+file = "logs/opensteamtool.log"
+
+[manifest]
+enabled = true
+# auto manifest download via opensteamtool upstream
+auto_download = true
+
+[inject]
+enabled = false
+library_x64 = ""
+library_x86 = ""
+
+# One row per payload. Uncomment, then fill in the real path and the app ids it may run for.
+# Leave all_games false so games without a matching row load with the runtime only.
+#
+# [[inject]]
+# path = "C:\\Program Files (x86)\\Steam\\opensteamtool-payloads\\payload.dll"
+# when_appids = [228980]
+# when_cmdline = []
+# all_games = false

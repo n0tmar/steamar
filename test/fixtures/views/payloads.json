@@ -1,0 +1,4047 @@
+{
+  "/api/account": {
+    "account": {
+      "known": true,
+      "checked_at": "2026-11-21T20:17:48.592Z",
+      "device_id": "dev_fixture",
+      "platform": "win32",
+      "app_version": "4.0.0",
+      "linked": true,
+      "user": {
+        "discord_id": "000000000000000000",
+        "username": "16.72",
+        "global_name": "mar",
+        "avatar": "fixture",
+        "avatar_url": "https://cdn.discordapp.com/avatars/0/fixture.png",
+        "email": "someone@example.invalid",
+        "tier": "member",
+        "donor_since": null,
+        "joined_server": "2025-12-19T16:06:26.579000+00:00",
+        "in_server": true,
+        "role_pending": null,
+        "donations": {
+          "count": 0,
+          "last_at": null
+        },
+        "pass": {
+          "active": false
+        }
+      },
+      "tier": "member",
+      "pass": {
+        "active": false,
+        "month": "2026-11",
+        "min_usd_cents": 500
+      },
+      "paused": null,
+      "kill": {
+        "active": false,
+        "reason": null,
+        "since": null,
+        "by": null
+      },
+      "peak": {
+        "active": false,
+        "rpm": 0,
+        "p95_ms": 400,
+        "since": null,
+        "member_multiplier": 0.4
+      },
+      "campaign": {
+        "live": true,
+        "state": "open",
+        "reason": null,
+        "paused": false,
+        "currency": "USD",
+        "target_usd": 10000,
+        "collected_usd": 0,
+        "collected_this_month_usd": 0,
+        "carry_in_usd": 0,
+        "percent": 0,
+        "month": "2026-11",
+        "deadline": "2026-11-30T21:00:00.000Z",
+        "grace_until": "2026-12-01T21:00:00.000Z",
+        "grace_hours": 24,
+        "days_left": 10,
+        "donations": 0,
+        "note": "We are 100 USD short of this month's running costs, with 10 days left.",
+        "currencies": {
+          "USD": [
+            {
+              "id": "p5",
+              "units": 5,
+              "amount_minor": 500,
+              "currency": "USD",
+              "usd_cents": 500,
+              "label": "$5.00"
+            },
+            {
+              "id": "p10",
+              "units": 10,
+              "amount_minor": 1000,
+              "currency": "USD",
+              "usd_cents": 1000,
+              "label": "$10.00"
+            },
+            {
+              "id": "p25",
+              "units": 25,
+              "amount_minor": 2500,
+              "currency": "USD",
+              "usd_cents": 2500,
+              "label": "$25.00"
+            },
+            {
+              "id": "p50",
+              "units": 50,
+              "amount_minor": 5000,
+              "currency": "USD",
+              "usd_cents": 5000,
+              "label": "$50.00"
+            }
+          ],
+          "AED": [
+            {
+              "id": "p5",
+              "units": 5,
+              "amount_minor": 500,
+              "currency": "AED",
+              "usd_cents": 136,
+              "label": "AED 5.00"
+            },
+            {
+              "id": "p10",
+              "units": 10,
+              "amount_minor": 1000,
+              "currency": "AED",
+              "usd_cents": 272,
+              "label": "AED 10.00"
+            },
+            {
+              "id": "p25",
+              "units": 25,
+              "amount_minor": 2500,
+              "currency": "AED",
+              "usd_cents": 681,
+              "label": "AED 25.00"
+            },
+            {
+              "id": "p50",
+              "units": 50,
+              "amount_minor": 5000,
+              "currency": "AED",
+              "usd_cents": 1361,
+              "label": "AED 50.00"
+            }
+          ],
+          "SAR": [
+            {
+              "id": "p5",
+              "units": 5,
+              "amount_minor": 500,
+              "currency": "SAR",
+              "usd_cents": 133,
+              "label": "SAR 5.00"
+            },
+            {
+              "id": "p10",
+              "units": 10,
+              "amount_minor": 1000,
+              "currency": "SAR",
+              "usd_cents": 267,
+              "label": "SAR 10.00"
+            },
+            {
+              "id": "p25",
+              "units": 25,
+              "amount_minor": 2500,
+              "currency": "SAR",
+              "usd_cents": 667,
+              "label": "SAR 25.00"
+            },
+            {
+              "id": "p50",
+              "units": 50,
+              "amount_minor": 5000,
+              "currency": "SAR",
+              "usd_cents": 1333,
+              "label": "SAR 50.00"
+            }
+          ]
+        },
+        "crypto": {
+          "usdt_trc20": "TNCi4aAQywehTqZhVLyUAhA7yKF6EFHn1b",
+          "handle": "16.72",
+          "handle_id": "100000000000000001"
+        },
+        "min_pass_usd": 500,
+        "donor_bypass": true
+      },
+      "gate": true,
+      "source": "live"
+    },
+    "campaign": {
+      "live": true,
+      "state": "open",
+      "reason": null,
+      "paused": false,
+      "currency": "USD",
+      "target_usd": 10000,
+      "collected_usd": 0,
+      "collected_this_month_usd": 0,
+      "carry_in_usd": 0,
+      "percent": 0,
+      "month": "2026-11",
+      "deadline": "2026-11-30T21:00:00.000Z",
+      "grace_until": "2026-12-01T21:00:00.000Z",
+      "grace_hours": 24,
+      "days_left": 10,
+      "donations": 0,
+      "note": "We are 100 USD short of this month's running costs, with 10 days left.",
+      "currencies": {
+        "USD": [
+          {
+            "id": "p5",
+            "units": 5,
+            "amount_minor": 500,
+            "currency": "USD",
+            "usd_cents": 500,
+            "label": "$5.00"
+          },
+          {
+            "id": "p10",
+            "units": 10,
+            "amount_minor": 1000,
+            "currency": "USD",
+            "usd_cents": 1000,
+            "label": "$10.00"
+          },
+          {
+            "id": "p25",
+            "units": 25,
+            "amount_minor": 2500,
+            "currency": "USD",
+            "usd_cents": 2500,
+            "label": "$25.00"
+          },
+          {
+            "id": "p50",
+            "units": 50,
+            "amount_minor": 5000,
+            "currency": "USD",
+            "usd_cents": 5000,
+            "label": "$50.00"
+          }
+        ],
+        "AED": [
+          {
+            "id": "p5",
+            "units": 5,
+            "amount_minor": 500,
+            "currency": "AED",
+            "usd_cents": 136,
+            "label": "AED 5.00"
+          },
+          {
+            "id": "p10",
+            "units": 10,
+            "amount_minor": 1000,
+            "currency": "AED",
+            "usd_cents": 272,
+            "label": "AED 10.00"
+          },
+          {
+            "id": "p25",
+            "units": 25,
+            "amount_minor": 2500,
+            "currency": "AED",
+            "usd_cents": 681,
+            "label": "AED 25.00"
+          },
+          {
+            "id": "p50",
+            "units": 50,
+            "amount_minor": 5000,
+            "currency": "AED",
+            "usd_cents": 1361,
+            "label": "AED 50.00"
+          }
+        ],
+        "SAR": [
+          {
+            "id": "p5",
+            "units": 5,
+            "amount_minor": 500,
+            "currency": "SAR",
+            "usd_cents": 133,
+            "label": "SAR 5.00"
+          },
+          {
+            "id": "p10",
+            "units": 10,
+            "amount_minor": 1000,
+            "currency": "SAR",
+            "usd_cents": 267,
+            "label": "SAR 10.00"
+          },
+          {
+            "id": "p25",
+            "units": 25,
+            "amount_minor": 2500,
+            "currency": "SAR",
+            "usd_cents": 667,
+            "label": "SAR 25.00"
+          },
+          {
+            "id": "p50",
+            "units": 50,
+            "amount_minor": 5000,
+            "currency": "SAR",
+            "usd_cents": 1333,
+            "label": "SAR 50.00"
+          }
+        ]
+      },
+      "crypto": {
+        "usdt_trc20": "TNCi4aAQywehTqZhVLyUAhA7yKF6EFHn1b",
+        "handle": "16.72",
+        "handle_id": "100000000000000001"
+      },
+      "min_pass_usd": 500,
+      "donor_bypass": true
+    },
+    "base": "https://steamar.cc",
+    "site": "https://steamar.cc",
+    "configured": true,
+    "enrolled": true
+  },
+  "/api/app?appid=1118520": {
+    "appid": "1118520",
+    "fetched": 1795292175477,
+    "free_at": 1795292175477,
+    "name": "Paralives",
+    "description": "Paralives is a life simulation game about building homes, lives and bonds. Through both hardship and success, where will your story take you?",
+    "developers": [
+      "Alex Massé and team"
+    ],
+    "publishers": [
+      "Paralives Studio"
+    ],
+    "genres": [
+      "Simulation"
+    ],
+    "players": [
+      "Single-player"
+    ],
+    "release": "May 25, 2026",
+    "coming_soon": false,
+    "free": false,
+    "type": "game",
+    "denuvo": false,
+    "image": "/img/1118520.jpg"
+  },
+  "/api/fixes?limit=4000": {
+    "fetched": "2026-11-15T03:00:04.581Z",
+    "total": 1915,
+    "hidden": 142,
+    "error": null,
+    "stale": false,
+    "counts": {
+      "available": 1910,
+      "library": 5
+    },
+    "rows": [
+      {
+        "id": 18302,
+        "title": "Minecraft Dungeons II",
+        "slug": "minecraft-dungeons-ii-po-seti",
+        "category": "officialservers",
+        "url": "https://online-fix.me/games/officialservers/18302-minecraft-dungeons-ii-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/2750289978_poster.jpg",
+        "posted_at": "2026-11-13T18:16:18+03:00",
+        "appid": "1912410",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "MinecraftDungeonsII_Fix_Repair_GDK_Generic.rar",
+        "last_updated": null,
+        "fix_url": "https://itsfileditchfiles.st/balpha47/aab528fe621f301251c7/MinecraftDungeonsII_Fix_Repair_GDK_Generic.rar",
+        "fix_checked_at": "2026-11-16T23:58:00.315Z",
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/1912410.jpg",
+        "poster_local": "/img/of/18302.jpg",
+        "trending": false
+      },
+      {
+        "id": 18301,
+        "title": "HOT WHEELS Infinite Rush",
+        "slug": "hot-wheels-infinite-rush-online",
+        "category": "officialservers",
+        "url": "https://online-fix.me/games/officialservers/18301-hot-wheels-infinite-rush-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/3663966681_poster.jpg",
+        "posted_at": "2026-11-12T19:16:21+03:00",
+        "appid": "2821390",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "HOTWHEELSInfiniteRush_Fix_Repair_Epic_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2821390.jpg",
+        "poster_local": "/img/of/18301.jpg",
+        "trending": false
+      },
+      {
+        "id": 18300,
+        "title": "Double Dealers",
+        "slug": "double-dealers-po-seti",
+        "category": "arcade",
+        "url": "https://online-fix.me/games/arcade/18300-double-dealers-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/1230146377_poster.jpg",
+        "posted_at": "2026-11-11T04:04:09+03:00",
+        "appid": "4218620",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "DoubleDealers_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4218620.jpg",
+        "poster_local": "/img/of/18300.jpg",
+        "trending": false
+      },
+      {
+        "id": 18295,
+        "title": "Finals Week",
+        "slug": "finals-week-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18295-finals-week-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/2992585067_poster.jpg",
+        "posted_at": "2026-11-10T16:56:15+03:00",
+        "appid": "4715160",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "FinalsWeek_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4715160.jpg",
+        "poster_local": "/img/of/18295.jpg",
+        "trending": false
+      },
+      {
+        "id": 18299,
+        "title": "S.O.N.A.R. - Submarine Operators Not Actually Ready",
+        "slug": "sonar-submarine-operators-not-actually-ready-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18299-sonar-submarine-operators-not-actually-ready-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/3978552986_poster.jpg",
+        "posted_at": "2026-11-10T16:56:13+03:00",
+        "appid": null,
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "SONARSubmarineOperatorsNotActuallyReady_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": null,
+        "poster_local": "/img/of/18299.jpg",
+        "trending": false
+      },
+      {
+        "id": 18298,
+        "title": "Groundwork Simulator",
+        "slug": "groundwork-simulator-po-seti",
+        "category": "sandbox",
+        "url": "https://online-fix.me/games/sandbox/18298-groundwork-simulator-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/704388911_poster.jpg",
+        "posted_at": "2026-11-10T16:56:11+03:00",
+        "appid": "5306540",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "GroundworkSimulator_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/5306540.jpg",
+        "poster_local": "/img/of/18298.jpg",
+        "trending": false
+      },
+      {
+        "id": 18296,
+        "title": "Nomad Drive",
+        "slug": "nomad-drive-po-seti",
+        "category": "officialservers",
+        "url": "https://online-fix.me/games/officialservers/18296-nomad-drive-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/927161134_poster.jpg",
+        "posted_at": "2026-11-10T16:56:09+03:00",
+        "appid": "2223980",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "NomadDrive_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2223980.jpg",
+        "poster_local": "/img/of/18296.jpg",
+        "trending": false
+      },
+      {
+        "id": 18294,
+        "title": "Trash Day",
+        "slug": "trash-day-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18294-trash-day-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/541013033_poster.jpg",
+        "posted_at": "2026-11-10T16:56:07+03:00",
+        "appid": "3314580",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "TrashDay_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/3314580.jpg",
+        "poster_local": "/img/of/18294.jpg",
+        "trending": false
+      },
+      {
+        "id": 18297,
+        "title": "Whos Cheating?",
+        "slug": "whos-cheating-po-seti",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18297-whos-cheating-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/2422311142_poster.jpg",
+        "posted_at": "2026-11-10T16:56:05+03:00",
+        "appid": "5127370",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "WhosCheating_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/5127370.jpg",
+        "poster_local": "/img/of/18297.jpg",
+        "trending": false
+      },
+      {
+        "id": 18293,
+        "title": "CRACK",
+        "slug": "crack-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18293-crack-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-11/2684165420_poster.jpg",
+        "posted_at": "2026-11-04T18:10:12+03:00",
+        "appid": "4312190",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "CRACK_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4312190.jpg",
+        "poster_local": "/img/of/18293.jpg",
+        "trending": false
+      },
+      {
+        "id": 18292,
+        "title": "POSTAL Brain Damaged",
+        "slug": "postal-brain-damaged-po-seti",
+        "category": "shooter",
+        "url": "https://online-fix.me/games/shooter/18292-postal-brain-damaged-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2678284458_poster.jpg",
+        "posted_at": "2026-11-04T18:10:11+03:00",
+        "appid": "1359980",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "POSTALBrainDamaged_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/1359980.jpg",
+        "poster_local": "/img/of/18292.jpg",
+        "trending": false
+      },
+      {
+        "id": 18291,
+        "title": "Borderlands 4",
+        "slug": "borderlands-4-po-seti",
+        "category": "officialservers",
+        "url": "https://online-fix.me/games/officialservers/18291-borderlands-4-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2226546896_poster.jpg",
+        "posted_at": "2026-10-29T23:48:13+03:00",
+        "appid": "1285190",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "Borderlands4_Fix_Repair_Epic_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": true,
+        "image": "/img/1285190.jpg",
+        "poster_local": "/img/of/18291.jpg",
+        "trending": false
+      },
+      {
+        "id": 18290,
+        "title": "Moon Sweepers",
+        "slug": "moon-sweepers-po-seti",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18290-moon-sweepers-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/3601761619_poster.jpg",
+        "posted_at": "2026-10-27T20:35:23+03:00",
+        "appid": "5335510",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "MoonSweepers_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/5335510.jpg",
+        "poster_local": "/img/of/18290.jpg",
+        "trending": true
+      },
+      {
+        "id": 18289,
+        "title": "Anymaker",
+        "slug": "anymaker-po-seti",
+        "category": "sandbox",
+        "url": "https://online-fix.me/games/sandbox/18289-anymaker-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/3697718122_poster.jpg",
+        "posted_at": "2026-10-27T20:35:18+03:00",
+        "appid": "4435340",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "Anymaker_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4435340.jpg",
+        "poster_local": "/img/of/18289.jpg",
+        "trending": false
+      },
+      {
+        "id": 18288,
+        "title": "Solasta II",
+        "slug": "solasta-ii-po-seti",
+        "category": "officialservers",
+        "url": "https://online-fix.me/games/officialservers/18288-solasta-ii-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2064737643_poster.jpg",
+        "posted_at": "2026-10-24T01:59:40+03:00",
+        "appid": "2975950",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "SolastaII_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2975950.jpg",
+        "poster_local": "/img/of/18288.jpg",
+        "trending": false
+      },
+      {
+        "id": 18287,
+        "title": "We Were Here Tomorrow",
+        "slug": "we-were-here-tomorrow-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18287-we-were-here-tomorrow-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/3490496682_poster.jpg",
+        "posted_at": "2026-10-21T13:39:33+03:00",
+        "appid": "2315050",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "WeWereHereTomorrow_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2315050.jpg",
+        "poster_local": "/img/of/18287.jpg",
+        "trending": false
+      },
+      {
+        "id": 18286,
+        "title": "Chained Beasts",
+        "slug": "chained-beasts-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18286-chained-beasts-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2400943004_poster.jpg",
+        "posted_at": "2026-10-21T13:39:30+03:00",
+        "appid": "3569420",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "ChainedBeasts_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/3569420.jpg",
+        "poster_local": "/img/of/18286.jpg",
+        "trending": false
+      },
+      {
+        "id": 18283,
+        "title": "MOGGED Looksmaxx or Die",
+        "slug": "mogged-looksmaxx-or-die-online",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18283-mogged-looksmaxx-or-die-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/1103016849_poster.jpg",
+        "posted_at": "2026-10-21T13:39:27+03:00",
+        "appid": "4917440",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "MOGGEDLooksmaxxorDie_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4917440.jpg",
+        "poster_local": "/img/of/18283.jpg",
+        "trending": false
+      },
+      {
+        "id": 18282,
+        "title": "Lucid Cats",
+        "slug": "lucid-cats-online",
+        "category": "horror",
+        "url": "https://online-fix.me/games/horror/18282-lucid-cats-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/693081917_poster.jpg",
+        "posted_at": "2026-10-21T13:39:26+03:00",
+        "appid": "4778540",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "LucidCats_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4778540.jpg",
+        "poster_local": "/img/of/18282.jpg",
+        "trending": false
+      },
+      {
+        "id": 18281,
+        "title": "Japanese Ramen Simulator",
+        "slug": "japanese-ramen-simulator-po-seti",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18281-japanese-ramen-simulator-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/3871759290_poster.jpg",
+        "posted_at": "2026-10-21T13:39:24+03:00",
+        "appid": "4968640",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "JapaneseRamenSimulator_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4968640.jpg",
+        "poster_local": "/img/of/18281.jpg",
+        "trending": false
+      },
+      {
+        "id": 18280,
+        "title": "Hood Warfare 2",
+        "slug": "hood-warfare-2-online",
+        "category": "officialservers",
+        "url": "https://online-fix.me/games/officialservers/18280-hood-warfare-2-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2702306276_poster.jpg",
+        "posted_at": "2026-10-21T13:39:22+03:00",
+        "appid": "5155360",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "HoodWarfare2_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/5155360.jpg",
+        "poster_local": "/img/of/18280.jpg",
+        "trending": false
+      },
+      {
+        "id": 18279,
+        "title": "Forsworn",
+        "slug": "forsworn-online",
+        "category": "strategy",
+        "url": "https://online-fix.me/games/strategy/18279-forsworn-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/3832434446_poster.jpg",
+        "posted_at": "2026-10-21T13:39:18+03:00",
+        "appid": "3560360",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "Forsworn_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/3560360.jpg",
+        "poster_local": "/img/of/18279.jpg",
+        "trending": false
+      },
+      {
+        "id": 18284,
+        "title": "Scam With Your Friends",
+        "slug": "scam-with-your-friends-online",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18284-scam-with-your-friends-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/4100381296_poster.jpg",
+        "posted_at": "2026-10-20T17:11:37+03:00",
+        "appid": "4954910",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "ScamWithYourFriends_Fix_Repair_Steam.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4954910.jpg",
+        "poster_local": "/img/of/18284.jpg",
+        "trending": false
+      },
+      {
+        "id": 18285,
+        "title": "Deep Dish Dungeon",
+        "slug": "deep-dish-dungeon-online",
+        "category": "officialservers",
+        "url": "https://online-fix.me/games/officialservers/18285-deep-dish-dungeon-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/1609259167_poster.jpg",
+        "posted_at": "2026-10-20T17:11:36+03:00",
+        "appid": "2871520",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "DeepDishDungeon_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2871520.jpg",
+        "poster_local": "/img/of/18285.jpg",
+        "trending": false
+      },
+      {
+        "id": 18278,
+        "title": "Party Animals",
+        "slug": "party-animals-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18278-party-animals-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/3375816123_poster.jpg",
+        "posted_at": "2026-10-19T21:05:58+03:00",
+        "appid": "1260320",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "PartyAnimals_Fix_Repair_Steam.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/1260320.jpg",
+        "poster_local": "/img/of/18278.jpg",
+        "trending": false
+      },
+      {
+        "id": 18276,
+        "title": "Clair Obscur Expedition 33",
+        "slug": "clair-obscur-expedition-33-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18276-clair-obscur-expedition-33-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/4006327092_poster.jpg",
+        "posted_at": "2026-10-19T21:05:56+03:00",
+        "appid": "1903340",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "ClairObscurExpedition33_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/1903340.jpg",
+        "poster_local": "/img/of/18276.jpg",
+        "trending": false
+      },
+      {
+        "id": 18275,
+        "title": "Needle In A Haystack",
+        "slug": "needle-in-a-haystack-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18275-needle-in-a-haystack-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2281789875_poster.jpg",
+        "posted_at": "2026-10-19T21:05:53+03:00",
+        "appid": "5085740",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "NeedleInAHaystack_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/5085740.jpg",
+        "poster_local": "/img/of/18275.jpg",
+        "trending": false
+      },
+      {
+        "id": 18274,
+        "title": "Happy Wheels",
+        "slug": "happy-wheels-po-seti",
+        "category": "sandbox",
+        "url": "https://online-fix.me/games/sandbox/18274-happy-wheels-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/765836037_poster.jpg",
+        "posted_at": "2026-10-19T21:05:51+03:00",
+        "appid": "4705510",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "HappyWheels_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4705510.jpg",
+        "poster_local": "/img/of/18274.jpg",
+        "trending": false
+      },
+      {
+        "id": 18277,
+        "title": "The Crew Motorfest",
+        "slug": "the-crew-motorfest-po-seti",
+        "category": "sandbox",
+        "url": "https://online-fix.me/games/sandbox/18277-the-crew-motorfest-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2518386827_poster.jpg",
+        "posted_at": "2026-10-16T21:37:40+03:00",
+        "appid": "2698940",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "TheCrewMotorfest_Fix_Repair_Steam_V2_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2698940.jpg",
+        "poster_local": "/img/of/18277.jpg",
+        "trending": false
+      },
+      {
+        "id": 18273,
+        "title": "over the hill",
+        "slug": "over-the-hill-po-seti",
+        "category": "officialservers",
+        "url": "https://online-fix.me/games/officialservers/18273-over-the-hill-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/4112031444_poster.jpg",
+        "posted_at": "2026-10-15T20:09:46+03:00",
+        "appid": "2929250",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "overthehill_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2929250.jpg",
+        "poster_local": "/img/of/18273.jpg",
+        "trending": false
+      },
+      {
+        "id": 18272,
+        "title": "Permafrost",
+        "slug": "permafrost-po-seti",
+        "category": "sandbox",
+        "url": "https://online-fix.me/games/sandbox/18272-permafrost-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/1410411235_poster.jpg",
+        "posted_at": "2026-10-15T20:09:44+03:00",
+        "appid": "2254990",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "Permafrost_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2254990.jpg",
+        "poster_local": "/img/of/18272.jpg",
+        "trending": false
+      },
+      {
+        "id": 18271,
+        "title": "Invokyr",
+        "slug": "invokyr-po-seti",
+        "category": "horror",
+        "url": "https://online-fix.me/games/horror/18271-invokyr-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2948262201_poster.jpg",
+        "posted_at": "2026-10-15T20:09:42+03:00",
+        "appid": "3883570",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "Invokyr_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/3883570.jpg",
+        "poster_local": "/img/of/18271.jpg",
+        "trending": false
+      },
+      {
+        "id": 18270,
+        "title": "Crawl",
+        "slug": "crawl-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18270-crawl-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2419019920_poster.jpg",
+        "posted_at": "2026-10-15T20:09:40+03:00",
+        "appid": "1290750",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "Crawl_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/1290750.jpg",
+        "poster_local": "/img/of/18270.jpg",
+        "trending": false
+      },
+      {
+        "id": 18269,
+        "title": "INSIDE",
+        "slug": "inside-online",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18269-inside-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/266429840_poster.jpg",
+        "posted_at": "2026-10-15T20:09:38+03:00",
+        "appid": "4474080",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "INSIDE_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4474080.jpg",
+        "poster_local": "/img/of/18269.jpg",
+        "trending": false
+      },
+      {
+        "id": 18268,
+        "title": "Assassins Creed III",
+        "slug": "assassins-creed-iii-online",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18268-assassins-creed-iii-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2630959492_poster.jpg",
+        "posted_at": "2026-10-13T00:48:56+03:00",
+        "appid": "911400",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "AssassinsCreedIII_Fix_Repair_Steam.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/911400.jpg",
+        "poster_local": "/img/of/18268.jpg",
+        "trending": false
+      },
+      {
+        "id": 18266,
+        "title": "Far Cry 3",
+        "slug": "far-cry-3-po-seti",
+        "category": "sandbox",
+        "url": "https://online-fix.me/games/sandbox/18266-far-cry-3-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/1889106398_poster.jpg",
+        "posted_at": "2026-10-13T00:48:54+03:00",
+        "appid": "220240",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "FarCry3_Fix_Repair_Steam.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/220240.jpg",
+        "poster_local": "/img/of/18266.jpg",
+        "trending": false
+      },
+      {
+        "id": 18267,
+        "title": "UNO",
+        "slug": "uno-online",
+        "category": "strategy",
+        "url": "https://online-fix.me/games/strategy/18267-uno-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2628184622_poster.jpg",
+        "posted_at": "2026-10-13T00:48:53+03:00",
+        "appid": "470220",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "UNO_Fix_Repair_Steam.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/470220.jpg",
+        "poster_local": "/img/of/18267.jpg",
+        "trending": false
+      },
+      {
+        "id": 18263,
+        "title": "DEADBOLT",
+        "slug": "deadbolt-online",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18263-deadbolt-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/1846659538_poster.jpg",
+        "posted_at": "2026-10-08T22:01:37+03:00",
+        "appid": "394970",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "DEADBOLT_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/394970.jpg",
+        "poster_local": "/img/of/18263.jpg",
+        "trending": false
+      },
+      {
+        "id": 18262,
+        "title": "Papers, Please",
+        "slug": "papers-please-online",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18262-papers-please-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/1359062671_poster.jpg",
+        "posted_at": "2026-10-08T22:01:36+03:00",
+        "appid": "239030",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "PapersPlease_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/239030.jpg",
+        "poster_local": "/img/of/18262.jpg",
+        "trending": false
+      },
+      {
+        "id": 18264,
+        "title": "Surgeon Simulator 2",
+        "slug": "surgeon-simulator-2-po-seti",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18264-surgeon-simulator-2-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/353793295_poster.jpg",
+        "posted_at": "2026-10-06T23:24:13+03:00",
+        "appid": "774791",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "SurgeonSimulator2_Fix_Repair_Steam.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/774791.jpg",
+        "poster_local": "/img/of/18264.jpg",
+        "trending": false
+      },
+      {
+        "id": 18261,
+        "title": "METAL GEAR SOLID Peace Walker Master Collection Version",
+        "slug": "metal-gear-solid-peace-walker-master-collection-version-online",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18261-metal-gear-solid-peace-walker-master-collection-version-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-10/2738287353_poster.jpg",
+        "posted_at": "2026-10-05T23:02:25+03:00",
+        "appid": "2492660",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "MGSPWCV_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2492660.jpg",
+        "poster_local": "/img/of/18261.jpg",
+        "trending": false
+      },
+      {
+        "id": 18258,
+        "title": "Noita",
+        "slug": "noita-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18258-noita-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/223887237_poster.jpg",
+        "posted_at": "2026-09-29T12:21:08+03:00",
+        "appid": "881100",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "Noita_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/881100.jpg",
+        "poster_local": "/img/of/18258.jpg",
+        "trending": false
+      },
+      {
+        "id": 18259,
+        "title": "Dub Together",
+        "slug": "dub-together-po-seti",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18259-dub-together-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/2044304909_poster.jpg",
+        "posted_at": "2026-09-29T12:21:05+03:00",
+        "appid": "5020310",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "DubTogether_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/5020310.jpg",
+        "poster_local": "/img/of/18259.jpg",
+        "trending": false
+      },
+      {
+        "id": 18255,
+        "title": "iRacing Studios NASCAR 26",
+        "slug": "iracing-studios-nascar-26-po-seti",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18255-iracing-studios-nascar-26-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/3835381241_poster.jpg",
+        "posted_at": "2026-09-28T17:53:11+03:00",
+        "appid": "4883590",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "iRacingStudiosNASCAR26_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4883590.jpg",
+        "poster_local": "/img/of/18255.jpg",
+        "trending": false
+      },
+      {
+        "id": 18257,
+        "title": "Dino Party",
+        "slug": "dino-party-po-seti",
+        "category": "arcade",
+        "url": "https://online-fix.me/games/arcade/18257-dino-party-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/3013240635_poster.jpg",
+        "posted_at": "2026-09-28T17:53:08+03:00",
+        "appid": "1939390",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "DinoParty_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/1939390.jpg",
+        "poster_local": "/img/of/18257.jpg",
+        "trending": false
+      },
+      {
+        "id": 18254,
+        "title": "Dark Souls II Scholar of the First Sin",
+        "slug": "dark-souls-ii-scholar-of-the-first-sin-online",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18254-dark-souls-ii-scholar-of-the-first-sin-online.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/2424533115_poster.jpg",
+        "posted_at": "2026-09-23T14:57:16+03:00",
+        "appid": "335300",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "DarkSoulsIIScholarOfTheFirstSin_Fix_Repair_Steam.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/335300.jpg",
+        "poster_local": "/img/of/18254.jpg",
+        "trending": false
+      },
+      {
+        "id": 18253,
+        "title": "Dawson Oaks Trailer Park",
+        "slug": "dawson-oaks-trailer-park-po-seti",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18253-dawson-oaks-trailer-park-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/2094847576_poster.jpg",
+        "posted_at": "2026-09-22T13:49:34+03:00",
+        "appid": "3640200",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "DawsonOaksTrailerPark_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/3640200.jpg",
+        "poster_local": "/img/of/18253.jpg",
+        "trending": false
+      },
+      {
+        "id": 18252,
+        "title": "Bar After Bar",
+        "slug": "bar-after-bar-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18252-bar-after-bar-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/451101766_poster.jpg",
+        "posted_at": "2026-09-22T13:49:33+03:00",
+        "appid": "4596010",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "BarAfterBar_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4596010.jpg",
+        "poster_local": "/img/of/18252.jpg",
+        "trending": false
+      },
+      {
+        "id": 18251,
+        "title": "Dimraeth",
+        "slug": "dimraeth-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18251-dimraeth-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/2406297751_poster.jpg",
+        "posted_at": "2026-09-17T18:35:13+03:00",
+        "appid": "2402680",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "Dimraeth_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2402680.jpg",
+        "poster_local": "/img/of/18251.jpg",
+        "trending": false
+      },
+      {
+        "id": 18250,
+        "title": "Bus Simulator 27",
+        "slug": "bus-simulator-27-po-seti",
+        "category": "officialservers",
+        "url": "https://online-fix.me/games/officialservers/18250-bus-simulator-27-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/3302622520_poster.jpg",
+        "posted_at": "2026-09-17T18:35:10+03:00",
+        "appid": "2397320",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "BusSimulator27_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2397320.jpg",
+        "poster_local": "/img/of/18250.jpg",
+        "trending": false
+      },
+      {
+        "id": 18249,
+        "title": "Anime Shop Simulator",
+        "slug": "anime-shop-simulator-po-seti",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18249-anime-shop-simulator-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/2950261006_poster.jpg",
+        "posted_at": "2026-09-17T18:35:08+03:00",
+        "appid": "3393280",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "AnimeShopSimulator_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/3393280.jpg",
+        "poster_local": "/img/of/18249.jpg",
+        "trending": false
+      },
+      {
+        "id": 18246,
+        "title": "A Smithing Game",
+        "slug": "a-smithing-game-po-seti",
+        "category": "fighting",
+        "url": "https://online-fix.me/games/fighting/18246-a-smithing-game-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/4243662024_poster.jpg",
+        "posted_at": "2026-09-17T18:35:07+03:00",
+        "appid": "4541460",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "ASmithingGame_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4541460.jpg",
+        "poster_local": "/img/of/18246.jpg",
+        "trending": false
+      },
+      {
+        "id": 18245,
+        "title": "R.U.S.E.™",
+        "slug": "ruse-po-seti",
+        "category": "strategy",
+        "url": "https://online-fix.me/games/strategy/18245-ruse-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/3587192766_poster.jpg",
+        "posted_at": "2026-09-17T18:35:05+03:00",
+        "appid": "21970",
+        "mirrors": [],
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/21970.jpg",
+        "poster_local": "/img/of/18245.jpg",
+        "trending": false
+      },
+      {
+        "id": 18243,
+        "title": "Endless Alice",
+        "slug": "endless-alice-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18243-endless-alice-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/813567551_poster.jpg",
+        "posted_at": "2026-09-17T18:35:02+03:00",
+        "appid": "1425000",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "EndlessAlice_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/1425000.jpg",
+        "poster_local": "/img/of/18243.jpg",
+        "trending": false
+      },
+      {
+        "id": 18242,
+        "title": "Crazy Hotel Together",
+        "slug": "crazy-hotel-together-po-seti",
+        "category": "sandbox",
+        "url": "https://online-fix.me/games/sandbox/18242-crazy-hotel-together-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/2207806013_poster.jpg",
+        "posted_at": "2026-09-17T18:35:00+03:00",
+        "appid": "4244880",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "CrazyHotelTogether_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4244880.jpg",
+        "poster_local": "/img/of/18242.jpg",
+        "trending": false
+      },
+      {
+        "id": 18248,
+        "title": "Starsand Island",
+        "slug": "starsand-island-po-seti",
+        "category": "sandbox",
+        "url": "https://online-fix.me/games/sandbox/18248-starsand-island-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/4281751219_poster.jpg",
+        "posted_at": "2026-09-15T22:30:44+03:00",
+        "appid": "2966320",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "StarsandIsland_Fix_Repair_GDK_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/2966320.jpg",
+        "poster_local": "/img/of/18248.jpg",
+        "trending": false
+      },
+      {
+        "id": 18239,
+        "title": "Friendly Steps",
+        "slug": "friendly-steps-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18239-friendly-steps-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/2558482630_poster.jpg",
+        "posted_at": "2026-09-15T22:30:42+03:00",
+        "appid": "4279630",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "FriendlySteps_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4279630.jpg",
+        "poster_local": "/img/of/18239.jpg",
+        "trending": false
+      },
+      {
+        "id": 18241,
+        "title": "Supermarket Chaos",
+        "slug": "supermarket-chaos-po-seti",
+        "category": "simulator",
+        "url": "https://online-fix.me/games/simulator/18241-supermarket-chaos-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/3127650457_poster.jpg",
+        "posted_at": "2026-09-15T22:30:40+03:00",
+        "appid": "4800590",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "SupermarketChaos_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4800590.jpg",
+        "poster_local": "/img/of/18241.jpg",
+        "trending": false
+      },
+      {
+        "id": 18247,
+        "title": "Shady Job",
+        "slug": "shady-job-po-seti",
+        "category": "sandbox",
+        "url": "https://online-fix.me/games/sandbox/18247-shady-job-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/4096431935_poster.jpg",
+        "posted_at": "2026-09-15T22:30:38+03:00",
+        "appid": "4190710",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "ShadyJob_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4190710.jpg",
+        "poster_local": "/img/of/18247.jpg",
+        "trending": false
+      },
+      {
+        "id": 18244,
+        "title": "Dumb Ways to Build",
+        "slug": "dumb-ways-to-build-po-seti",
+        "category": "adventures",
+        "url": "https://online-fix.me/games/adventures/18244-dumb-ways-to-build-po-seti.html",
+        "poster": "https://online-fix.me/uploads/posts/2026-09/3653593774_poster.jpg",
+        "posted_at": "2026-09-14T16:05:00+03:00",
+        "appid": "4412320",
+        "mirrors": [],
+        "has_fix": true,
+        "fix_file": "DumbWaysToBuild_Fix_Repair_Steam_Generic.rar",
+        "last_updated": null,
+        "state": "available",
+        "local": null,
+        "in_library": false,
+        "denuvo": false,
+        "image": "/img/4412320.jpg",
+        "poster_local": "/img/of/18244.jpg",
+        "trending": false
+      }
+    ],
+    "installed": 0,
+    "rows_kept": 60
+  },
+  "/api/library": {
+    "games": [
+      {
+        "appid": "1091500",
+        "file_appid": "1091500",
+        "file": "1091500.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\1091500.lua",
+        "bytes": 1991,
+        "mtime": 1794693348517.8293,
+        "kind": "game",
+        "candidates": [
+          "1091500",
+          "228988",
+          "1091501",
+          "1091502",
+          "1091503"
+        ],
+        "depots": [
+          "228988",
+          "1091501",
+          "1091502",
+          "1091503",
+          "1091504",
+          "1091505",
+          "1091506",
+          "1091507",
+          "1091508",
+          "1091509",
+          "1460470",
+          "1460471",
+          "2060310"
+        ],
+        "keys": 13,
+        "token": false,
+        "manifests": 13,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Cyberpunk 2077",
+        "image": "/img/1091500.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "1118520",
+        "file_appid": "1118520",
+        "file": "1118520.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\1118520.lua",
+        "bytes": 154,
+        "mtime": 1794698461367.334,
+        "kind": "game",
+        "candidates": [
+          "1118520"
+        ],
+        "depots": [],
+        "keys": 0,
+        "token": false,
+        "manifests": 1,
+        "valid": true,
+        "errors": [],
+        "installed": true,
+        "installed_bytes": 8437242177,
+        "installed_state": 4,
+        "keyless": true,
+        "name": "Paralives",
+        "image": "/img/1118520.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "1174180",
+        "file_appid": "1174180",
+        "file": "1174180.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\1174180.lua",
+        "bytes": 1336,
+        "mtime": 1794872220532.329,
+        "kind": "game",
+        "candidates": [
+          "1174180",
+          "228987",
+          "228990",
+          "1174181",
+          "1174182"
+        ],
+        "depots": [
+          "228987",
+          "228990",
+          "1174181",
+          "1174182",
+          "1174183",
+          "1174184",
+          "1174185",
+          "1174186",
+          "1899671"
+        ],
+        "keys": 9,
+        "token": false,
+        "manifests": 8,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Red Dead Redemption 2",
+        "image": "/img/1174180.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "1245620",
+        "file_appid": "1245620",
+        "file": "1245620.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\1245620.lua",
+        "bytes": 1445,
+        "mtime": 1794693348858.3518,
+        "kind": "game",
+        "candidates": [
+          "1245620",
+          "228988",
+          "228990",
+          "1245621",
+          "1245623"
+        ],
+        "depots": [
+          "228988",
+          "228990",
+          "1245621",
+          "1245623",
+          "1245624",
+          "1896300",
+          "1896320",
+          "2778580",
+          "2855520"
+        ],
+        "keys": 9,
+        "token": false,
+        "manifests": 10,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "ELDEN RING",
+        "image": "/img/1245620.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "1551360",
+        "file_appid": "1551360",
+        "file": "1551360.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\1551360.lua",
+        "bytes": 807,
+        "mtime": 1794693348563.422,
+        "kind": "game",
+        "candidates": [
+          "1551360",
+          "228988",
+          "228990",
+          "1551361",
+          "1613280"
+        ],
+        "depots": [
+          "228988",
+          "228990",
+          "1551361",
+          "1613280",
+          "1613281"
+        ],
+        "keys": 5,
+        "token": false,
+        "manifests": 5,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Forza Horizon 5",
+        "image": "/img/1551360.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "2050650",
+        "file_appid": "2050650",
+        "file": "2050650.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\2050650.lua",
+        "bytes": 4713,
+        "mtime": 1794693348713.3533,
+        "kind": "game",
+        "candidates": [
+          "2050650",
+          "228988",
+          "2050651",
+          "2050652",
+          "2050653"
+        ],
+        "depots": [
+          "228988",
+          "2050651",
+          "2050652",
+          "2050653",
+          "2050654",
+          "2050655",
+          "2109300",
+          "2109301",
+          "2109303",
+          "2109304",
+          "2109305",
+          "2109306",
+          "2109307",
+          "2109308",
+          "2109309",
+          "2109310",
+          "2109311",
+          "2109312",
+          "2109313",
+          "2109314",
+          "2109315",
+          "2109316",
+          "2109317",
+          "2197320",
+          "2197321",
+          "2197322",
+          "2197323",
+          "2197324",
+          "2197325",
+          "2197326",
+          "2197327",
+          "2197328"
+        ],
+        "keys": 32,
+        "token": false,
+        "manifests": 32,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Resident Evil 4",
+        "image": "/img/2050650.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "227300",
+        "file_appid": "227300",
+        "file": "227300.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\227300.lua",
+        "bytes": 14668,
+        "mtime": 1794693348652.4749,
+        "kind": "game",
+        "candidates": [
+          "227300",
+          "227301",
+          "227302",
+          "227310",
+          "258460"
+        ],
+        "depots": [
+          "227301",
+          "227302",
+          "227310",
+          "258460",
+          "266930",
+          "266931",
+          "292320",
+          "297790",
+          "297791",
+          "297792",
+          "297793",
+          "301180",
+          "304020",
+          "304140",
+          "304210",
+          "304211",
+          "304212",
+          "304213",
+          "304214",
+          "318500",
+          "318510",
+          "318511",
+          "318520",
+          "318521",
+          "347190",
+          "347210",
+          "347211",
+          "347212",
+          "347213",
+          "388470",
+          "388471",
+          "388472",
+          "388473",
+          "388474",
+          "388475",
+          "388476",
+          "388477",
+          "388478",
+          "388479",
+          "461240",
+          "461241",
+          "461242",
+          "461243",
+          "461244",
+          "461245",
+          "461246",
+          "461247",
+          "461248",
+          "461249",
+          "526950",
+          "531130",
+          "531131",
+          "540720",
+          "540721",
+          "558240",
+          "558241",
+          "558242",
+          "558243",
+          "558244",
+          "558245",
+          "876980",
+          "909640",
+          "925580",
+          "925650",
+          "933610",
+          "980590",
+          "980591",
+          "980592",
+          "1056760",
+          "1056761",
+          "1068290",
+          "1117140",
+          "1159030",
+          "1209460",
+          "1209461",
+          "1299530",
+          "1415700",
+          "1456860",
+          "1650650",
+          "1704460",
+          "1918370",
+          "1967640",
+          "1967650",
+          "2004210",
+          "2193220",
+          "2371170",
+          "2455690",
+          "2569750",
+          "2579670",
+          "2604420",
+          "2611740",
+          "2780800",
+          "2833100",
+          "2932420",
+          "3034940",
+          "3034950",
+          "3035040",
+          "3323350",
+          "3323360",
+          "3335300",
+          "3354860",
+          "3872920",
+          "3977520"
+        ],
+        "keys": 103,
+        "token": false,
+        "manifests": 111,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Euro Truck Simulator 2",
+        "image": "/img/227300.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "2483190",
+        "file_appid": "2483190",
+        "file": "2483190.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\2483190.lua",
+        "bytes": 422,
+        "mtime": 1794693348477.7373,
+        "kind": "game",
+        "candidates": [
+          "2483190",
+          "228989",
+          "228990"
+        ],
+        "depots": [
+          "228989",
+          "228990"
+        ],
+        "keys": 2,
+        "token": false,
+        "manifests": 3,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Forza Horizon 6",
+        "image": "/img/2483190.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "2651280",
+        "file_appid": "2651280",
+        "file": "2651280.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\2651280.lua",
+        "bytes": 2483,
+        "mtime": 1794693348785.863,
+        "kind": "game",
+        "candidates": [
+          "2651280",
+          "228989",
+          "2651281",
+          "2651282",
+          "2651283"
+        ],
+        "depots": [
+          "228989",
+          "2651281",
+          "2651282",
+          "2651283",
+          "2651284",
+          "2651285",
+          "2651286",
+          "2651287",
+          "2651288",
+          "2651289",
+          "2666311",
+          "2666312",
+          "2666313",
+          "2666314",
+          "2666315",
+          "2666316"
+        ],
+        "keys": 16,
+        "token": false,
+        "manifests": 17,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Marvel's Spider-Man 2",
+        "image": "/img/2651280.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "3240220",
+        "file_appid": "3240220",
+        "file": "3240220.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\3240220.lua",
+        "bytes": 970,
+        "mtime": 1794693348580.3242,
+        "kind": "game",
+        "candidates": [
+          "3240220",
+          "1899671",
+          "3240221",
+          "3240222",
+          "3240223"
+        ],
+        "depots": [
+          "1899671",
+          "3240221",
+          "3240222",
+          "3240223",
+          "3240224",
+          "3240225"
+        ],
+        "keys": 6,
+        "token": false,
+        "manifests": 6,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Grand Theft Auto V Enhanced",
+        "image": "/img/3240220.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "4115450",
+        "file_appid": "4115450",
+        "file": "4115450.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\4115450.lua",
+        "bytes": 422,
+        "mtime": 1794690328563.4424,
+        "kind": "game",
+        "candidates": [
+          "4115450",
+          "228989",
+          "228990"
+        ],
+        "depots": [
+          "228989",
+          "228990"
+        ],
+        "keys": 2,
+        "token": false,
+        "manifests": 3,
+        "valid": true,
+        "errors": [],
+        "installed": true,
+        "installed_bytes": 0,
+        "installed_state": 4,
+        "keyless": false,
+        "name": "Phantom Blade Zero",
+        "image": "/img/4115450.jpg",
+        "resolved": true,
+        "denuvo": true
+      },
+      {
+        "appid": "431960",
+        "file_appid": "431960",
+        "file": "431960.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\431960.lua",
+        "bytes": 380,
+        "mtime": 1794693348668.986,
+        "kind": "game",
+        "candidates": [
+          "431960",
+          "431961",
+          "431966"
+        ],
+        "depots": [
+          "431961",
+          "431966"
+        ],
+        "keys": 2,
+        "token": false,
+        "manifests": 2,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Wallpaper Engine",
+        "image": "/img/431960.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "620",
+        "file_appid": "620",
+        "file": "620.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\620.lua",
+        "bytes": 1192,
+        "mtime": 1794953968743.699,
+        "kind": "game",
+        "candidates": [
+          "620",
+          "621",
+          "622",
+          "624",
+          "625"
+        ],
+        "depots": [
+          "621",
+          "622",
+          "624",
+          "625",
+          "626",
+          "627",
+          "628",
+          "660"
+        ],
+        "keys": 8,
+        "token": false,
+        "manifests": 8,
+        "valid": true,
+        "errors": [],
+        "installed": false,
+        "installed_bytes": 0,
+        "installed_state": null,
+        "keyless": false,
+        "name": "Portal 2",
+        "image": "/img/620.jpg",
+        "resolved": true,
+        "denuvo": false
+      },
+      {
+        "appid": "814380",
+        "file_appid": "814380",
+        "file": "814380.lua",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in\\814380.lua",
+        "bytes": 1209,
+        "mtime": 1794690778602.2915,
+        "kind": "game",
+        "candidates": [
+          "814380",
+          "228986",
+          "228990",
+          "814381",
+          "814382"
+        ],
+        "depots": [
+          "228986",
+          "228990",
+          "814381",
+          "814382",
+          "814383",
+          "814384",
+          "814385",
+          "1039230"
+        ],
+        "keys": 8,
+        "token": false,
+        "manifests": 8,
+        "valid": true,
+        "errors": [],
+        "installed": true,
+        "installed_bytes": 15975740036,
+        "installed_state": 4,
+        "keyless": false,
+        "name": "Sekiro™: Shadows Die Twice - GOTY Edition",
+        "image": "/img/814380.jpg",
+        "resolved": true,
+        "denuvo": false
+      }
+    ],
+    "ms": 39
+  },
+  "/api/reach": {
+    "games_total": 88565,
+    "measured": 88565,
+    "indexed": 86516,
+    "indexed_measured": 86516,
+    "mode": "service",
+    "stale": false,
+    "measured_at": "2026-11-21T20:16:02.098Z",
+    "tokens": 5090,
+    "depot_keys": 175781,
+    "failing": 1,
+    "failing_titles": [
+      {
+        "appid": "4348910",
+        "total": 1,
+        "fails": 1,
+        "rate": 1,
+        "last_outcome": "error",
+        "last_at": "2026-11-17T22:18:54.631Z"
+      }
+    ]
+  },
+  "/api/repair": {
+    "steam_root": "C:\\Program Files (x86)\\Steam",
+    "steam_running": true,
+    "findings": [
+      {
+        "severity": "warn",
+        "fixable": false,
+        "action": "none",
+        "id": "scripts-nokey",
+        "title": "1 game has no depot key",
+        "detail": "1118520.lua was filled without one, so Steam will refuse to install it. remove it and add the game again"
+      }
+    ],
+    "summary": {
+      "state": "ok",
+      "fixable": 0,
+      "blockers": 0,
+      "warnings": 1,
+      "checked_at": "2026-11-21T20:17:49.113Z"
+    }
+  },
+  "/api/search?q=resident": {
+    "results": [
+      {
+        "appid": "4824610",
+        "name": "Resident Evil Veronica",
+        "image": "/img/4824610.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": false,
+        "renderable": false,
+        "partial": false,
+        "reason": "the service holds no data for 4824610",
+        "reports": null
+      },
+      {
+        "appid": "3764200",
+        "name": "Resident Evil Requiem",
+        "image": "/img/3764200.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": true,
+        "renderable": true,
+        "partial": true,
+        "reason": "2 of 7 depots have no key here",
+        "reports": null
+      },
+      {
+        "appid": "2050650",
+        "name": "Resident Evil 4",
+        "image": "/img/2050650.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": false,
+        "renderable": true,
+        "partial": false,
+        "reason": null,
+        "reports": null
+      },
+      {
+        "appid": "883710",
+        "name": "Resident Evil 2",
+        "image": "/img/883710.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": false,
+        "renderable": true,
+        "partial": false,
+        "reason": null,
+        "reports": null
+      },
+      {
+        "appid": "418370",
+        "name": "Resident Evil 7 Biohazard",
+        "image": "/img/418370.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": false,
+        "renderable": true,
+        "partial": true,
+        "reason": "2 of 36 depots have no key here",
+        "reports": null
+      },
+      {
+        "appid": "1196590",
+        "name": "Resident Evil Village",
+        "image": "/img/1196590.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": false,
+        "renderable": true,
+        "partial": false,
+        "reason": null,
+        "reports": null
+      },
+      {
+        "appid": "952060",
+        "name": "Resident Evil 3",
+        "image": "/img/952060.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": false,
+        "renderable": true,
+        "partial": true,
+        "reason": "2 of 7 depots have no key here",
+        "reports": null
+      },
+      {
+        "appid": "21690",
+        "name": "Resident Evil 5",
+        "image": "/img/21690.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": false,
+        "renderable": true,
+        "partial": false,
+        "reason": null,
+        "reports": null
+      },
+      {
+        "appid": "221040",
+        "name": "Resident Evil 6",
+        "image": "/img/221040.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": false,
+        "renderable": true,
+        "partial": true,
+        "reason": "1 of 24 depots have no key here",
+        "reports": null
+      },
+      {
+        "appid": "304240",
+        "name": "Resident Evil",
+        "image": "/img/304240.jpg",
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "denuvo": false,
+        "renderable": true,
+        "partial": false,
+        "reason": null,
+        "reports": null
+      },
+      {
+        "appid": "339340",
+        "name": "Resident Evil 0",
+        "image": "/img/339340.jpg",
+        "platforms": {},
+        "denuvo": false,
+        "supplier": true,
+        "renderable": true,
+        "partial": false,
+        "reason": null,
+        "reports": null
+      },
+      {
+        "appid": "3158870",
+        "name": "Resident Fear 2",
+        "image": "/img/3158870.jpg",
+        "platforms": {},
+        "denuvo": false,
+        "supplier": true,
+        "renderable": true,
+        "partial": true,
+        "reason": "1 of 2 depots have no key here",
+        "reports": null
+      },
+      {
+        "appid": "4249100",
+        "name": "Resident Evil (1996)",
+        "image": "/img/4249100.jpg",
+        "platforms": {},
+        "denuvo": false,
+        "supplier": true,
+        "renderable": true,
+        "partial": true,
+        "reason": "1 of 4 depots have no key here",
+        "reports": null
+      },
+      {
+        "appid": "254700",
+        "name": "Resident Evil 4 (2005)",
+        "image": "/img/254700.jpg",
+        "platforms": {},
+        "denuvo": false,
+        "supplier": true,
+        "renderable": true,
+        "partial": false,
+        "reason": null,
+        "reports": null
+      }
+    ]
+  },
+  "/api/settings": {
+    "app": {
+      "version": "4.0.0",
+      "node": "v22.23.5",
+      "port": 8799,
+      "update": {
+        "state": "unknown",
+        "version": null,
+        "url": null,
+        "sha256": null,
+        "checked_at": "2026-11-21T20:16:02.096Z",
+        "note": "this service publishes no release manifest (data/latest.json)"
+      },
+      "account": {
+        "known": true,
+        "checked_at": "2026-11-21T20:17:48.592Z",
+        "device_id": "dev_fixture",
+        "platform": "win32",
+        "app_version": "4.0.0",
+        "linked": true,
+        "user": {
+          "discord_id": "000000000000000000",
+          "username": "16.72",
+          "global_name": "mar",
+          "avatar": "fixture",
+          "avatar_url": "https://cdn.discordapp.com/avatars/0/fixture.png",
+          "email": "someone@example.invalid",
+          "tier": "member",
+          "donor_since": null,
+          "joined_server": "2025-12-19T16:06:26.579000+00:00",
+          "in_server": true,
+          "role_pending": null,
+          "donations": {
+            "count": 0,
+            "last_at": null
+          },
+          "pass": {
+            "active": false
+          }
+        },
+        "tier": "member",
+        "pass": {
+          "active": false,
+          "month": "2026-11",
+          "min_usd_cents": 500
+        },
+        "paused": null,
+        "kill": {
+          "active": false,
+          "reason": null,
+          "since": null,
+          "by": null
+        },
+        "peak": {
+          "active": false,
+          "rpm": 0,
+          "p95_ms": 400,
+          "since": null,
+          "member_multiplier": 0.4
+        },
+        "campaign": {
+          "live": true,
+          "state": "open",
+          "reason": null,
+          "paused": false,
+          "currency": "USD",
+          "target_usd": 10000,
+          "collected_usd": 0,
+          "collected_this_month_usd": 0,
+          "carry_in_usd": 0,
+          "percent": 0,
+          "month": "2026-11",
+          "deadline": "2026-11-30T21:00:00.000Z",
+          "grace_until": "2026-12-01T21:00:00.000Z",
+          "grace_hours": 24,
+          "days_left": 10,
+          "donations": 0,
+          "note": "We are 100 USD short of this month's running costs, with 10 days left.",
+          "currencies": {
+            "USD": [
+              {
+                "id": "p5",
+                "units": 5,
+                "amount_minor": 500,
+                "currency": "USD",
+                "usd_cents": 500,
+                "label": "$5.00"
+              },
+              {
+                "id": "p10",
+                "units": 10,
+                "amount_minor": 1000,
+                "currency": "USD",
+                "usd_cents": 1000,
+                "label": "$10.00"
+              },
+              {
+                "id": "p25",
+                "units": 25,
+                "amount_minor": 2500,
+                "currency": "USD",
+                "usd_cents": 2500,
+                "label": "$25.00"
+              },
+              {
+                "id": "p50",
+                "units": 50,
+                "amount_minor": 5000,
+                "currency": "USD",
+                "usd_cents": 5000,
+                "label": "$50.00"
+              }
+            ],
+            "AED": [
+              {
+                "id": "p5",
+                "units": 5,
+                "amount_minor": 500,
+                "currency": "AED",
+                "usd_cents": 136,
+                "label": "AED 5.00"
+              },
+              {
+                "id": "p10",
+                "units": 10,
+                "amount_minor": 1000,
+                "currency": "AED",
+                "usd_cents": 272,
+                "label": "AED 10.00"
+              },
+              {
+                "id": "p25",
+                "units": 25,
+                "amount_minor": 2500,
+                "currency": "AED",
+                "usd_cents": 681,
+                "label": "AED 25.00"
+              },
+              {
+                "id": "p50",
+                "units": 50,
+                "amount_minor": 5000,
+                "currency": "AED",
+                "usd_cents": 1361,
+                "label": "AED 50.00"
+              }
+            ],
+            "SAR": [
+              {
+                "id": "p5",
+                "units": 5,
+                "amount_minor": 500,
+                "currency": "SAR",
+                "usd_cents": 133,
+                "label": "SAR 5.00"
+              },
+              {
+                "id": "p10",
+                "units": 10,
+                "amount_minor": 1000,
+                "currency": "SAR",
+                "usd_cents": 267,
+                "label": "SAR 10.00"
+              },
+              {
+                "id": "p25",
+                "units": 25,
+                "amount_minor": 2500,
+                "currency": "SAR",
+                "usd_cents": 667,
+                "label": "SAR 25.00"
+              },
+              {
+                "id": "p50",
+                "units": 50,
+                "amount_minor": 5000,
+                "currency": "SAR",
+                "usd_cents": 1333,
+                "label": "SAR 50.00"
+              }
+            ]
+          },
+          "crypto": {
+            "usdt_trc20": "TNCi4aAQywehTqZhVLyUAhA7yKF6EFHn1b",
+            "handle": "16.72",
+            "handle_id": "100000000000000001"
+          },
+          "min_pass_usd": 500,
+          "donor_bypass": true
+        },
+        "gate": true,
+        "source": "live"
+      }
+    },
+    "steam": {
+      "root": "C:\\Program Files (x86)\\Steam",
+      "source": "config",
+      "running": true,
+      "dlls": [
+        {
+          "name": "dwmapi.dll",
+          "present": true,
+          "bytes": 109568
+        },
+        {
+          "name": "xinput1_4.dll",
+          "present": true,
+          "bytes": 122880
+        },
+        {
+          "name": "OpenSteamTool.dll",
+          "present": true,
+          "bytes": 1742848
+        }
+      ],
+      "toml": {
+        "present": true,
+        "sections": [
+          "log",
+          "manifest",
+          "inject"
+        ],
+        "injects": []
+      },
+      "paths": {
+        "stplug_in": "C:\\Program Files (x86)\\Steam\\config\\stplug-in",
+        "depotcache": "C:\\Program Files (x86)\\Steam\\depotcache",
+        "steamapps": "C:\\Program Files (x86)\\Steam\\steamapps",
+        "auto": {
+          "stplug_in": true,
+          "depotcache": true
+        },
+        "detected_root": "C:\\Program Files (x86)\\Steam",
+        "dll_source": "C:\\SteaMar\\vendor"
+      }
+    },
+    "data": {
+      "api": {
+        "configured": true,
+        "base": "https://steamar.cc",
+        "key": "MCowBQYDK2Vw…",
+        "enrolled": true,
+        "device_id": "dev_fixture",
+        "enrolled_at": 1795284287543,
+        "install_id": "694e33ade373e1b0a9e0bb9b252d285c",
+        "last_ok": "2026-11-21T20:17:48.592Z",
+        "last_error": null,
+        "counts": {
+          "addable": 88565,
+          "titles": 86516,
+          "depot_keys": 175781,
+          "tokens": 5090,
+          "denuvo_titles": 79,
+          "fixes": 2057,
+          "failing": 1,
+          "fetched": 1795292162098
+        },
+        "update": {
+          "state": "unknown",
+          "version": null,
+          "url": null,
+          "sha256": null,
+          "checked_at": "2026-11-21T20:16:02.096Z",
+          "note": "this service publishes no release manifest (data/latest.json)"
+        },
+        "account": {
+          "known": true,
+          "checked_at": "2026-11-21T20:17:48.592Z",
+          "device_id": "dev_fixture",
+          "platform": "win32",
+          "app_version": "4.0.0",
+          "linked": true,
+          "user": {
+            "discord_id": "000000000000000000",
+            "username": "16.72",
+            "global_name": "mar",
+            "avatar": "fixture",
+            "avatar_url": "https://cdn.discordapp.com/avatars/0/fixture.png",
+            "email": "someone@example.invalid",
+            "tier": "member",
+            "donor_since": null,
+            "joined_server": "2025-12-19T16:06:26.579000+00:00",
+            "in_server": true,
+            "role_pending": null,
+            "donations": {
+              "count": 0,
+              "last_at": null
+            },
+            "pass": {
+              "active": false
+            }
+          },
+          "tier": "member",
+          "pass": {
+            "active": false,
+            "month": "2026-11",
+            "min_usd_cents": 500
+          },
+          "paused": null,
+          "kill": {
+            "active": false,
+            "reason": null,
+            "since": null,
+            "by": null
+          },
+          "peak": {
+            "active": false,
+            "rpm": 0,
+            "p95_ms": 400,
+            "since": null,
+            "member_multiplier": 0.4
+          },
+          "campaign": {
+            "live": true,
+            "state": "open",
+            "reason": null,
+            "paused": false,
+            "currency": "USD",
+            "target_usd": 10000,
+            "collected_usd": 0,
+            "collected_this_month_usd": 0,
+            "carry_in_usd": 0,
+            "percent": 0,
+            "month": "2026-11",
+            "deadline": "2026-11-30T21:00:00.000Z",
+            "grace_until": "2026-12-01T21:00:00.000Z",
+            "grace_hours": 24,
+            "days_left": 10,
+            "donations": 0,
+            "note": "We are 100 USD short of this month's running costs, with 10 days left.",
+            "currencies": {
+              "USD": [
+                {
+                  "id": "p5",
+                  "units": 5,
+                  "amount_minor": 500,
+                  "currency": "USD",
+                  "usd_cents": 500,
+                  "label": "$5.00"
+                },
+                {
+                  "id": "p10",
+                  "units": 10,
+                  "amount_minor": 1000,
+                  "currency": "USD",
+                  "usd_cents": 1000,
+                  "label": "$10.00"
+                },
+                {
+                  "id": "p25",
+                  "units": 25,
+                  "amount_minor": 2500,
+                  "currency": "USD",
+                  "usd_cents": 2500,
+                  "label": "$25.00"
+                },
+                {
+                  "id": "p50",
+                  "units": 50,
+                  "amount_minor": 5000,
+                  "currency": "USD",
+                  "usd_cents": 5000,
+                  "label": "$50.00"
+                }
+              ],
+              "AED": [
+                {
+                  "id": "p5",
+                  "units": 5,
+                  "amount_minor": 500,
+                  "currency": "AED",
+                  "usd_cents": 136,
+                  "label": "AED 5.00"
+                },
+                {
+                  "id": "p10",
+                  "units": 10,
+                  "amount_minor": 1000,
+                  "currency": "AED",
+                  "usd_cents": 272,
+                  "label": "AED 10.00"
+                },
+                {
+                  "id": "p25",
+                  "units": 25,
+                  "amount_minor": 2500,
+                  "currency": "AED",
+                  "usd_cents": 681,
+                  "label": "AED 25.00"
+                },
+                {
+                  "id": "p50",
+                  "units": 50,
+                  "amount_minor": 5000,
+                  "currency": "AED",
+                  "usd_cents": 1361,
+                  "label": "AED 50.00"
+                }
+              ],
+              "SAR": [
+                {
+                  "id": "p5",
+                  "units": 5,
+                  "amount_minor": 500,
+                  "currency": "SAR",
+                  "usd_cents": 133,
+                  "label": "SAR 5.00"
+                },
+                {
+                  "id": "p10",
+                  "units": 10,
+                  "amount_minor": 1000,
+                  "currency": "SAR",
+                  "usd_cents": 267,
+                  "label": "SAR 10.00"
+                },
+                {
+                  "id": "p25",
+                  "units": 25,
+                  "amount_minor": 2500,
+                  "currency": "SAR",
+                  "usd_cents": 667,
+                  "label": "SAR 25.00"
+                },
+                {
+                  "id": "p50",
+                  "units": 50,
+                  "amount_minor": 5000,
+                  "currency": "SAR",
+                  "usd_cents": 1333,
+                  "label": "SAR 50.00"
+                }
+              ]
+            },
+            "crypto": {
+              "usdt_trc20": "TNCi4aAQywehTqZhVLyUAhA7yKF6EFHn1b",
+              "handle": "16.72",
+              "handle_id": "100000000000000001"
+            },
+            "min_pass_usd": 500,
+            "donor_bypass": true
+          },
+          "gate": true,
+          "source": "live"
+        },
+        "campaign": {
+          "live": true,
+          "state": "open",
+          "reason": null,
+          "paused": false,
+          "currency": "USD",
+          "target_usd": 10000,
+          "collected_usd": 0,
+          "collected_this_month_usd": 0,
+          "carry_in_usd": 0,
+          "percent": 0,
+          "month": "2026-11",
+          "deadline": "2026-11-30T21:00:00.000Z",
+          "grace_until": "2026-12-01T21:00:00.000Z",
+          "grace_hours": 24,
+          "days_left": 10,
+          "donations": 0,
+          "note": "We are 100 USD short of this month's running costs, with 10 days left.",
+          "currencies": {
+            "USD": [
+              {
+                "id": "p5",
+                "units": 5,
+                "amount_minor": 500,
+                "currency": "USD",
+                "usd_cents": 500,
+                "label": "$5.00"
+              },
+              {
+                "id": "p10",
+                "units": 10,
+                "amount_minor": 1000,
+                "currency": "USD",
+                "usd_cents": 1000,
+                "label": "$10.00"
+              },
+              {
+                "id": "p25",
+                "units": 25,
+                "amount_minor": 2500,
+                "currency": "USD",
+                "usd_cents": 2500,
+                "label": "$25.00"
+              },
+              {
+                "id": "p50",
+                "units": 50,
+                "amount_minor": 5000,
+                "currency": "USD",
+                "usd_cents": 5000,
+                "label": "$50.00"
+              }
+            ],
+            "AED": [
+              {
+                "id": "p5",
+                "units": 5,
+                "amount_minor": 500,
+                "currency": "AED",
+                "usd_cents": 136,
+                "label": "AED 5.00"
+              },
+              {
+                "id": "p10",
+                "units": 10,
+                "amount_minor": 1000,
+                "currency": "AED",
+                "usd_cents": 272,
+                "label": "AED 10.00"
+              },
+              {
+                "id": "p25",
+                "units": 25,
+                "amount_minor": 2500,
+                "currency": "AED",
+                "usd_cents": 681,
+                "label": "AED 25.00"
+              },
+              {
+                "id": "p50",
+                "units": 50,
+                "amount_minor": 5000,
+                "currency": "AED",
+                "usd_cents": 1361,
+                "label": "AED 50.00"
+              }
+            ],
+            "SAR": [
+              {
+                "id": "p5",
+                "units": 5,
+                "amount_minor": 500,
+                "currency": "SAR",
+                "usd_cents": 133,
+                "label": "SAR 5.00"
+              },
+              {
+                "id": "p10",
+                "units": 10,
+                "amount_minor": 1000,
+                "currency": "SAR",
+                "usd_cents": 267,
+                "label": "SAR 10.00"
+              },
+              {
+                "id": "p25",
+                "units": 25,
+                "amount_minor": 2500,
+                "currency": "SAR",
+                "usd_cents": 667,
+                "label": "SAR 25.00"
+              },
+              {
+                "id": "p50",
+                "units": 50,
+                "amount_minor": 5000,
+                "currency": "SAR",
+                "usd_cents": 1333,
+                "label": "SAR 50.00"
+              }
+            ]
+          },
+          "crypto": {
+            "usdt_trc20": "TNCi4aAQywehTqZhVLyUAhA7yKF6EFHn1b",
+            "handle": "16.72",
+            "handle_id": "100000000000000001"
+          },
+          "min_pass_usd": 500,
+          "donor_bypass": true
+        }
+      },
+      "repos": {
+        "manifesthub3": {
+          "head": null
+        },
+        "manifesthub": {
+          "head": null
+        }
+      }
+    },
+    "storage": {
+      "cache": {
+        "files": 18568,
+        "bytes": 94340404
+      },
+      "backups": [
+        {
+          "file": "1174180-2026-11-16T23-36-21-478Z.lua",
+          "bytes": 1160,
+          "time": 1794872171334.0166
+        },
+        {
+          "file": "3259780-2026-11-16T00-21-32-226Z.lua",
+          "bytes": 421,
+          "time": 1794788481997.494
+        },
+        {
+          "file": "1174180-2026-11-16T23-36-11-332Z.lua",
+          "bytes": 1336,
+          "time": 1794693348756.475
+        },
+        {
+          "file": "1118520-2026-11-14T23-20-55-384Z.lua",
+          "bytes": 154,
+          "time": 1794693275326.5884
+        },
+        {
+          "file": "1091500-2026-11-14T21-54-23-235Z.lua",
+          "bytes": 1991,
+          "time": 1794693168154.2195
+        },
+        {
+          "file": "4000-2026-11-14T21-46-52-689Z.lua",
+          "bytes": 504,
+          "time": 1794692811945.7021
+        },
+        {
+          "file": "4000-2026-11-14T21-46-49-766Z.lua",
+          "bytes": 504,
+          "time": 1794692807122.2441
+        },
+        {
+          "file": "4000-2026-11-14T21-46-32-355Z.lua",
+          "bytes": 504,
+          "time": 1794692791596.7625
+        },
+        {
+          "file": "4000-2026-11-14T21-46-29-415Z.lua",
+          "bytes": 504,
+          "time": 1794692786750.8691
+        },
+        {
+          "file": "4000-2026-11-14T21-46-26-749Z.lua",
+          "bytes": 504,
+          "time": 1794692752017.1265
+        },
+        {
+          "file": "4000-2026-11-14T21-45-49-887Z.lua",
+          "bytes": 504,
+          "time": 1794692747290.7227
+        },
+        {
+          "file": "4000-2026-11-14T21-45-47-289Z.lua",
+          "bytes": 504,
+          "time": 1794692608445.4365
+        },
+        {
+          "file": "4000-2026-11-14T21-43-26-252Z.lua",
+          "bytes": 504,
+          "time": 1794692603181.0552
+        },
+        {
+          "file": "4000-2026-11-14T21-43-03-919Z.lua",
+          "bytes": 504,
+          "time": 1794692583812.7913
+        },
+        {
+          "file": "4000-2026-11-14T21-43-03-812Z.lua",
+          "bytes": 504,
+          "time": 1794692579968.6284
+        },
+        {
+          "file": "4000-2026-11-14T21-42-59-821Z.lua",
+          "bytes": 504,
+          "time": 1794692579724.4937
+        },
+        {
+          "file": "1091500-2026-11-14T21-52-42-945Z.lua",
+          "bytes": 1991,
+          "time": 1794692424579.2378
+        },
+        {
+          "file": "271590-2026-11-14T21-28-16-741Z.lua",
+          "bytes": 1185,
+          "time": 1794691693244.0764
+        },
+        {
+          "file": "271590-2026-11-14T21-28-09-919Z.lua",
+          "bytes": 1185,
+          "time": 1794691686412.891
+        },
+        {
+          "file": "292030-2026-11-14T21-28-23-814Z.lua",
+          "bytes": 7886,
+          "time": 1794691670144.138
+        }
+      ],
+      "backup_count": 52,
+      "imgcache": {
+        "files": 1178,
+        "bytes": 45481603
+      }
+    },
+    "coverage": {
+      "tokens": 5090,
+      "depot_keys": 175781,
+      "supplier_apps": 86516
+    },
+    "denuvo": {
+      "count": 79,
+      "resolved": 79,
+      "fetched": null,
+      "loaded_at": 1795292268601,
+      "source": "service"
+    },
+    "project": {
+      "root": "C:\\SteaMar",
+      "out": "C:\\SteaMar\\out"
+    }
+  },
+  "/api/setup": {
+    "ready": true,
+    "steam_root": "C:\\Program Files (x86)\\Steam",
+    "detected_root": "C:\\Program Files (x86)\\Steam",
+    "steam_running": true,
+    "dlls": [
+      {
+        "name": "dwmapi.dll",
+        "present": true,
+        "bytes": 109568
+      },
+      {
+        "name": "xinput1_4.dll",
+        "present": true,
+        "bytes": 122880
+      },
+      {
+        "name": "OpenSteamTool.dll",
+        "present": true,
+        "bytes": 1742848
+      }
+    ],
+    "toml": true,
+    "source": {
+      "dir": "C:\\SteaMar\\vendor",
+      "exists": true,
+      "files": [
+        {
+          "name": "dwmapi.dll",
+          "bytes": 109568
+        },
+        {
+          "name": "xinput1_4.dll",
+          "bytes": 122880
+        },
+        {
+          "name": "OpenSteamTool.dll",
+          "bytes": 1742848
+        }
+      ],
+      "toml": true
+    },
+    "folders": [
+      {
+        "key": "steam_root",
+        "label": "Steam folder",
+        "path": "C:\\Program Files (x86)\\Steam",
+        "exists": true,
+        "auto": true
+      },
+      {
+        "key": "stplug_in",
+        "label": "Lua folder",
+        "path": "C:\\Program Files (x86)\\Steam\\config\\stplug-in",
+        "exists": true,
+        "auto": true
+      },
+      {
+        "key": "depotcache",
+        "label": "Manifest folder",
+        "path": "C:\\Program Files (x86)\\Steam\\depotcache",
+        "exists": true,
+        "auto": true
+      }
+    ],
+    "vendor": {
+      "dir": "C:\\SteaMar\\vendor",
+      "ready": true,
+      "version": "BetterSteamTools 1.0.9",
+      "files": [
+        {
+          "name": "dwmapi.dll",
+          "present": true,
+          "bytes": 109568
+        },
+        {
+          "name": "xinput1_4.dll",
+          "present": true,
+          "bytes": 122880
+        },
+        {
+          "name": "OpenSteamTool.dll",
+          "present": true,
+          "bytes": 1742848
+        }
+      ],
+      "toml": true,
+      "data": {
+        "dir": "C:\\SteaMar\\ManifestHub3\\archive",
+        "source": "service",
+        "ready": true,
+        "stale": false,
+        "refresh_days": 7,
+        "files": []
+      },
+      "download": {
+        "active": false,
+        "step": "",
+        "label": "",
+        "bytes": 0,
+        "total": 0,
+        "error": "",
+        "done": []
+      }
+    },
+    "needs_files": false,
+    "can_install": true
+  },
+  "/api/status": {
+    "root": "C:\\SteaMar",
+    "steam_root": "C:\\Program Files (x86)\\Steam",
+    "steam_running": true,
+    "proxy_dlls": [
+      {
+        "name": "dwmapi.dll",
+        "present": true
+      },
+      {
+        "name": "xinput1_4.dll",
+        "present": true
+      },
+      {
+        "name": "OpenSteamTool.dll",
+        "present": true
+      }
+    ],
+    "toml": true,
+    "scripts": 14,
+    "config_scripts": 0,
+    "available": 5090,
+    "tokens": 5090,
+    "depot_keys": 175781,
+    "needs_repair": 0
+  },
+  "/api/store": {
+    "denuvo_count": 79,
+    "banner": [
+      {
+        "appid": "1091500",
+        "name": "Cyberpunk 2077",
+        "image": "/img/1091500.jpg",
+        "hero": "/img/hero/1091500.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "1771300",
+        "name": "Kingdom Come: Deliverance II",
+        "image": "/img/1771300.jpg",
+        "hero": "/img/hero/1771300.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "1817070",
+        "name": "Marvel’s Spider-Man Remastered",
+        "image": "/img/1817070.jpg",
+        "hero": "/img/hero/1817070.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "2322010",
+        "name": "God of War Ragnarök",
+        "image": "/img/2322010.jpg",
+        "hero": "/img/hero/2322010.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "1245620",
+        "name": "ELDEN RING",
+        "image": "/img/1245620.jpg",
+        "hero": "/img/hero/1245620.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "1259420",
+        "name": "Days Gone",
+        "image": "/img/1259420.jpg",
+        "hero": "/img/hero/1259420.jpg",
+        "denuvo": false
+      }
+    ],
+    "picks": [
+      {
+        "appid": "1091500",
+        "name": "Cyberpunk 2077",
+        "image": "/img/1091500.jpg",
+        "hero": "/img/hero/1091500.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "1771300",
+        "name": "Kingdom Come: Deliverance II",
+        "image": "/img/1771300.jpg",
+        "hero": "/img/hero/1771300.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "1817070",
+        "name": "Marvel’s Spider-Man Remastered",
+        "image": "/img/1817070.jpg",
+        "hero": "/img/hero/1817070.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "2322010",
+        "name": "God of War Ragnarök",
+        "image": "/img/2322010.jpg",
+        "hero": "/img/hero/2322010.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "1245620",
+        "name": "ELDEN RING",
+        "image": "/img/1245620.jpg",
+        "hero": "/img/hero/1245620.jpg",
+        "denuvo": false
+      },
+      {
+        "appid": "1259420",
+        "name": "Days Gone",
+        "image": "/img/1259420.jpg",
+        "hero": "/img/hero/1259420.jpg",
+        "denuvo": false
+      }
+    ],
+    "shelves": [
+      {
+        "title": "AAA / Open World",
+        "games": [
+          {
+            "appid": "3240220",
+            "name": "Grand Theft Auto V",
+            "image": "/img/3240220.jpg",
+            "hero": "/img/hero/3240220.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1174180",
+            "name": "Red Dead Redemption 2",
+            "image": "/img/1174180.jpg",
+            "hero": "/img/hero/1174180.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1091500",
+            "name": "Cyberpunk 2077",
+            "image": "/img/1091500.jpg",
+            "hero": "/img/hero/1091500.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "292030",
+            "name": "The Witcher 3: Wild Hunt",
+            "image": "/img/292030.jpg",
+            "hero": "/img/hero/292030.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1771300",
+            "name": "Kingdom Come: Deliverance II",
+            "image": "/img/1771300.jpg",
+            "hero": "/img/hero/1771300.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "990080",
+            "name": "Hogwarts Legacy",
+            "image": "/img/990080.jpg",
+            "hero": "/img/hero/990080.jpg",
+            "denuvo": true
+          },
+          {
+            "appid": "1259420",
+            "name": "Days Gone",
+            "image": "/img/1259420.jpg",
+            "hero": "/img/hero/1259420.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "2215430",
+            "name": "Ghost of Tsushima Director's Cut",
+            "image": "/img/2215430.jpg",
+            "hero": "/img/hero/2215430.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "2561580",
+            "name": "Horizon Zero Dawn Remastered",
+            "image": "/img/2561580.jpg",
+            "hero": "/img/hero/2561580.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1817070",
+            "name": "Marvel's Spider-Man Remastered",
+            "image": "/img/1817070.jpg",
+            "hero": "/img/hero/1817070.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1817190",
+            "name": "Marvel's Spider-Man: Miles Morales",
+            "image": "/img/1817190.jpg",
+            "hero": "/img/hero/1817190.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1593500",
+            "name": "God of War",
+            "image": "/img/1593500.jpg",
+            "hero": "/img/hero/1593500.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "2322010",
+            "name": "God of War Ragnarök",
+            "image": "/img/2322010.jpg",
+            "hero": "/img/hero/2322010.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1659420",
+            "name": "Uncharted: Legacy of Thieves Collection",
+            "image": "/img/1659420.jpg",
+            "hero": "/img/hero/1659420.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1888930",
+            "name": "The Last of Us Part I",
+            "image": "/img/1888930.jpg",
+            "hero": "/img/hero/1888930.jpg",
+            "denuvo": false
+          }
+        ]
+      },
+      {
+        "title": "Action / Adventure / RPG",
+        "games": [
+          {
+            "appid": "1245620",
+            "name": "Elden Ring",
+            "image": "/img/1245620.jpg",
+            "hero": "/img/hero/1245620.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1086940",
+            "name": "Baldur's Gate 3",
+            "image": "/img/1086940.jpg",
+            "hero": "/img/hero/1086940.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "2358720",
+            "name": "Black Myth: Wukong",
+            "image": "/img/2358720.jpg",
+            "hero": "/img/hero/2358720.jpg",
+            "denuvo": true
+          },
+          {
+            "appid": "814380",
+            "name": "Sekiro: Shadows Die Twice",
+            "image": "/img/814380.jpg",
+            "hero": "/img/hero/814380.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1627720",
+            "name": "Lies of P",
+            "image": "/img/1627720.jpg",
+            "hero": "/img/hero/1627720.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "374320",
+            "name": "Dark Souls III",
+            "image": "/img/374320.jpg",
+            "hero": "/img/hero/374320.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "582010",
+            "name": "Monster Hunter: World",
+            "image": "/img/582010.jpg",
+            "hero": "/img/hero/582010.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "2054970",
+            "name": "Dragon's Dogma 2",
+            "image": "/img/2054970.jpg",
+            "hero": "/img/hero/2054970.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1145360",
+            "name": "Hades",
+            "image": "/img/1145360.jpg",
+            "hero": "/img/hero/1145360.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1145350",
+            "name": "Hades II",
+            "image": "/img/1145350.jpg",
+            "hero": "/img/hero/1145350.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "367520",
+            "name": "Hollow Knight",
+            "image": "/img/367520.jpg",
+            "hero": "/img/hero/367520.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1030300",
+            "name": "Hollow Knight: Silksong",
+            "image": "/img/1030300.jpg",
+            "hero": "/img/hero/1030300.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "588650",
+            "name": "Dead Cells",
+            "image": "/img/588650.jpg",
+            "hero": "/img/hero/588650.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1057090",
+            "name": "Ori and the Will of the Wisps",
+            "image": "/img/1057090.jpg",
+            "hero": "/img/hero/1057090.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "268910",
+            "name": "Cuphead",
+            "image": "/img/268910.jpg",
+            "hero": "/img/hero/268910.jpg",
+            "denuvo": false
+          }
+        ]
+      },
+      {
+        "title": "Survival / Building / Simulation",
+        "games": [
+          {
+            "appid": "264710",
+            "name": "Subnautica",
+            "image": "/img/264710.jpg",
+            "hero": "/img/hero/264710.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "848450",
+            "name": "Subnautica: Below Zero",
+            "image": "/img/848450.jpg",
+            "hero": "/img/hero/848450.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "108600",
+            "name": "Project Zomboid",
+            "image": "/img/108600.jpg",
+            "hero": "/img/hero/108600.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "294100",
+            "name": "RimWorld",
+            "image": "/img/294100.jpg",
+            "hero": "/img/hero/294100.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "427520",
+            "name": "Factorio",
+            "image": "/img/427520.jpg",
+            "hero": "/img/hero/427520.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "526870",
+            "name": "Satisfactory",
+            "image": "/img/526870.jpg",
+            "hero": "/img/hero/526870.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "413150",
+            "name": "Stardew Valley",
+            "image": "/img/413150.jpg",
+            "hero": "/img/hero/413150.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "105600",
+            "name": "Terraria",
+            "image": "/img/105600.jpg",
+            "hero": "/img/hero/105600.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "892970",
+            "name": "Valheim",
+            "image": "/img/892970.jpg",
+            "hero": "/img/hero/892970.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "242760",
+            "name": "The Forest",
+            "image": "/img/242760.jpg",
+            "hero": "/img/hero/242760.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1326470",
+            "name": "Sons Of The Forest",
+            "image": "/img/1326470.jpg",
+            "hero": "/img/hero/1326470.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "251570",
+            "name": "7 Days to Die",
+            "image": "/img/251570.jpg",
+            "hero": "/img/hero/251570.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "227300",
+            "name": "Euro Truck Simulator 2",
+            "image": "/img/227300.jpg",
+            "hero": "/img/hero/227300.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "270880",
+            "name": "American Truck Simulator",
+            "image": "/img/270880.jpg",
+            "hero": "/img/hero/270880.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "255710",
+            "name": "Cities: Skylines",
+            "image": "/img/255710.jpg",
+            "hero": "/img/hero/255710.jpg",
+            "denuvo": false
+          }
+        ]
+      },
+      {
+        "title": "Horror / Story",
+        "games": [
+          {
+            "appid": "883710",
+            "name": "Resident Evil 2",
+            "image": "/img/883710.jpg",
+            "hero": "/img/hero/883710.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "952060",
+            "name": "Resident Evil 3",
+            "image": "/img/952060.jpg",
+            "hero": "/img/hero/952060.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "2050650",
+            "name": "Resident Evil 4",
+            "image": "/img/2050650.jpg",
+            "hero": "/img/hero/2050650.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "418370",
+            "name": "Resident Evil 7 Biohazard",
+            "image": "/img/418370.jpg",
+            "hero": "/img/hero/418370.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1196590",
+            "name": "Resident Evil Village",
+            "image": "/img/1196590.jpg",
+            "hero": "/img/hero/1196590.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1693980",
+            "name": "Dead Space",
+            "image": "/img/1693980.jpg",
+            "hero": "/img/hero/1693980.jpg",
+            "denuvo": true
+          },
+          {
+            "appid": "214490",
+            "name": "Alien: Isolation",
+            "image": "/img/214490.jpg",
+            "hero": "/img/hero/214490.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "238320",
+            "name": "Outlast",
+            "image": "/img/238320.jpg",
+            "hero": "/img/hero/238320.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "414700",
+            "name": "Outlast 2",
+            "image": "/img/414700.jpg",
+            "hero": "/img/hero/414700.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1944430",
+            "name": "Amnesia: The Bunker",
+            "image": "/img/1944430.jpg",
+            "hero": "/img/hero/1944430.jpg",
+            "denuvo": false
+          }
+        ]
+      },
+      {
+        "title": "FPS / Action",
+        "games": [
+          {
+            "appid": "782330",
+            "name": "DOOM Eternal",
+            "image": "/img/782330.jpg",
+            "hero": "/img/hero/782330.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "379720",
+            "name": "DOOM (2016)",
+            "image": "/img/379720.jpg",
+            "hero": "/img/hero/379720.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1237970",
+            "name": "Titanfall 2",
+            "image": "/img/1237970.jpg",
+            "hero": "/img/hero/1237970.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "412020",
+            "name": "Metro Exodus",
+            "image": "/img/412020.jpg",
+            "hero": "/img/hero/412020.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "287390",
+            "name": "Metro Last Light Redux",
+            "image": "/img/287390.jpg",
+            "hero": "/img/hero/287390.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "201810",
+            "name": "Wolfenstein: The New Order",
+            "image": "/img/201810.jpg",
+            "hero": "/img/hero/201810.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "612880",
+            "name": "Wolfenstein II: The New Colossus",
+            "image": "/img/612880.jpg",
+            "hero": "/img/hero/612880.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "552520",
+            "name": "Far Cry 5",
+            "image": "/img/552520.jpg",
+            "hero": "/img/hero/552520.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "2369390",
+            "name": "Far Cry 6",
+            "image": "/img/2369390.jpg",
+            "hero": "/img/hero/2369390.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "239140",
+            "name": "Dying Light",
+            "image": "/img/239140.jpg",
+            "hero": "/img/hero/239140.jpg",
+            "denuvo": false
+          }
+        ]
+      },
+      {
+        "title": "Strategy / Indie / Other",
+        "games": [
+          {
+            "appid": "289070",
+            "name": "Civilization VI",
+            "image": "/img/289070.jpg",
+            "hero": "/img/hero/289070.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "394360",
+            "name": "Hearts of Iron IV",
+            "image": "/img/394360.jpg",
+            "hero": "/img/hero/394360.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1158310",
+            "name": "Crusader Kings III",
+            "image": "/img/1158310.jpg",
+            "hero": "/img/hero/1158310.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "261550",
+            "name": "Mount & Blade II: Bannerlord",
+            "image": "/img/261550.jpg",
+            "hero": "/img/hero/261550.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1142710",
+            "name": "Total War: WARHAMMER III",
+            "image": "/img/1142710.jpg",
+            "hero": "/img/hero/1142710.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "250900",
+            "name": "The Binding of Isaac: Rebirth",
+            "image": "/img/250900.jpg",
+            "hero": "/img/hero/250900.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "646570",
+            "name": "Slay the Spire",
+            "image": "/img/646570.jpg",
+            "hero": "/img/hero/646570.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1794680",
+            "name": "Vampire Survivors",
+            "image": "/img/1794680.jpg",
+            "hero": "/img/hero/1794680.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1229490",
+            "name": "ULTRAKILL",
+            "image": "/img/1229490.jpg",
+            "hero": "/img/hero/1229490.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "322170",
+            "name": "Geometry Dash",
+            "image": "/img/322170.jpg",
+            "hero": "/img/hero/322170.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "620",
+            "name": "Portal 2",
+            "image": "/img/620.jpg",
+            "hero": "/img/hero/620.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "400",
+            "name": "Portal",
+            "image": "/img/400.jpg",
+            "hero": "/img/hero/400.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "304430",
+            "name": "INSIDE",
+            "image": "/img/304430.jpg",
+            "hero": "/img/hero/304430.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1332010",
+            "name": "Stray",
+            "image": "/img/1332010.jpg",
+            "hero": "/img/hero/1332010.jpg",
+            "denuvo": false
+          },
+          {
+            "appid": "1868140",
+            "name": "Dave the Diver",
+            "image": "/img/1868140.jpg",
+            "hero": "/img/hero/1868140.jpg",
+            "denuvo": false
+          }
+        ]
+      }
+    ]
+  },
+  "/api/verdict?appid=1118520": {
+    "known": false,
+    "renderable": false,
+    "partial": false,
+    "code": "unknown",
+    "reason": "the service holds no data for 1118520",
+    "depots": 0,
+    "keyed": 0
+  }
+}

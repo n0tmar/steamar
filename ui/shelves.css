@@ -1,0 +1,291 @@
+/* Home and the library: the banner, the loading shapes, the shelf notes and the game grid. */
+
+/* ---------- banner ---------- */
+
+.banner {
+  position: relative;
+  margin: 0 0 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--window);
+}
+/* Loading is the page's own shape: blocks at the banner and card sizes, one wide highlight
+   travelling across them. Same borders, gaps and aspect ratios as the real thing, so nothing
+   moves when the store lands. */
+.sk {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  /* Two steps above the page and one under the field: visibly "this is coming", never so bright
+     it reads as a broken image. */
+  background: #1a1f27;
+}
+/* Wide and soft, so it reads as light passing over a surface and not as a bar crossing a box. */
+.sk::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, #ffffff00 30%, #ffffff16 50%, #ffffff00 70%);
+  transform: translateX(-100%);
+  animation: sk-sweep 1.5s cubic-bezier(.45, 0, .25, 1) infinite;
+}
+@keyframes sk-sweep { to { transform: translateX(100%); } }
+/* With motion off, something still has to say work is happening: the highlight stays where it is
+   and breathes, so there is a slow pulse and no travel. */
+@media (prefers-reduced-motion: reduce) {
+  .sk::after { transform: none; animation: sk-breathe 2.4s ease-in-out infinite; }
+  @keyframes sk-breathe { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+}
+/* 242 is the banner's real box: a 240 slide area and two hairline borders. The bar sits where the
+   slide's title sits, so the hero reads as a hero and not as an empty panel. */
+.sk-banner { height: 242px; margin: 0 0 12px; border: 1px solid var(--line-soft); }
+.sk-hero { position: absolute; left: 16px; bottom: 14px; width: 210px; height: 16px; border-radius: 2px; background: #232936; }
+/* The highlight starts a little later on each card, so a shelf reads as one wave instead of eight
+   blinking boxes. The step rides on the card's own --sk-delay, so it still works when the window is
+   wide enough for six cards a row. */
+.sk-card .sk::after { animation-delay: var(--sk-delay, 0ms); }
+.sk-card { border: 1px solid var(--line-soft); border-radius: 2px; background: var(--row); }
+.sk-art { aspect-ratio: 460 / 215; }
+/* Text bars sit a shade brighter than the artwork, the way type sits brighter than a picture.
+   Heights are the real ones: the name is a 12px line at 1.3, the meta a 10.5px line, and a card
+   adds up to the same 139px the store's cards take. The head bar stands in for a 17px title line,
+   so a shelf head keeps its height and the cards do not step up when the store lands. */
+.sk-name { width: 72%; height: 15.6px; margin: 7px 8px 8px; background: #232936; }
+.sk-meta { width: 96px; height: 14.7px; margin: 0 8px 7px; background: #1f242e; }
+.sk-head { width: 128px; height: 12px; margin: 2.4px 0; background: #232936; }
+
+.slides { position: relative; height: 240px; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s linear;
+}
+.slide.is-on { opacity: 1; pointer-events: auto; }
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #090a0deb 0%, #090a0d94 34%, #090a0d00 64%);
+}
+.slide.noart::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--popup-hi);
+}
+
+.slide-text {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 12px;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.slide-text b { font-size: 17px; font-weight: 600; color: var(--white); letter-spacing: -.01em; text-shadow: 0 1px 2px #00000080; }
+
+.slide .marks { top: 10px; right: 10px; }
+
+.banner-nav {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.bicon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--text);
+  background: #0b0c0fcc;
+  border: 1px solid #ffffff14;
+  border-radius: 2px;
+}
+.bicon:hover { background: var(--field); color: var(--white); }
+.bicon svg { width: 14px; height: 14px; stroke-width: 1.8; }
+.dots { display: flex; gap: 4px; }
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff26;
+}
+.dot.is-on { background: var(--accent); }
+
+/* ---------- shelf and library notes ---------- */
+/* No chips: the shelves and the library always show everything, and a Denuvo title carries its own
+   tag. What is left of this row is the one line of context - "a-z", "2 need repair". */
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 14px;
+}
+.filters-note { font-size: 11px; color: var(--muted); }
+
+/* ---------- game grid ---------- */
+
+/* A shelf that is still below the fold keeps its size but skips layout and paint,
+   and its art is loading="lazy" — scrolling a long page costs nothing up front. */
+.shelf {
+  display: block;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 360px;
+}
+.shelf + .shelf { margin-top: 18px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(176px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  contain: content;
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  background: var(--row);
+  overflow: hidden;
+}
+.card:hover { border-color: var(--field); background: var(--row-hover); }
+.card:focus-visible { outline: 1px solid var(--accent); outline-offset: 1px; }
+.card.bad { border-color: #e45a6759; }
+.card.warn { border-color: #eb962859; }
+
+.card .art {
+  position: relative;
+  aspect-ratio: 460 / 215;
+  background: var(--window);
+  overflow: hidden;
+}
+.card .art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card .art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px #00000040;
+}
+.card .art.noart { background: var(--popup-hi); }
+.card .art.noart::before {
+  content: attr(data-name);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  text-align: center;
+  font: 400 11px/1.4 var(--mono);
+  color: var(--muted);
+}
+/* ---------- marks ----------
+   A game's states as small round marks in the top corner of its picture: an icon in the state's colour
+   on a dark glass disc, the word in the tooltip. Nothing is written over the art. */
+.marks {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 1;
+  display: flex;
+  gap: 4px;
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #0b0c0fcc;
+  box-shadow: 0 0 0 1px #ffffff1f, 0 2px 6px #00000066;
+  backdrop-filter: blur(6px);
+  color: var(--text);
+}
+.mark svg { width: 13px; height: 13px; stroke-width: 2; }
+.mark.ok { color: var(--ok); }
+.mark.own { color: var(--accent-hi); }
+.mark.warn { color: var(--warn); }
+.mark.bad, .mark.drm { color: var(--bad); }
+.mark.off { color: var(--sub); }
+
+.card .name {
+  display: block;
+  padding: 7px 8px 8px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card .meta {
+  display: block;
+  padding: 0 8px 7px;
+  font: 400 10.5px/1.4 var(--mono);
+  color: var(--sub);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- the library: a wall of tall covers ----------
+   Steam's own library shows a game as its 600x900 cover, so the library here does too: narrower cards,
+   more of them a row, the name under the cover and one line saying where the game stands. */
+.grid.tall { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 14px 12px; }
+/* Paint is not contained, so the lifted cover's shadow is not clipped at the card's edge. */
+.card.tall { border: 0; background: none; overflow: visible; contain: layout style; }
+.card.tall:hover { background: none; }
+.card.tall .art {
+  aspect-ratio: 2 / 3;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px var(--line-soft);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+/* It lifts by a sixth of the window's rise: 2px, and none when Windows asks for fewer animations. */
+.card.tall:hover .art { transform: translateY(calc(var(--stm-rise) / -6)); box-shadow: 0 0 0 1px var(--field), 0 8px 20px #00000080; }
+.card.tall.bad .art { box-shadow: 0 0 0 1px #e45a6773; }
+.card.tall .art::after { border-radius: 6px; }
+.card.tall .name { padding: 8px 2px 0; }
+.card .state {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 2px 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+.card .state i { width: 6px; height: 6px; flex: none; border-radius: 50%; background: currentColor; }
+.card .state.ok { color: var(--ok); }
+.card .state.bad { color: var(--bad); }

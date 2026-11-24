@@ -1,0 +1,19 @@
+# What the app writes while it runs: logs, caches, the device key, backups, downloads.
+out/
+
+# The Node runtime a portable build carries, and the native build.
+runtime/
+native/build/
+
+# The helper DLLs and the data folders: downloaded at setup, pinned in vendor/vendor.json and
+# config/steam.json, never committed.
+vendor/*.dll
+ManifestHub/
+ManifestHub3/
+steamtools-games/
+
+# Settings for one machine.
+config/local.json
+
+node_modules/
+*.log

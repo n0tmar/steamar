@@ -1,0 +1,167 @@
+/* First-run setup and the app's own dialogs (one question or one failure, never an OS box), including
+   the setup check and the quiet check in the footer. */
+
+/* ---------- first-run setup ---------- */
+
+/* Dark enough that a game's window reads as the one thing on screen, light enough to keep the page. */
+.scrim { position: fixed; inset: 0; background: #05060ab3; z-index: 20; }
+
+.setup {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #090a0dcc;
+}
+
+.setup-panel {
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 18px;
+  background: var(--row);
+  border: 1px solid var(--field);
+  border-radius: 2px;
+}
+
+/* One question or one failure, drawn by the app: same surfaces, same type, no OS dialog. */
+.dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #090a0de0;
+}
+.dialog-panel {
+  width: min(400px, 100%);
+  padding: 16px 16px 13px;
+  background: var(--popup);
+  border: 1px solid var(--field);
+  border-left: 2px solid var(--accent);
+  border-radius: 2px;
+}
+.dialog-panel.bad { border-left-color: var(--bad); }
+.dialog-panel h2 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+}
+.dialog-message {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--sub);
+  white-space: pre-line;
+}
+.dialog-foot { display: flex; justify-content: flex-end; gap: 6px; margin: 14px 0 0; }
+.dialog-foot .btn.danger { border-color: #e45a6759; background: #e45a6714; }.dialog-foot .link { margin-right: auto; align-self: center; font-size: 11.5px; }
+
+/* The download dialog has to teach three steps and hand over a password, so it gets a list and a
+   copy strip instead of one paragraph. */
+.dialog-steps {
+  margin: 0; padding: 0 0 0 16px;
+  font-size: 12.5px; line-height: 1.55; color: var(--sub);
+}
+.dialog-steps li { margin: 0 0 4px; }
+.dialog-steps li::marker { color: var(--muted); }
+.dialog-steps b { color: var(--text); font-weight: 500; }
+.dialog-pass {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 12px 0 0;
+  padding: 7px 8px; background: var(--window); border: 1px solid var(--line); border-radius: 2px;
+}
+.dialog-pass span { flex: 1 1 100%; font-size: 10.5px; color: var(--muted); }
+.dialog-pass code {
+  font: 400 11.5px/1 var(--mono); color: var(--accent);
+  padding: 3px 6px; background: var(--accent-08); border: 1px solid var(--accent-32); border-radius: 2px;
+}
+.dialog-field {
+  flex: 1 1 140px; min-width: 0; height: 24px; padding: 0 7px;
+  font: 400 11px/1 var(--mono); color: var(--accent);
+  background: var(--accent-08); border: 1px solid var(--accent-32); border-radius: 2px;
+  text-overflow: ellipsis;
+}
+.dialog-field:focus { outline: 1px solid var(--accent-32); }
+
+/* The setup check: one row per check, a mark, a plain sentence, then the path or count that makes
+   it believable. Green is a check, amber is a question, and nothing here is a stack trace. */
+.dialog-checks {
+  margin: 4px 0 0; padding: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+  max-height: 300px; overflow: auto;
+}
+.dialog-checks li {
+  display: grid; grid-template-columns: 16px 1fr; gap: 2px 9px; align-items: start;
+  padding: 6px 8px; background: var(--window); border: 1px solid var(--line); border-radius: 2px;
+}
+.dialog-checks .mark { grid-row: 1 / span 2; display: flex; align-items: center; justify-content: center; height: 16px; color: var(--muted); }
+.dialog-checks .mark svg { width: 13px; height: 13px; }
+.dialog-checks li.ok .mark { color: var(--ok); }
+.dialog-checks li.bad .mark { color: var(--warn); }
+.dialog-checks b { font-size: 12px; font-weight: 500; color: var(--text); }
+.dialog-checks em {
+  font: 400 10.5px/1.4 var(--mono); font-style: normal; color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.setup-head { display: flex; align-items: flex-start; gap: 12px; }
+.setup-head .mark { width: 30px; height: 30px; }
+.setup-head .mark img { width: 30px; height: 30px; }
+.setup-title { min-width: 0; flex: 1; }
+.setup-title h2 { margin: 0 0 4px; font-size: 15px; font-weight: 600; color: var(--white); }
+.setup-title p { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--sub); }
+.setup-head .close { flex: none; }
+
+.ssteps { margin: 16px 0 0; border: 1px solid var(--line); border-radius: 2px; }
+.sstep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.sstep:last-child { border-bottom: 0; }
+.sstep .n {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  font: 500 10.5px/1 var(--mono);
+  color: var(--accent);
+  background: var(--accent-08);
+  border: 1px solid var(--accent-32);
+  border-radius: 50%;
+}
+.sstep-text { min-width: 0; flex: 1; }
+.sstep-text b { display: block; font-size: 12.5px; font-weight: 400; color: var(--text); }
+.sstep-text em {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font: 400 10.5px/1.5 var(--mono);
+  font-style: normal;
+  color: var(--sub);
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.setup-done { margin: 16px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 2px; background: var(--popup); }
+.setup-done p { margin: 0 0 6px; font-size: 12.5px; color: var(--text); }
+.setup-done p.hint { margin: 0; }
+
+.setup-foot { display: flex; align-items: center; gap: 12px; margin: 14px 0 0; }
+.setup-foot .hint { flex: 1; }
+/* The quiet check in the footer: plain text while the setup is healthy, a small amber mark on the
+   left of the label only when a check failed. Nothing else about the button changes. */
+.setup-foot [data-act="selftest"] { gap: 5px; }
+.selfcheck-warn { display: inline-flex; align-items: center; color: var(--warn); }
+.selfcheck-warn svg { width: 13px; height: 13px; }
+
+a.link { color: var(--accent); border-bottom: 1px solid transparent; }
+a.link:hover { border-bottom-color: var(--accent); }

@@ -1,0 +1,18 @@
+/* The search page (search.js): the library's cards, with what only a search result carries. */
+
+/* The last results stay up while the next letter is asked about, dimmed, so it reads as work. The
+   loading cards are not dimmed: they are the work. */
+#view-search .grid { transition: opacity .15s ease; }
+#view-search.is-asking .grid:has(> .card) { opacity: .6; }
+
+/* A title other machines could not get working says so under its name, in the bad tone. */
+.card .meta.bad { color: #e0a1a1; }
+
+/* The two switches, as icons just left of the search field. They hang off the field's own box and
+   take no room in the bar, so the field never moves and the title beside it never wraps when they
+   appear. Off, they are the bar's quiet icon buttons; on, they take the accent that means "in use"
+   everywhere else (settings.css .btn.is-on). */
+.search-show { position: absolute; top: 0; right: calc(100% + 6px); display: flex; gap: 6px; }
+.show-chip { transition: color .2s ease, background-color .2s ease, border-color .2s ease; }
+.show-chip svg { width: 15px; height: 15px; }
+.show-chip[aria-pressed="true"] { border-color: var(--accent-32); background: var(--accent-16); color: var(--accent-hi); }

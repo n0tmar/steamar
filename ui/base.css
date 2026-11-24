@@ -1,0 +1,107 @@
+/* SteaMar — desktop tool surface
+   flat planes, hairline rules, one accent that means "you are here", no blur, no ambient motion
+
+   The design tokens (colours, type, spacing) and the rules every surface shares. Trap: the files
+   after this one read these variables, so index.html must keep loading it first. */
+
+:root {
+  /* surfaces: three tones, a popup, and the field fill */
+  --window: #090a0d;
+  --rail: #0b0c10;
+  --row: #0e1014;
+  --row-hover: #13161b;
+  --popup: #0b0c0f;
+  --popup-hi: #15171b;
+  --field: #20242b;
+  --field-hi: #262b33;   /* field +6%, the only derived tone */
+  --track: #20242b;
+
+  /* edges */
+  --line: #171a20;
+  --line-soft: #12151a;
+
+  /* ink */
+  --text: #d4d7dc;
+  --sub: #8c93a0;
+  --muted: #484e58;
+  --header: #5a6270;
+  --white: #f4f5f7;
+
+  /* accent: live / selected / you are here */
+  --accent: #91a5d4;
+  --accent-hi: #a8b8df;
+  --accent-ink: #090a0d;
+  --accent-08: #1c1c23;
+  --accent-16: #2a2732;
+  --accent-32: #463f51;
+
+  /* semantics */
+  --ok: #55d98a;
+  --bad: #e45a67;
+  --warn: #eb9628;
+
+  /* geometry */
+  --side-w: 208px;
+  --bar-h: 44px;
+  --stat-h: 24px;
+  --font: "Segoe UI Variable Text", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, ui-monospace, "SF Mono", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; -webkit-user-drag: none; }
+[hidden] { display: none !important; }
+
+/* A tool window, not a document: nothing can be selected, copied or dragged out of the
+   surface. The search field opts back in, because you do type there. */
+html, body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: default;
+}
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+::selection { background: transparent; color: inherit; }
+input::selection, textarea::selection { background: var(--accent-16); color: var(--white); }
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: var(--side-w) minmax(0, 1fr);
+  height: 100vh;
+  overflow: hidden;
+  background: var(--window);
+  color: var(--text);
+  font: 400 13px/1.45 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+b, strong { font-weight: 600; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+input { font: inherit; color: inherit; }
+svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+svg.fill { fill: currentColor; stroke: none; }
+
+/* A glyph placeholder in static markup (<i class="ic" data-icon="…">, filled by paint_icons).
+   It is its own flex box: an <svg> is an inline element, so inside a plain block it sits on a
+   text baseline and lands 3px above the middle of a 26px button. */
+.ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+.ic svg { display: block; }
+
+:focus-visible { outline: 1px solid var(--accent); outline-offset: 1px; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 40;
+  padding: 6px 10px; background: var(--popup); border: 1px solid var(--field);
+}
+.skip:focus { left: 8px; top: 8px; }
