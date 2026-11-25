@@ -58,6 +58,9 @@ document.addEventListener('click', (e) => {
   const remove = e.target.closest('[data-remove]');
   if (remove) return remove_app(remove.dataset.remove);
 
+  const bypass = e.target.closest('.card[data-bypass]');
+  if (bypass) return open_bypass(bypass.dataset.bypass);
+
   const card = e.target.closest('.card[data-appid]');
   if (card) return open_drawer(card.dataset.appid, { file: card.dataset.file, name: card.dataset.name, image: art_of(card), denuvo: card.dataset.denuvo === '1' });
 });

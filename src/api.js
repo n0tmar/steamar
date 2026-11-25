@@ -45,6 +45,8 @@ const TTL = {
   // The Fixes tab asks again each time it opens, so a release added on the service shows within the hour.
   fixes: 60 * 60 * 1000,
   fix_link: 6 * 60 * 60 * 1000,
+  // The owner adds bypasses one at a time, so a new one shows within minutes rather than the hour.
+  bypass: 10 * 60 * 1000,
   // The update channel is checked at boot and then forgotten for half a day: a build that is a week
   // old still learns about a release, and a machine that opens twice an hour costs two calls a day.
   latest: 12 * 60 * 60 * 1000,
@@ -183,6 +185,11 @@ const fix_link = (id) => call(() => get('/v1/fix/link', {
   ttl: TTL.fix_link,
 }));
 
+// The Bypass tab: the games the service holds a file for, and a link to one that works for a few
+// minutes. The link is never kept: a stale one is refused, so every download asks again.
+const bypass = () => call(() => get('/v1/bypass', { cache_name: 'bypass', ttl: TTL.bypass }));
+const bypass_link = (appid) => call(() => get('/v1/bypass/link', { query: { appid: String(appid) } }));
+
 let last_latest = null;
 let last_latest_at = null;
 
@@ -309,7 +316,7 @@ function reset() {
 }
 
 module.exports = {
-  state, warm, reset, latest, verdicts, report, library_sync, reach, denuvo, fixes, fix_link, search,
+  state, warm, reset, latest, verdicts, report, library_sync, reach, denuvo, fixes, fix_link, bypass, bypass_link, search,
   package_for, counters, failing_titles, me, refresh_account, account_view, link_start, link_status, sign_out,
   campaign, base_url, site_url,
 };

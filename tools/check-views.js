@@ -138,7 +138,7 @@ const ui = new Function(
   'window', 'document', 'fetch', 'navigator', 'sessionStorage', 'localStorage', 'setTimeout',
   'setInterval', 'clearTimeout', 'clearInterval', 'location',
   `${dom.page_source(path.join(ROOT, 'ui'))}
-; return { state, route, render_home, render_library, render_fixes, paint_fixes, render_settings, render_setup, open_account, open_drawer, close_drawer, card_html, toggle_search_show, boot };`,
+; return { state, route, render_home, render_library, render_fixes, paint_fixes, render_settings, render_setup, open_account, open_drawer, close_drawer, card_html, toggle_search_show, render_bypass, open_bypass, bypass_body, kb, esc, boot };`,
 )(
   dom.window_stub(),
   dom.document,
@@ -482,6 +482,69 @@ const report = (label, view) => report_html(label, node(view).innerHTML);
   has('a file another tool left behind does ask for a repair first', node('setup').innerHTML, 'data-act="repair-now"');
   ui.state.setup = was_setup;
   ui.state.repair = was_repair;
+
+  console.log('\nthe bypass tab');
+  const bypass = known.get('/api/bypass') || { games: [] };
+  const bp_ids = bypass.games.map((g) => g.appid);
+  location.hash = '#/bypass';
+  await ui.route();
+  await settle();
+  const bp = report('the bypass tab', 'view-bypass');
+  check('the tab is named in the bar', node('view-title').textContent, 'Bypass');
+  if (bp_ids.length) {
+    has('it counts what the service holds', bp, `${bp_ids.length} game${bp_ids.length === 1 ? '' : 's'}, newest first`);
+    for (const id of bp_ids) has(`app ${id} has a card`, bp, `data-bypass="${id}"`);
+    check('one card per game', count_of(bp, 'data-bypass='), bp_ids.length);
+    for (const g of bypass.games) {
+      has(`the card for ${g.appid} says how big the zip is`, bp, ui.kb(Number(g.size) || 0));
+      has(`and carries its cover through the engine`, bp, `src="${g.image}"`);
+    }
+
+    const with_words = bypass.games.find((g) => g.text) || bypass.games[0];
+    // The window is drawn in two places: the frame on the panel itself, and the body the window's
+    // own painter writes into `.dbody` once the game is known.
+    node('.dbody').innerHTML = '';
+    node('.dbody').dataset = {};
+    ui.open_bypass(with_words.appid);
+    await settle();
+    const panel = report_html('the bypass window', node('drawer').innerHTML);
+    const body = report_html('the bypass window body', node('.dbody').innerHTML);
+    has('it names the game it opened', panel, with_words.name);
+    // The picture itself is painted into `.dhero` by a guard that asks whether a hero is already
+    // there; under the stub every selector answers with a node, so the guard always says yes. What
+    // the check can hold is that the window was given the top the hero fills, and the drill in
+    // .tmp-bp (real DOM) saw the picture drawn.
+    has('the window has the top a hero fills', panel, 'class="dhero"');
+    has('with the download it offers', body, `data-act="bypass-get" data-appid="${with_words.appid}"`);
+    has('and where the file will go', body, 'Downloads folder as a zip');
+    if (with_words.text) {
+      // The words are the owner's, written once per game: every line stands where it was put.
+      has('the words are drawn under the buttons', body, 'class="dabout"');
+      has('line by line', body, 'class="ddesc bypass-text"');
+      for (const line of with_words.text.split('\n').filter((one) => one.trim())) has(`the line "${line.slice(0, 18)}" is there`, body, ui.esc(line));
+    } else {
+      hasnt('a game without words draws no empty box', body, 'dabout');
+    }
+    ui.close_drawer();
+
+    // The four answers the engine can give, drawn from rows built here: this PC has no download running.
+    const one = bypass.games[0];
+    const idle = report_html('a bypass ready to download', ui.bypass_body(one, { state: 'idle', percent: 0 }));
+    has('it says the size before the button', idle, `Ready to download · ${ui.kb(Number(one.size))}.`);
+    const running = report_html('a bypass downloading', ui.bypass_body(one, { state: 'downloading', percent: 22, file: null }));
+    has('a download on its way shows how far', running, 'Downloading 22%');
+    has('and promises it survives the window closing', running, 'The download keeps going');
+    const done = report_html('a bypass downloaded', ui.bypass_body(one, { state: 'done', percent: 100, file: 'C:\\Users\\someone\\Downloads\\Game bypass.zip' }));
+    has('a finished one says so', done, 'Downloaded.');
+    has('and opens the folder it is in', done, 'data-act="bypass-show"');
+    has('and names the file it made', done, 'Game bypass.zip');
+    check('with no download button left to press twice', count_of(done, 'data-act="bypass-get"'), 1);
+    const failed = report_html('a bypass that failed', ui.bypass_body(one, { state: 'failed', percent: 0, error: 'The service stopped sending <it>' }));
+    has('a failure says what went wrong, as text', failed, 'The service stopped sending &lt;it&gt;');
+    has('and offers the same button again', failed, 'data-act="bypass-get"');
+  } else {
+    has('an empty shelf says it is empty', bp, 'No bypasses yet');
+  }
 
   console.log('\nthe fixtures');
   if (missing.size) {

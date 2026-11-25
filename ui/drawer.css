@@ -127,6 +127,13 @@
    One sentence the store wrote, then the four things a person actually checks. */
 .dabout { margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line-soft); }
 .ddesc { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--sub); }
+/* The owner's words for a bypass: kept as written, line by line, each line in its own direction (an
+   Arabic line reads from the right), and the one text in the window a person can select and copy. */
+.ddesc.bypass-text {
+  font-size: 13px; color: var(--text); white-space: pre-line; unicode-bidi: plaintext; text-align: start;
+  -webkit-user-select: text; user-select: text; cursor: text;
+}
+.ddesc.bypass-text::selection { background: var(--accent-16); color: var(--white); }
 .dfacts { display: flex; flex-wrap: wrap; gap: 5px 16px; margin: 11px 0 0; }
 .dfact { display: flex; align-items: baseline; gap: 5px; min-width: 0; }
 .dfact i { font-family: var(--mono); font-size: 10px; font-style: normal; color: var(--muted); }

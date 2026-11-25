@@ -54,8 +54,7 @@ function fill_cover(drawer, src) {
 
 // Steam's wide library picture goes over the cover once the details name it, and fades in as it
 // lands (motion.css). A game without one keeps its cover; one opened from the banner has it already.
-function paint_hero(drawer, appid) {
-  const src = state.details[appid]?.hero;
+function paint_hero(drawer, appid, src = state.details[appid]?.hero) {
   const box = drawer.querySelector('.dhero');
   if (!src || !box || box.querySelector('img[src*="/img/hero/"]')) return;
   const html = `<img class="hero" src="${esc(src)}" alt="" width="1920" height="620" decoding="async" onerror="this.remove()">`;
@@ -247,14 +246,36 @@ function paint_denuvo(drawer, on) {
   box.innerHTML = on ? `<span class="chip drm">${icon('shield')}Uses Denuvo</span>` : '';
 }
 
-async function open_drawer(appid, meta = {}) {
+// The window up, over a scrim, with the page behind out of reach the same way a dialog handles it, so a
+// keyboard cannot wander into the grid under it. `shows` names what is in it: an answer that lands
+// after the window moved on to something else must not paint into it.
+function show_drawer(shows) {
   const drawer = $('drawer');
   drawer.hidden = false;
+  drawer.dataset.shows = shows;
   $('scrim').hidden = false;
-  // The page behind is out of reach while the panel is up, the same way a dialog handles it, so a
-  // keyboard cannot wander into the grid under the scrim.
   $('main').inert = true;
   drawer_back = document.activeElement && document.activeElement !== document.body ? document.activeElement : null;
+  return drawer;
+}
+
+// The picture, with the name over its foot and the way out in its corner; then the body, which is the
+// only part that scrolls, so the name and the way out never leave the window.
+const drawer_frame = (cover, title) => `
+      <div class="dhero">
+        ${cover ? `<img class="cover" src="${esc(cover)}" alt="" width="460" height="215" decoding="async" onerror="this.remove()">` : ''}
+        <div class="dhead">
+          <h2 id="drawer-title">${esc(title || 'Loading…')}</h2>
+          <div class="dchips" data-dchips></div>
+        </div>
+        <button class="dclose" data-close aria-label="Close">${icon('close')}</button>
+      </div>
+      <div class="dbody"></div>`;
+
+async function open_drawer(appid, meta = {}) {
+  const shows = `game:${appid}`;
+  const drawer = show_drawer(shows);
+  const gone = () => drawer.hidden || drawer.dataset.shows !== shows;
 
   const local = state.library.find((g) => (meta.file && g.file === meta.file) || g.appid === appid) || null;
   const name = meta.name || local?.name || '';
@@ -266,20 +287,8 @@ async function open_drawer(appid, meta = {}) {
   // name. Whatever already knows it says so first, and the details call settles it if nothing did.
   const denuvo_here = () => Boolean(meta.denuvo || local?.denuvo || state.details[appid]?.denuvo);
 
-  // The picture, with the name over its foot and the way out in its corner; then the body, which is
-  // the only part that scrolls, so the name and the way out never leave the window.
   const paint = (title) => {
-    const cover = cover_of();
-    drawer.innerHTML = `
-      <div class="dhero">
-        ${cover ? `<img class="cover" src="${esc(cover)}" alt="" width="460" height="215" decoding="async" onerror="this.remove()">` : ''}
-        <div class="dhead">
-          <h2 id="drawer-title">${esc(title || 'Loading…')}</h2>
-          <div class="dchips" data-dchips></div>
-        </div>
-        <button class="dclose" data-close aria-label="Close">${icon('close')}</button>
-      </div>
-      <div class="dbody"></div>`;
+    drawer.innerHTML = drawer_frame(cover_of(), title);
     paint_body(drawer, local, appid);
     paint_denuvo(drawer, denuvo_here());
     paint_hero(drawer, appid);
@@ -294,7 +303,7 @@ async function open_drawer(appid, meta = {}) {
   if (!name) {
     try {
       const body = await api(`/api/names?ids=${appid}`);
-      if (drawer.hidden) return;
+      if (gone()) return;
       paint(body[appid]?.name || `app ${appid}`);
     } catch { /* keep the placeholder title */ }
   }
@@ -308,7 +317,7 @@ async function open_drawer(appid, meta = {}) {
     api(`/api/verdict?appid=${encodeURIComponent(appid)}`)
       .then((v) => {
         state.verdicts[appid] = v || null;
-        if (drawer.hidden) return;
+        if (gone()) return;
         paint_body(drawer, local, appid);
       })
       .catch(() => { state.verdicts[appid] = null; });
@@ -317,7 +326,7 @@ async function open_drawer(appid, meta = {}) {
     api(`/api/app?appid=${encodeURIComponent(appid)}`)
       .then((d) => {
         state.details[appid] = d && d.missing ? null : d;
-        if (drawer.hidden) return;
+        if (gone()) return;
         fill_cover(drawer, state.details[appid]?.image);
         paint_hero(drawer, appid);
         paint_body(drawer, local, appid);
@@ -326,7 +335,7 @@ async function open_drawer(appid, meta = {}) {
       })
       .catch(() => {
         state.details[appid] = null;
-        if (!drawer.hidden) {
+        if (!gone()) {
           paint_body(drawer, local, appid);
           drawer.setAttribute('aria-busy', 'false');
         }

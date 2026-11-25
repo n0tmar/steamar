@@ -1,7 +1,7 @@
 'use strict';
 
-// The hash router: #/home, #/library, #/fixes, #/settings and #/search?q=, plus `?open=` for a game's
-// panel. Moving to another view closes the panel, and leaving search empties the field.
+// The hash router: #/home, #/library, #/fixes, #/bypass, #/settings and #/search?q=, plus `?open=`
+// for a game's panel. Moving to another view closes the panel, and leaving search empties the field.
 // The trap: a route pass that lands on the view already shown is a refresh, not a move, and must
 // leave an open panel alone.
 
@@ -17,7 +17,7 @@ function parse_hash() {
   return { name: name || 'home', params: new URLSearchParams(query) };
 }
 
-const VIEWS = ['home', 'library', 'fixes', 'settings', 'search'];
+const VIEWS = ['home', 'library', 'fixes', 'bypass', 'settings', 'search'];
 
 async function route() {
   const { name, params } = parse_hash();
@@ -30,6 +30,7 @@ async function route() {
     home: ['Home', 'Picks from the Steam store'],
     library: ['Library', 'Games you added'],
     fixes: ['Fixes', 'Online fixes for your games'],
+    bypass: ['Bypass', 'Files for games that need them'],
     settings: ['Settings', 'Steam and the app'],
     search: ['Search', 'Results from the Steam store'],
   };
@@ -58,6 +59,7 @@ async function route() {
   else if (tab === 'search') render_search(params.get('q') || '');
   else if (tab === 'library') render_library();
   else if (tab === 'fixes') render_fixes();
+  else if (tab === 'bypass') render_bypass();
   else if (tab === 'settings') {
     if (!state.settings) {
       try { state.settings = await api('/api/settings'); }

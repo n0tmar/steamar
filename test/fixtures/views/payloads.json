@@ -340,6 +340,48 @@
     "denuvo": false,
     "image": "/img/1118520.jpg"
   },
+  "/api/bypass": {
+    "games": [
+      {
+        "appid": "2050650",
+        "name": "Resident Evil 4",
+        "text": "1. Close Steam.\n2. Open the zip and copy everything into the game folder. Say yes to replace.\n3. Start the game from Steam.\n\n١. أغلق ستيم.\n٢. انسخ محتويات الملف إلى مجلد اللعبة واستبدل الملفات.",
+        "size": 3147063,
+        "updated": "2026-11-25T19:17:02.856Z",
+        "image": "/img/2050650.jpg",
+        "hero": "/img/hero/2050650.jpg",
+        "denuvo": false,
+        "job": {
+          "state": "idle",
+          "percent": 0,
+          "file": null,
+          "error": null
+        }
+      },
+      {
+        "appid": "1245620",
+        "name": "ELDEN RING",
+        "text": "",
+        "size": 197,
+        "updated": "2026-11-22T19:17:02.775Z",
+        "image": "/img/1245620.jpg",
+        "hero": "/img/hero/1245620.jpg",
+        "denuvo": false,
+        "job": {
+          "state": "idle",
+          "percent": 0,
+          "file": null,
+          "error": null
+        }
+      }
+    ]
+  },
+  "/api/bypass/download?appid=2050650": {
+    "state": "idle",
+    "percent": 0,
+    "file": null,
+    "error": null
+  },
   "/api/fixes?limit=4000": {
     "fetched": "2026-11-15T03:00:04.581Z",
     "total": 1915,

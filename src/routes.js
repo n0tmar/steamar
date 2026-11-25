@@ -20,6 +20,7 @@ const vendor = require('./vendor');
 const update = require('./update');
 const repair = require('./repair');
 const onlinefix = require('./onlinefix');
+const bypass = require('./bypass');
 const scan = require('./scan');
 const { add_app, remove_app, restore_backup } = require('./library');
 const { stop_steam, restart_steam, steam_open } = require('./steam');
@@ -402,6 +403,11 @@ const routes = {
     onlinefix.remember(entry.id, link);
     return { link };
   },
+  // --- bypass: the service's files for single games, saved into Downloads ------------------------
+  'GET /api/bypass': async () => ({ games: await bypass.list() }),
+  'POST /api/bypass/download': async (req) => bypass.start((await read_body(req)).appid),
+  'GET /api/bypass/download': async (req, url) => bypass.job(url.searchParams.get('appid')),
+  'POST /api/bypass/show': async (req) => bypass.show((await read_body(req)).appid),
   'GET /api/names': async (req, url) => names((url.searchParams.get('ids') || '').split(',').filter(Boolean)),
   'POST /api/add': async (req) => {
     const b = await read_body(req);

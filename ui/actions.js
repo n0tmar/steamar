@@ -133,6 +133,9 @@ async function handle_act(el) {
     return;
   }
 
+  if (act === 'bypass-get') return bypass_get(el);
+  if (act === 'bypass-show') return bypass_show(el.dataset.appid);
+  if (act === 'bypass-retry') return render_bypass();
   if (act === 'setup-fetch') return setup_fetch(el);
   if (act === 'setup-install') return setup_install(el);
   if (act === 'setup-remove') return setup_remove();

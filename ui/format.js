@@ -53,6 +53,8 @@ const ICON = {
   heart: '<path d="M12 19.8 4.9 12.9a4.4 4.4 0 0 1 6.2-6.2l.9.9.9-.9a4.4 4.4 0 0 1 6.2 6.2z"/>',
   calendar: '<rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
   warn: '<path d="M12 4.8 20.6 19.4H3.4z"/><path d="M12 10.3v4.1"/><path d="M12 16.9h.01"/>',
+  // the Bypass tab: an open lock
+  unlock: '<rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V7.6a3.5 3.5 0 0 1 6.8-1.2"/>',
   // Denuvo, on a card's marks and in the window
   shield: '<path d="M12 3.6 19 6.3v5.2c0 4.3-2.9 7.6-7 8.9-4.1-1.3-7-4.6-7-8.9V6.3z"/>',
   // the two search switches and their marks: nothing to add yet, and taken off the store
