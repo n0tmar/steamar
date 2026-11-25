@@ -276,6 +276,17 @@ async function handle_act(el) {
     return;
   }
 
+  // The chip in the rail, once the engine has downloaded and checked a build. There is nothing left
+  // to ask the network: the shell closes this window and swaps the files.
+  if (act === 'update-restart') {
+    el.disabled = true;
+    el.innerHTML = `${icon('refresh')}Restarting`;
+    toast('Restarting with the new version…');
+    // The window goes away as this returns; the promise may never settle, and that is the success case.
+    await api('/api/update/apply', { method: 'POST' }).catch(() => null);
+    return;
+  }
+
   // The update row. In the window it downloads, checks the checksum the service signed, and restarts
   // itself: the swap is the shell's job because a process cannot replace the exe it is running. In a
   // browser tab it opens the published address, because a tab that promised a restart would be lying.

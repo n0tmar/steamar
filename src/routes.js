@@ -67,6 +67,17 @@ function catch_up(account) {
   if (!onlinefix.load().items.length) onlinefix.hydrate().catch(() => {});
 }
 
+// A newer build is fetched at start, while the person works. Nothing is replaced: the swap still
+// needs the window to close, and the chip in the rail is the press that asks for it. A stage left by
+// an earlier run counts as fetched, so a restart does not download the same 34 MB again.
+function fetch_new() {
+  const channel = api.state().update || {};
+  if (channel.state !== 'optional' && channel.state !== 'required') return null;
+  const job = update.state();
+  if (['downloading', 'verifying', 'unpacking', 'ready'].includes(job.state)) return job;
+  return update.start({ url: channel.url, sha256: channel.sha256, version: channel.version }).catch(() => null);
+}
+
 const routes = {
   'GET /api/status': () => status(),
   'GET /api/setup': () => setup.state(),
@@ -452,4 +463,4 @@ const routes = {
   'POST /api/steam/restart': async () => restart_steam(),
 };
 
-module.exports = { routes };
+module.exports = { routes, fetch_new };

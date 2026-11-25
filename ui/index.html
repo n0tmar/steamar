@@ -50,6 +50,12 @@
   </nav>
 
   <div class="rail-foot">
+    <!-- A newer build the engine has already downloaded and checked. watch_update() in boot.js shows it;
+         the press is what closes the window so the shell can swap the files. -->
+    <button class="rail-link update" id="update-chip" type="button" data-act="update-restart" hidden>
+      <i class="ic" data-icon="download"></i><span id="update-chip-text">Restart to update</span>
+    </button>
+
     <button class="rail-link donate" type="button" data-act="donate" title="Keep SteaMar running">
       <svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 3.9 12.3a4.9 4.9 0 0 1 0-6.9 4.8 4.8 0 0 1 6.8 0l1.3 1.3 1.3-1.3a4.8 4.8 0 0 1 6.8 0 4.9 4.9 0 0 1 0 6.9z"/></svg>
       <span>Donate</span>

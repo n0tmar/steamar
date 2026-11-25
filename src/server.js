@@ -15,7 +15,7 @@ const images = require('./images');
 const denuvo = require('./denuvo');
 const onlinefix = require('./onlinefix');
 const presence = require('./presence');
-const { routes } = require('./routes');
+const { routes, fetch_new } = require('./routes');
 
 const PORT = paths.engine_port();
 const HOST = '127.0.0.1';
@@ -112,6 +112,9 @@ server.listen(PORT, HOST, () => {
   api.warm()
     .then(() => Promise.all([denuvo.hydrate(), onlinefix.hydrate()]))
     .then(() => {
+      // A release newer than this build is downloaded before anybody asks. The chip in the rail says
+      // when it is ready; the window closes only when that chip is pressed.
+      fetch_new();
       const counts = api.counters();
       console.log(`service            ${api.state().enrolled ? `device ${api.state().device_id}` : 'not enrolled'}`);
       console.log(`titles             ${counts.addable.toLocaleString()} addable of ${counts.titles.toLocaleString()} known`);

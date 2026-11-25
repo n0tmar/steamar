@@ -16,6 +16,38 @@ async function boot() {
   render_gate();
   if (!gate_reason()) await after_gate();
   if (state.account && state.account.source === 'saved') confirm_account().catch(() => {});
+  // Last, and never waited on: the engine is already fetching a newer build in the background.
+  watch_update().catch(() => {});
+}
+
+/* ---------- the update chip ---------- */
+
+// The engine downloads and checks a newer build at start. This only says when it is ready: the files
+// can be replaced only while the window is closed, so the press is the person's.
+async function watch_update() {
+  const chip = $('update-chip');
+  const text = $('update-chip-text');
+  if (!chip || !text || !bridge) return;
+  const busy = ['downloading', 'verifying', 'unpacking'];
+  const began = Date.now();
+  for (;;) {
+    const job = (await api('/api/update')) || {};
+    if (job.state === 'ready') {
+      chip.hidden = false;
+      chip.disabled = false;
+      text.textContent = 'Restart to update';
+      return;
+    }
+    if (busy.includes(job.state)) {
+      chip.hidden = false;
+      chip.disabled = true;
+      text.textContent = job.state === 'downloading' ? `Update ${job.percent || 0}%` : 'Preparing update';
+    } else if (job.state !== 'idle' || Date.now() - began > 20000) {
+      // Nothing to fetch, or a fetch that failed: the row in Settings stays the place that says why.
+      return;
+    }
+    await new Promise((done) => setTimeout(done, 2000));
+  }
 }
 
 (async () => {

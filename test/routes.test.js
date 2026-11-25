@@ -30,7 +30,7 @@ const api = require('../src/api');
 const mirror = require('../src/mirror');
 const denuvo = require('../src/denuvo');
 const onlinefix = require('../src/onlinefix');
-const { routes } = require('../src/routes');
+const { routes, fetch_new } = require('../src/routes');
 
 const tick = () => new Promise((resolve) => setTimeout(resolve, 20));
 const refused = () => Object.assign(new Error('this PC is not linked to a member'), { code: 'link_required' });
@@ -169,4 +169,34 @@ test('Sign out asks the service to forget this PC and answers with the account i
   assert.equal(asked, 1);
   assert.equal(answer.account.linked, false, 'the window can draw the sign-in screen from this answer');
   api.state = was;
+});
+
+test('a newer build is fetched at start, and a stage already on disk is not fetched twice', async () => {
+  // The window never pressed anything: the engine fetches a release by itself and the chip in the
+  // rail only says when the swap is ready. A second start on the same staged build would move 34 MB
+  // again for nothing.
+  const update = require('../src/update');
+  const was = { state: api.state, job: update.state, start: update.start };
+  const started = [];
+  api.state = () => ({ update: { state: 'optional', url: 'https://steamar.cc/download/SteaMar-9.9.9-win64.zip', sha256: 'ab'.repeat(32), version: '9.9.9' } });
+  update.state = () => ({ state: 'idle' });
+  update.start = async (release) => { started.push(release); return { state: 'downloading', percent: 0 }; };
+
+  try {
+    assert.equal((await fetch_new()).state, 'downloading');
+    assert.deepEqual(started, [{ url: 'https://steamar.cc/download/SteaMar-9.9.9-win64.zip', sha256: 'ab'.repeat(32), version: '9.9.9' }]);
+
+    update.state = () => ({ state: 'ready' });
+    await fetch_new();
+    assert.equal(started.length, 1, 'a stage that is already checked is not fetched again');
+
+    update.state = () => ({ state: 'idle' });
+    api.state = () => ({ update: { state: 'none' } });
+    assert.equal(await fetch_new(), null, 'a current build fetches nothing');
+    assert.equal(started.length, 1);
+  } finally {
+    api.state = was.state;
+    update.state = was.job;
+    update.start = was.start;
+  }
 });

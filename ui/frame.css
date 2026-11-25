@@ -63,6 +63,12 @@
 
 /* The foot is one block: give, the community, and who is reading this window. margin-top moves to
    the block so the mini profile lands under the two links instead of floating over them. */
+/* The update chip appears only once a build is staged. It is the one control in the rail that is
+   worth pressing, so it carries the accent colour; while the download runs it is a progress line. */
+.rail-foot .rail-link.update { color: var(--accent); background: var(--accent-08); }
+.rail-foot .rail-link.update:hover { background: var(--accent-hi); color: var(--accent-ink); }
+.rail-foot .rail-link.update:disabled { color: var(--muted); background: transparent; }
+
 .rail-foot { margin-top: auto; border-top: 1px solid var(--line); }
 .rail-foot .rail-link { margin-top: 0; border-top: 0; }
 .rail-foot .rail-link + .rail-link,
