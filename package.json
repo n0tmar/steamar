@@ -1,6 +1,6 @@
 {
   "name": "steamar",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "private": true,
   "license": "MIT",
   "description": "SteaMar - a shared Steam game library for Windows 11: store browsing, one-click add and install, Lua entitlements.",
