@@ -6,6 +6,11 @@
     "public_key": "MCowBQYDK2VwAyEAIsplgsOTdj/unsj99l2UoKetnTOrLL0n+OjgLIG58B0=",
     "timeout_ms": 12000
   },
+  "presence": {
+    "note": "Discord says the app is running while the window is open. app_id is the Discord application the presence marks belong to: upload the two pictures to it under Rich Presence -> Art Assets, named logo and discord. It is public, like the id in every invite link; leave it empty and the app says nothing to Discord. discord is the invite on the second button; empty leaves it out.",
+    "app_id": "1575151986247073812",
+    "discord": "https://discord.gg/m4r"
+  },
   "steam_root": "",
   "proxy_dlls": [
     "dwmapi.dll",
@@ -41,15 +46,15 @@
       }
     ]
   },
-  "data": {
-    "manifesthub3": "ManifestHub3",
-    "manifesthub": "ManifestHub",
-    "steamtools_games": "steamtools-games"
-  },
   "data_files": {
     "note": "The app downloads no tables: they are served. data/ is left empty in this copy.",
     "refresh_days": 7,
     "urls": {}
+  },
+  "data": {
+    "manifesthub3": "ManifestHub3",
+    "manifesthub": "ManifestHub",
+    "steamtools_games": "steamtools-games"
   },
   "repos": {
     "ManifestHub3": "https://github.com/steamtools-games/ManifestHub3",

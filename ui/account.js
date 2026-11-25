@@ -320,21 +320,32 @@ function open_account() {
 
   const name = u.global_name || u.username || 'Signed in';
   const initial = name.slice(0, 1).toUpperCase();
-  const avatar = u.avatar_url
-    ? `<img src="${esc(u.avatar_url)}" alt="" width="76" height="76" decoding="async" data-initial="${esc(initial)}" onerror="this.parentNode.textContent=this.dataset.initial;this.remove()">`
+  const inside = a.tier === 'donor' || a.tier === 'member';
+  const page = inside ? a.profile || null : null;
+  // A picture the person uploaded for their page stands in for the Discord one, as on the page. It
+  // comes through the engine like every other site picture, so it animates here when it is a GIF.
+  const own_picture = page && page.avatar ? art(page.avatar.image_url, /\/img\/site\/profile\/[a-f0-9]{24}\.(?:jpg|png|webp|gif)$/) : null;
+  const picture_url = own_picture || (typeof u.avatar_url === 'string' ? u.avatar_url : null);
+  const avatar = picture_url
+    ? `<img src="${esc(picture_url)}" alt="" width="76" height="76" decoding="async" data-initial="${esc(initial)}" onerror="this.parentNode.textContent=this.dataset.initial;this.remove()">`
     : esc(initial);
   // The frame and the badges are the page's own files on the site. The engine hands over their
   // addresses (page.frame_url, page.marks): inside the window only it can reach them.
-  const inside = a.tier === 'donor' || a.tier === 'member';
-  const page = inside ? a.profile || null : null;
 
   // The role, the way the page draws it: the mark alone at the end of the name, its word on hover.
   // Someone outside the server has no mark, and is told so in words.
   const [kind, tip] = page && page.owner ? ['owner', 'Runs SteaMar']
     : a.tier === 'donor' ? ['donor', 'Donor - keeps SteaMar online'] : ['member', 'Member'];
   const file = page && page.marks && kind !== 'member' ? art(page.marks[kind], /\/img\/site\/badges\/[\w.-]+\.(?:png|gif)$/) : null;
+  // A service that sends the list draws every badge on it; an older one gets the role's mark alone.
+  const given = page && Array.isArray(page.badges) ? page.badges : [];
+  const marks = given.map((one) => {
+    const src = art(one.image_url, /(?:^\/logo\.png|\/img\/site\/badges?\/[\w.-]+\.(?:png|gif|jpg|webp))$/);
+    const name = esc(one.name || '');
+    return src ? `<span class="acct-tag is-${/^[a-z0-9_]+$/.test(one.id) ? one.id : 'given'}" role="img" data-tip="${name}" aria-label="${name}"><img src="${esc(src)}" alt="" width="20" height="20" onerror="this.onerror=null;this.src='/logo.png'"></span>` : '';
+  }).join('');
   const role = !inside ? '<span class="acct-role is-out">Not in the server</span>'
-    : `<span class="acct-tag is-${kind}" role="img" data-tip="${tip}" aria-label="${tip}">${file
+    : marks || `<span class="acct-tag is-${kind}" role="img" data-tip="${tip}" aria-label="${tip}">${file
       ? `<img src="${esc(file)}" alt="" width="20" height="20" onerror="this.onerror=null;this.src='/logo.png'">`
       : '<img src="/logo.png" alt="" width="16" height="16">'}</span>`;
 

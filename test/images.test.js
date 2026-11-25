@@ -150,9 +150,9 @@ test('a banner probe is answered from disk at the next start, unless no host ans
   assert.equal(await restarted.hero_available('73'), true, 'the probe nobody answered is asked again');
 });
 
-test('a picture from the site is fetched only in the three shapes the page asks for', async () => {
+test('a picture from the site is fetched only in the shapes the page asks for', async () => {
   process.env.STEAMAR_SITE = 'https://site.test';
-  for (const rel of ['../../config/steam.json', 'badges/../../x.png', 'frames/a b.gif', 'profile/abc.jpg', 'other/x.png', '']) {
+  for (const rel of ['../../config/steam.json', 'badges/../../x.png', 'frames/a b.gif', 'profile/abc.jpg', 'badge/abc.png', 'badge/../x.png', 'other/x.png', '']) {
     assert.equal(await images.site_ensure(rel), null, JSON.stringify(rel));
   }
   assert.deepEqual(calls, [], 'nothing was asked for');
@@ -163,7 +163,8 @@ test('a picture from the site is fetched only in the three shapes the page asks 
   const name = `${'c'.repeat(24)}.jpg`;
   assert.ok(await images.site_ensure(`profile/${name}`), 'a profile picture');
   assert.ok(await images.site_ensure('frames/heartbloom.gif'), 'a frame');
-  assert.deepEqual(calls, [`https://site.test/v1/profile/image?f=${name}`, 'https://site.test/assets/frames/heartbloom.gif']);
+  assert.ok(await images.site_ensure(`badge/${name}`), 'a badge the console uploaded');
+  assert.deepEqual(calls, [`https://site.test/v1/profile/image?f=${name}`, 'https://site.test/assets/frames/heartbloom.gif', `https://site.test/v1/badge/image?f=${name}`]);
   assert.ok(await images.site_ensure(`profile/${name}`), 'the second time');
-  assert.equal(calls.length, 2, 'is read from disk');
+  assert.equal(calls.length, 3, 'is read from disk');
 });

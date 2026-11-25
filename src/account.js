@@ -119,6 +119,15 @@ async function campaign({ force = false } = {}) {
 // The person's public page, with its link and pictures made whole: the window shows them as they are
 // and never needs to know where the site is. The window checks what it puts into a class or an
 // address, and a link is only ever opened by the engine (POST /api/profile).
+function mark_url(url) {
+  const text = String(url || '');
+  if (text === '/assets/logo.png') return '/logo.png';
+  const file = /^\/assets\/badges\/([\w.-]+\.(?:png|gif))$/i.exec(text);
+  if (file) return `/img/site/badges/${file[1]}`;
+  const upload = /^\/v1\/badge\/image\?f=([a-f0-9]{24}\.(?:jpg|png|webp|gif))$/.exec(text);
+  return upload ? `/img/site/badge/${upload[1]}` : null;
+}
+
 function profile_of(profile) {
   if (!profile || !profile.path) return null;
   const site = site_url();
@@ -126,7 +135,7 @@ function profile_of(profile) {
   // own address is the ui/ folder, and the shell only turns a "/img/ written in an answer like this
   // one into the engine's address, so the page cannot build these paths itself.
   const picture = (view) => {
-    const name = /^\/v1\/profile\/image\?f=([a-f0-9]{24}\.(?:jpg|png|webp))$/.exec((view && view.image_url) || '');
+    const name = /^\/v1\/profile\/image\?f=([a-f0-9]{24}\.(?:jpg|png|webp|gif))$/.exec((view && view.image_url) || '');
     return name ? { image_url: `/img/site/profile/${name[1]}` } : null;
   };
   const bg = profile.background || {};
@@ -137,9 +146,16 @@ function profile_of(profile) {
     owner: Boolean(profile.owner),
     background: picture(bg) || { preset: bg.preset || 'night' },
     banner: picture(profile.banner),
+    // The picture the person uploaded stands in for the Discord one, GIFs included, as on their page.
+    avatar: picture({ image_url: profile.avatar_url }),
     frame: profile.frame || null,
     frame_url: /^[a-z0-9-]+$/.test(profile.frame || '') ? `/img/site/frames/${profile.frame}.gif` : null,
     marks: { owner: '/img/site/badges/448267-droolingcatking.png', donor: '/img/site/badges/95458-heart.gif' },
+    // The badges the page shows, the role's first. A role's own art is a site file and a picture the
+    // console uploaded is the service's; any other address is dropped.
+    badges: (Array.isArray(profile.badges) ? profile.badges : [])
+      .map((one) => ({ id: String((one && one.id) || ''), name: String((one && one.name) || ''), image_url: mark_url(one && one.image_url) }))
+      .filter((one) => one.image_url),
     bio: String(profile.bio || ''),
     links: (Array.isArray(profile.links) ? profile.links : []).map((link) => ({ kind: String((link && link.kind) || ''), url: String((link && link.url) || '') })),
     pronouns: profile.pronouns || null,

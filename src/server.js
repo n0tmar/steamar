@@ -14,6 +14,7 @@ const { origin_allowed } = require('./origin');
 const images = require('./images');
 const denuvo = require('./denuvo');
 const onlinefix = require('./onlinefix');
+const presence = require('./presence');
 const { routes } = require('./routes');
 
 const PORT = paths.engine_port();
@@ -100,6 +101,9 @@ server.on('error', (err) => {
 });
 
 server.listen(PORT, HOST, () => {
+  // Discord's window on this PC, if there is one: it says the app is running for as long as the
+  // engine is. Nothing waits on it and nothing breaks without it.
+  presence.start();
   paths.steam_running(); // prime the tasklist cache so the first /api/status is a warm read
 
   // The service answers with the counts, the Denuvo list and the fix index; hydrate the two local
@@ -121,3 +125,7 @@ server.listen(PORT, HOST, () => {
   console.log(`stplug-in          ${paths.stplug_in()}`);
   console.log(`steam              ${paths.steam_running() ? 'running' : 'stopped'}`);
 });
+
+// Discord drops the activity when the pipe closes, so this is only a courtesy; the process dying
+// does the same thing.
+process.on('exit', () => presence.stop());

@@ -287,7 +287,7 @@
   border-radius: 7px;
   background: #ffffff0a;
 }
-.acct-tag img { display: block; width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+.acct-tag img { display: block; width: 20px; height: 20px; object-fit: contain; }
 .acct-tag.is-member img { width: 16px; height: 16px; border-radius: 3px; }
 .acct-tag.is-donor { border-color: var(--accent-32); background: var(--accent-08); }
 .acct-tag::after {

@@ -260,7 +260,8 @@ async function poster_ensure(id, url) {
 const SITE_FILES = [
   [/^badges\/([\w.-]+\.(?:png|gif))$/i, (name) => `/assets/badges/${name}`],
   [/^frames\/([a-z0-9-]+\.gif)$/, (name) => `/assets/frames/${name}`],
-  [/^profile\/([a-f0-9]{24}\.(?:jpg|png|webp))$/, (name) => `/v1/profile/image?f=${name}`],
+  [/^profile\/([a-f0-9]{24}\.(?:jpg|png|webp|gif))$/, (name) => `/v1/profile/image?f=${name}`],
+  [/^badge\/([a-f0-9]{24}\.(?:jpg|png|webp|gif))$/, (name) => `/v1/badge/image?f=${name}`],
 ];
 
 async function site_ensure(rel) {

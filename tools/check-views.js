@@ -357,6 +357,7 @@ const report = (label, view) => report_html(label, node(view).innerHTML);
     user: { username: 'owner', global_name: 'Owner', avatar_url: null, joined_server: '2025-12-19T16:06:26Z', donor_since: '2026-11-03T10:00:00Z', donations: { count: 2 } },
     profile: {
       url: 'https://steamar.cc/@k', handle: 'k', hidden: false, owner: false, background: { preset: 'dusk' }, banner: null,
+      avatar: { image_url: 'http://127.0.0.1:8788/img/site/profile/eeeeeeeeeeeeeeeeeeeeeeee.gif' },
       frame: 'heartbloom', frame_url: 'http://127.0.0.1:8788/img/site/frames/heartbloom.gif', marks: { owner: 'http://127.0.0.1:8788/img/site/badges/448267-droolingcatking.png', donor: 'http://127.0.0.1:8788/img/site/badges/95458-heart.gif' },
       bio: 'Building things <b>here</b>.', pronouns: 'he/him', status: { kind: 'dnd', text: 'in a raid' },
       links: [{ kind: 'github', url: 'https://github.com/owner' }, { kind: 'myspace', url: 'https://myspace.com/owner' }],
@@ -365,6 +366,7 @@ const report = (label, view) => report_html(label, node(view).innerHTML);
   ui.open_account();
   const acct = report('the account window', 'dialog');
   has('it names the person', acct, '>Owner<');
+  has('their own picture, through the engine, as a GIF', acct, 'src="http://127.0.0.1:8788/img/site/profile/eeeeeeeeeeeeeeeeeeeeeeee.gif"');
   has('by the name of their page, not their Discord name', acct, '>@k<');
   has('and their role, as the mark the page shows', acct, 'data-tip="Donor - keeps SteaMar online"');
   has('drawn from the address the engine gave', acct, 'src="http://127.0.0.1:8788/img/site/badges/95458-heart.gif"');
@@ -396,6 +398,17 @@ const report = (label, view) => report_html(label, node(view).innerHTML);
   has('the cat, not the heart', owned, 'badges/448267-droolingcatking.png');
   hasnt('a frame that is not a slug is not let into an address', owned, 'img/site/frames/');
   hasnt('and a status Discord does not have draws no dot', owned, 'acct-status');
+  ui.state.account = { ...ui.state.account, profile: { url: 'https://steamar.cc/@k', background: { preset: 'dusk' }, badges: [
+    { id: 'donor', name: 'Donor', image_url: 'http://127.0.0.1:8788/img/site/badges/95458-heart.gif' },
+    { id: 'bdg_1', name: 'Gold <star>', image_url: 'http://127.0.0.1:8788/img/site/badge/cccccccccccccccccccccccc.png' },
+    { id: 'bdg_2', name: 'Elsewhere', image_url: 'https://evil.test/x.png' },
+  ] } };
+  ui.open_account();
+  const marked = report('the account window', 'dialog');
+  has('every badge the page shows, the role first', marked, 'data-tip="Donor"');
+  has('and one the console gave, by its name', marked, 'data-tip="Gold &lt;star&gt;"');
+  has('drawn through the engine', marked, 'src="http://127.0.0.1:8788/img/site/badge/cccccccccccccccccccccccc.png"');
+  hasnt('never from an address it was not handed in that shape', marked, 'evil.test');
   ui.state.account = { ...ui.state.account, tier: 'none' };
   ui.open_account();
   const outside = report('the account window', 'dialog');
