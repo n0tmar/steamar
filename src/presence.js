@@ -41,11 +41,11 @@ function app_id() {
 function activity(since = opened_at) {
   const settings = paths.config().presence || {};
   const site = String(paths.config().api?.site || 'https://steamar.cc').replace(/\/+$/, '');
-  const buttons = [{ label: 'Get SteaMar', url: site }];
+  const buttons = [{ label: 'Website', url: site }];
   // Discord allows two buttons and no more; a second one that is not https is left out rather than
   // sent, because Discord drops the whole activity over one bad address.
   const invite = String(settings.discord || '').trim();
-  if (/^https:\/\//.test(invite)) buttons.push({ label: 'Discord', url: invite });
+  if (/^https:\/\//.test(invite)) buttons.push({ label: 'Discord server', url: invite });
   return {
     details: 'Your Steam library, in one window',
     assets: { large_image: 'logo', large_text: 'SteaMar' },

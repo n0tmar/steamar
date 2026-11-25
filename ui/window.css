@@ -23,6 +23,35 @@
 .toast.show { opacity: 1; }
 .toast.err { border-color: var(--field); border-left-color: var(--bad); color: var(--bad); }
 
+/* ---------- update note ---------- */
+
+/* The toast's sibling on the other side, and unlike it, it stays until it is used or put away. */
+.update-note {
+  position: fixed;
+  right: 14px;
+  bottom: calc(var(--stat-h) + 12px);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 440px;
+  padding: 9px 8px 9px 12px;
+  font-size: 12px;
+  color: var(--text);
+  background: var(--popup);
+  border: 1px solid var(--field);
+  border-left: 2px solid var(--accent);
+  border-radius: 2px;
+  box-shadow: 0 12px 32px #0000008c;
+}
+.update-note > .ic { flex: none; color: var(--accent); }
+.update-note p { display: grid; gap: 2px; min-width: 0; margin: 0; }
+.update-note b { font-weight: 600; color: var(--white); }
+.update-note span { color: var(--sub); }
+.update-note .btn { flex: none; }
+.update-note-x { flex: none; width: 24px; height: 24px; border: 0; background: none; font-size: 16px; line-height: 1; color: var(--muted); }
+.update-note-x:hover { color: var(--white); }
+
 /* ---------- scrollbar ---------- */
 
 .content::-webkit-scrollbar, .dbody::-webkit-scrollbar { width: 10px; }

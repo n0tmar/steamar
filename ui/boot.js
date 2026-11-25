@@ -27,7 +27,17 @@ async function boot() {
 async function watch_update() {
   const chip = $('update-chip');
   const text = $('update-chip-text');
+  const note = $('update-note');
+  const title = $('update-note-title');
+  const close = $('update-note-close');
   if (!chip || !text || !bridge) return;
+  let shown = '1';
+  if (close && note) {
+    close.addEventListener('click', () => {
+      note.hidden = true;
+      try { sessionStorage.setItem('update-put-away', shown); } catch {}
+    });
+  }
   const busy = ['downloading', 'verifying', 'unpacking'];
   const began = Date.now();
   for (;;) {
@@ -36,6 +46,15 @@ async function watch_update() {
       chip.hidden = false;
       chip.disabled = false;
       text.textContent = 'Restart to update';
+      if (note && job.version) {
+        shown = String(job.version);
+        try {
+          if (sessionStorage.getItem('update-put-away') !== shown) {
+            if (title) title.textContent = `SteaMar ${shown} is ready.`;
+            note.hidden = false;
+          }
+        } catch {}
+      }
       return;
     }
     if (busy.includes(job.state)) {

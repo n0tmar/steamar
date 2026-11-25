@@ -310,6 +310,44 @@ function render_profile() {
 // An address the engine handed over, let in only in the one shape it should have.
 const art = (url, shape) => (typeof url === 'string' && shape.test(url) && !/['"\s]/.test(url) ? url : null);
 
+// A badge's word is drawn on the page itself, not inside the window's rounded corner, so the corner
+// cannot cut it and no layer above the window can hide it. One node, moved under the pointer.
+let tip_node = null;
+function hide_tip() {
+  if (tip_node) tip_node.hidden = true;
+}
+function place_tip(chip) {
+  const word = chip && chip.dataset ? String(chip.dataset.tip || '') : '';
+  if (!word) return hide_tip();
+  if (!tip_node) {
+    tip_node = document.createElement('div');
+    tip_node.className = 'app-tip';
+    tip_node.hidden = true;
+    document.body.appendChild(tip_node);
+  }
+  tip_node.textContent = word;
+  tip_node.hidden = false;
+  const box = chip.getBoundingClientRect();
+  const size = tip_node.getBoundingClientRect();
+  const left = Math.min(Math.max(box.left + box.width / 2 - size.width / 2, 8), innerWidth - size.width - 8);
+  const under = box.bottom + 6;
+  // Below the badge, or above it when the window's lower edge is close.
+  const top = under + size.height > innerHeight - 8 ? box.top - size.height - 6 : under;
+  tip_node.style.left = `${left}px`;
+  tip_node.style.top = `${top}px`;
+}
+document.addEventListener('mouseover', (event) => {
+  const chip = event.target && event.target.closest ? event.target.closest('[data-tip]') : null;
+  if (chip) place_tip(chip);
+  else hide_tip();
+});
+document.addEventListener('mouseout', (event) => {
+  const chip = event.target && event.target.closest ? event.target.closest('[data-tip]') : null;
+  if (chip && !chip.contains(event.relatedTarget)) hide_tip();
+});
+document.addEventListener('click', hide_tip, true);
+document.addEventListener('scroll', hide_tip, true);
+
 function open_account() {
   const a = state.account;
   const u = a && a.linked ? a.user : null;

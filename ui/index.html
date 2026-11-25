@@ -109,6 +109,14 @@
 <div id="dialog" class="dialog" hidden></div>
 <aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1" hidden></aside>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<!-- A newer build that is already downloaded and checked. It stays until it is used or put away:
+     sticky, unlike a toast, because ignoring it means staying on the old build. -->
+<div class="update-note" id="update-note" role="status" hidden>
+  <i class="ic" data-icon="download"></i>
+  <p><b id="update-note-title">A new version is ready.</b><span>Already downloaded. It takes a few seconds.</span></p>
+  <button class="btn primary" type="button" data-act="update-restart">Restart now</button>
+  <button class="update-note-x" id="update-note-close" type="button" aria-label="Hide">&#215;</button>
+</div>
 
 <!-- In this order: a file's load-time code may only use what it or an earlier file declares. -->
 <script src="/format.js" defer></script>

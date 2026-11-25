@@ -33,7 +33,8 @@
 .scrim,
 .dialog { animation: stm-in .2s ease backwards; }
 .dialog-panel,
-.drawer { animation: stm-rise .32s cubic-bezier(.2, .7, .2, 1) .04s backwards; }
+.drawer,
+.update-note { animation: stm-rise .32s cubic-bezier(.2, .7, .2, 1) .04s backwards; }
 .toast { transition: opacity .25s ease; }
 /* The search switches arrive with the search page; the top bar itself holds still. */
 .search-show:not([hidden]) { animation: stm-in .38s ease .1s backwards; }
@@ -48,8 +49,9 @@
 .dialog,
 .drawer,
 .setup,
-.gate { transition: opacity .22s ease, display .22s allow-discrete; }
-:is(.scrim, .dialog, .drawer, .setup, .gate)[hidden] { opacity: 0; pointer-events: none; }
+.gate,
+.update-note { transition: opacity .22s ease, display .22s allow-discrete; }
+:is(.scrim, .dialog, .drawer, .setup, .gate, .update-note)[hidden] { opacity: 0; pointer-events: none; }
 
 /* Search results fade in as they land, letter after letter. */
 #view-search :is(.card, .empty) { animation: stm-in .38s ease backwards; }

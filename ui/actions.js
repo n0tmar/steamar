@@ -279,7 +279,8 @@ async function handle_act(el) {
   // The chip in the rail, once the engine has downloaded and checked a build. There is nothing left
   // to ask the network: the shell closes this window and swaps the files.
   if (act === 'update-restart') {
-    el.disabled = true;
+    // The rail and the note both offer it; one press answers for both.
+    for (const one of document.querySelectorAll('[data-act="update-restart"]')) one.disabled = true;
     el.innerHTML = `${icon('refresh')}Restarting`;
     toast('Restarting with the new version…');
     // The window goes away as this returns; the promise may never settle, and that is the success case.

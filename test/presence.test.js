@@ -42,7 +42,7 @@ test('the app tells Discord it is running, and takes that back when it stops', {
     assert.equal(got[1].body.cmd, 'SET_ACTIVITY');
     assert.deepEqual(got[1].body.args.activity, presence.activity(got[1].body.args.activity.timestamps.start), 'the activity is what the app draws');
     assert.match(got[1].body.args.activity.buttons[0].url, /^https:\/\//, 'the button goes to the site over https');
-    assert.deepEqual(got[1].body.args.activity.buttons.map((one) => one.label), ['Get SteaMar', 'Discord'], 'and the invite sits beside it');
+    assert.deepEqual(got[1].body.args.activity.buttons.map((one) => one.label), ['Website', 'Discord server'], 'and the invite sits beside it');
 
     presence.stop();
     for (let i = 0; i < 40 && frames(chunks).length < 3; i += 1) await new Promise((r) => setTimeout(r, 50));

@@ -274,8 +274,7 @@
 /* The name and its mark on one line, the mark right after the name, as the page lays them out. */
 .dialog-panel.acct h2 { display: flex; align-items: center; gap: 8px; margin: 10px 0 0; font-size: 17px; font-weight: 700; letter-spacing: -.01em; }
 .acct-name > span:first-child { min-width: 0; overflow-wrap: anywhere; }
-/* The role: the mark alone, and its word while the pointer is on it. The word hangs from the mark's
-   right edge, so the window's own edge never cuts it. */
+/* The role: the mark alone, and its word while the pointer is on it (.app-tip below). */
 .acct-tag {
   position: relative;
   flex: none;
@@ -290,12 +289,11 @@
 .acct-tag img { display: block; width: 20px; height: 20px; object-fit: contain; }
 .acct-tag.is-member img { width: 16px; height: 16px; border-radius: 3px; }
 .acct-tag.is-donor { border-color: var(--accent-32); background: var(--accent-08); }
-.acct-tag::after {
-  content: attr(data-tip);
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  z-index: 2;
+/* A badge's word is drawn on the page, outside the window's rounded corner, so nothing clips it and
+   no layer can cover it. account.js keeps one node on <body> and moves it under the pointer. */
+.app-tip {
+  position: fixed;
+  z-index: 45;
   padding: 5px 8px;
   border: 1px solid #ffffff1f;
   border-radius: 6px;
@@ -305,11 +303,10 @@
   letter-spacing: normal;
   white-space: nowrap;
   color: var(--white);
-  opacity: 0;
   pointer-events: none;
   transition: opacity .15s ease;
 }
-.acct-tag:hover::after { opacity: 1; }
+.app-tip[hidden] { display: none; }
 /* Somebody outside the server has no mark: the window says where they stand in words. */
 .acct-role {
   flex: none;
