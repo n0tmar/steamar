@@ -127,13 +127,22 @@
    One sentence the store wrote, then the four things a person actually checks. */
 .dabout { margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line-soft); }
 .ddesc { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--sub); }
-/* The owner's words for a bypass: kept as written, line by line, each line in its own direction (an
-   Arabic line reads from the right), and the one text in the window a person can select and copy. */
-.ddesc.bypass-text {
-  font-size: 12px; color: var(--text); white-space: pre-line; unicode-bidi: plaintext; text-align: start;
+/* The owner's words for a bypass: a short list of steps, each line in its own direction (an Arabic
+   line reads from the right), and the one text in the window a person can select and copy. */
+.bp-steps {
+  display: grid; gap: 8px; font-size: 12px; line-height: 1.5; color: var(--text);
   -webkit-user-select: text; user-select: text; cursor: text;
 }
-.ddesc.bypass-text::selection { background: var(--accent-16); color: var(--white); }
+.bp-steps ::selection { background: var(--accent-32); color: var(--white); }
+.bp-step { display: flex; align-items: flex-start; gap: 9px; }
+.bp-n {
+  flex: none; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--accent-16); color: var(--accent-hi); font-size: 10.5px; font-weight: 700;
+}
+.bp-gt svg { width: 11px; height: 11px; margin: 0 3px; vertical-align: -1.5px; color: var(--accent); }
+.bp-line { display: flex; align-items: center; gap: 7px; margin: 0; color: var(--sub); }
+.bp-line.ok { color: var(--ok); font-weight: 600; }
+.bp-line > svg { flex: none; width: 15px; height: 15px; margin: 0 1.5px; }
 .dfacts { display: flex; flex-wrap: wrap; gap: 5px 16px; margin: 11px 0 0; }
 .dfact { display: flex; align-items: baseline; gap: 5px; min-width: 0; }
 .dfact i { font-family: var(--mono); font-size: 10px; font-style: normal; color: var(--muted); }

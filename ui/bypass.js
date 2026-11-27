@@ -53,6 +53,22 @@ async function render_bypass() {
 
 /* ---------- the window ---------- */
 
+// The owner writes a game's words as plain lines, such as "2. Right-click the game > Manage > Browse
+// local files". A numbered line is drawn as a step and " > " as an arrow, so a menu path reads at a
+// glance. An older build shows the same file as text, and it still reads. Arabic digits count too.
+const STEP = /^([0-9\u0660-\u0669]{1,2})[.)]\s+(.+)$/;
+
+function steps_html(text) {
+  const lines = String(text).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  return `<div class="bp-steps">${lines.map((line) => {
+    const hit = STEP.exec(line);
+    const say = (hit ? hit[2] : line).split(/\s+>\s+/).map(esc).join(`<span class="bp-gt">${icon('right')}</span>`);
+    if (hit) return `<div class="bp-step" dir="auto"><span class="bp-n">${esc(hit[1])}</span><span>${say}</span></div>`;
+    const done = /^done\b/i.test(line);
+    return `<p class="bp-line${done ? ' ok' : ''}" dir="auto">${done ? icon('check') : ''}<span>${say}</span></p>`;
+  }).join('')}</div>`;
+}
+
 function bypass_body(g, job) {
   const id = esc(g.appid);
   const size = Number(g.size) ? ` · ${kb(Number(g.size))}` : '';
@@ -74,7 +90,7 @@ function bypass_body(g, job) {
     hint = esc(job.error || 'Check your internet connection, then try again.');
   }
   return `${line}<div class="actions">${buttons}</div><p class="hint">${hint}</p>${
-    g.text ? `<div class="dabout"><p class="ddesc bypass-text">${esc(g.text)}</p></div>` : ''}`;
+    g.text ? `<div class="dabout">${steps_html(g.text)}</div>` : ''}`;
 }
 
 function paint_bypass(drawer, g, job) {

@@ -518,10 +518,15 @@ const report = (label, view) => report_html(label, node(view).innerHTML);
     has('with the download it offers', body, `data-act="bypass-get" data-appid="${with_words.appid}"`);
     has('and where the file will go', body, 'Downloads folder as a zip');
     if (with_words.text) {
-      // The words are the owner's, written once per game: every line stands where it was put.
+      // The words are the owner's, written once per game: a numbered line is a step, " > " an arrow.
+      const STEP = /^[0-9\u0660-\u0669]{1,2}[.)]\s+/;
+      const lines = with_words.text.split('\n').map((one) => one.trim()).filter(Boolean);
       has('the words are drawn under the buttons', body, 'class="dabout"');
-      has('line by line', body, 'class="ddesc bypass-text"');
-      for (const line of with_words.text.split('\n').filter((one) => one.trim())) has(`the line "${line.slice(0, 18)}" is there`, body, ui.esc(line));
+      has('as a list of steps', body, 'class="bp-steps"');
+      check('every numbered line is a step with its number, Arabic ones too', count_of(body, 'class="bp-n"'), lines.filter((line) => STEP.test(line)).length);
+      for (const line of lines) {
+        for (const part of line.replace(STEP, '').split(/\s+>\s+/)) has(`"${part.slice(0, 18)}" is there`, body, ui.esc(part));
+      }
     } else {
       hasnt('a game without words draws no empty box', body, 'dabout');
     }
@@ -539,6 +544,10 @@ const report = (label, view) => report_html(label, node(view).innerHTML);
     has('and opens the folder it is in', done, 'data-act="bypass-show"');
     has('and names the file it made', done, 'Game bypass.zip');
     check('with no download button left to press twice', count_of(done, 'data-act="bypass-get"'), 1);
+    const shaped = report_html('a bypass with a menu path', ui.bypass_body({ ...one, text: '1. Right-click the game > Manage > Browse <local> files\nDone! Now just play.' }, { state: 'idle', percent: 0 }));
+    check('" > " is drawn as an arrow', count_of(shaped, 'class="bp-gt"'), 2);
+    hasnt('and the words are never markup', shaped, '<local>');
+    has('a closing "Done" line is marked done', shaped, 'class="bp-line ok"');
     const failed = report_html('a bypass that failed', ui.bypass_body(one, { state: 'failed', percent: 0, error: 'The service stopped sending <it>' }));
     has('a failure says what went wrong, as text', failed, 'The service stopped sending &lt;it&gt;');
     has('and offers the same button again', failed, 'data-act="bypass-get"');
