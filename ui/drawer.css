@@ -130,7 +130,7 @@
 /* The owner's words for a bypass: kept as written, line by line, each line in its own direction (an
    Arabic line reads from the right), and the one text in the window a person can select and copy. */
 .ddesc.bypass-text {
-  font-size: 13px; color: var(--text); white-space: pre-line; unicode-bidi: plaintext; text-align: start;
+  font-size: 12px; color: var(--text); white-space: pre-line; unicode-bidi: plaintext; text-align: start;
   -webkit-user-select: text; user-select: text; cursor: text;
 }
 .ddesc.bypass-text::selection { background: var(--accent-16); color: var(--white); }
